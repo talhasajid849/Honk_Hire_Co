@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Honk Hire Co — theme tokens (monochrome + coastal accent) */
+:root,
+[data-theme="light"] {
+  --bg: #f4f3f0;
+  --bg-alt: #ebe8e3;
+  --surface: #ffffff;
+  --surface-elevated: #fafaf8;
+  --fg: #0d0d0d;
+  --fg-muted: #525252;
+  --fg-subtle: #737373;
+  --border: rgba(13, 13, 13, 0.1);
+  --border-strong: rgba(13, 13, 13, 0.18);
+  --accent: #3d6b4a;
+  --accent-hover: #325a3e;
+  --accent-fg: #ffffff;
+  --accent-soft: rgba(61, 107, 74, 0.12);
+  --ring: rgba(61, 107, 74, 0.35);
+  --hero-veil: linear-gradient(
+    135deg,
+    rgba(244, 243, 240, 0.92) 0%,
+    rgba(244, 243, 240, 0.65) 45%,
+    rgba(244, 243, 240, 0.2) 100%
+  );
+  --shadow-card: 0 24px 60px -20px rgba(13, 13, 13, 0.12);
+  --logo-ring: rgba(13, 13, 13, 0.06);
+  /* WhatsApp brand CTAs (competitor-style clarity) */
+  --whatsapp: #25d366;
+  --whatsapp-hover: #20bd5a;
+  --whatsapp-press: #1da851;
+  --whatsapp-fg: #ffffff;
+  --whatsapp-soft: rgba(37, 211, 102, 0.14);
+  --whatsapp-ring: rgba(37, 211, 102, 0.45);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --bg-alt: #0a0a0a;
+  --surface: #1a1a1a;
+  --surface-elevated: #222222;
+  --fg: #fafafa;
+  --fg-muted: #a3a3a3;
+  --fg-subtle: #737373;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent: #5cb88a;
+  --accent-hover: #6bc997;
+  --accent-fg: #0a0a0a;
+  --accent-soft: rgba(92, 184, 138, 0.15);
+  --ring: rgba(92, 184, 138, 0.45);
+  --hero-veil: linear-gradient(
+    135deg,
+    rgba(18, 18, 18, 0.94) 0%,
+    rgba(18, 18, 18, 0.7) 40%,
+    rgba(18, 18, 18, 0.15) 100%
+  );
+  --shadow-card: 0 28px 80px -24px rgba(0, 0, 0, 0.65);
+  --logo-ring: rgba(255, 255, 255, 0.08);
+  --whatsapp: #2fe576;
+  --whatsapp-hover: #25d366;
+  --whatsapp-press: #20bd5a;
+  --whatsapp-fg: #ffffff;
+  --whatsapp-soft: rgba(47, 229, 118, 0.18);
+  --whatsapp-ring: rgba(47, 229, 118, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+select option {
+  background: var(--surface);
+  color: var(--fg);
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Subtle grain overlay for depth */
+.grain::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .grain::before {
+  opacity: 0.055;
+}
+
+@keyframes wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--whatsapp-ring);
+  }
+  50% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.4s ease-in-out infinite;
+}
