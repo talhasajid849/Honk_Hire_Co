@@ -1,6 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppFab from "@/components/layout/WhatsAppFab";
 import HeroSection from "@/components/sections/HeroSection";
 import ServiceStripSection from "@/components/sections/ServiceStripSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
@@ -23,7 +22,6 @@ export default function Home() {
       <FAQSection />
       <ContactSection />
       <Footer />
-      <WhatsAppFab />
     </main>
   );
 }

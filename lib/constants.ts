@@ -58,12 +58,12 @@ export const FAQS: FAQ[] = [
   {
     question: "What licence do I need?",
     answer:
-      "50cc: a valid car licence. 125cc: a valid motorcycle licence. If you are unsure, send your licence class on WhatsApp before you book.",
+      "50cc: a valid car licence. 125cc: a valid motorcycle licence. If you are unsure, email us your licence class before you book.",
   },
   {
     question: "How do I book or pay?",
     answer:
-      "All enquiries go through WhatsApp — we’ll confirm availability, pickup, and payment steps there. No email or web forms required.",
+      "Email us or message on Facebook or Instagram — we’ll confirm availability, pickup, and payment steps from there.",
   },
   {
     question: "Can I carry a passenger?",

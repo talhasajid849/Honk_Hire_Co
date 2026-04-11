@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
             <p>
               Honk Hire Co provides scooter rental services on the Sunshine Coast, Australia. This policy
               explains how we collect, use, and protect personal information when you contact us through our
-              website, WhatsApp, and Facebook/Meta tools.
+              website, email, and Facebook/Meta tools.
             </p>
           </section>
 
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc space-y-1 pl-5">
               <li>Contact details you provide (name, phone number, email if provided).</li>
               <li>Booking preference details (dates, scooter type, pickup/delivery preference).</li>
-              <li>Messages sent via WhatsApp or Facebook/Instagram direct messages.</li>
+              <li>Messages sent via email or Facebook/Instagram direct messages.</li>
               <li>Basic analytics and device information from website visits.</li>
             </ul>
           </section>

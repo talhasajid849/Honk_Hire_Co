@@ -66,7 +66,8 @@ export default function TermsAndConditionsPage() {
           <section>
             <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Contact</h2>
             <p>
-              For all bookings and support, contact Honk Hire Co via WhatsApp through the website buttons.
+              For all bookings and support, contact Honk Hire Co by email, or via the contact options on this
+              website (including Facebook and Instagram).
             </p>
           </section>
         </div>

@@ -12,7 +12,7 @@ export interface InquiryDraft {
   notes: string;
 }
 
-/** Composes a polite WhatsApp message from the hire planner (pure function). */
+/** Composes a polite enquiry body from the hire planner (pure function). */
 export function buildInquiryMessage(d: InquiryDraft): string {
   const lines: string[] = [
     "Hi Honk Hire Co — enquiry from your website:",

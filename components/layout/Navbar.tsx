@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa6";
+import { Mail, Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { defaultGreetingMessage, whatsAppHref } from "@/lib/contact/whatsapp";
+import { mailtoHref } from "@/lib/contact/mailto";
+import { defaultGreetingMessage } from "@/lib/contact/messages";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +24,10 @@ export default function Navbar() {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const waQuick = whatsAppHref(defaultGreetingMessage());
+  const emailQuick = mailtoHref({
+    subject: "Scooter hire enquiry",
+    body: defaultGreetingMessage(),
+  });
 
   return (
     <motion.header
@@ -72,13 +75,11 @@ export default function Navbar() {
           <div className="ml-2 flex items-center gap-2 pl-2">
             <ThemeToggle />
             <a
-              href={waQuick}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--whatsapp)] px-5 py-2.5 text-sm font-semibold text-[var(--whatsapp-fg)] shadow-md shadow-[var(--whatsapp)]/25 transition-transform hover:bg-[var(--whatsapp-hover)] active:scale-[0.98]"
+              href={emailQuick}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] shadow-md shadow-[var(--accent)]/25 transition-transform hover:bg-[var(--accent-hover)] active:scale-[0.98]"
             >
-              <FaWhatsapp className="h-4 w-4" aria-hidden />
-              WhatsApp
+              <Mail className="h-4 w-4" aria-hidden />
+              Email us
             </a>
           </div>
         </nav>
@@ -117,13 +118,11 @@ export default function Navbar() {
                 </button>
               ))}
               <a
-                href={waQuick}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--whatsapp)] py-3 text-center text-sm font-semibold text-[var(--whatsapp-fg)]"
+                href={emailQuick}
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] py-3 text-center text-sm font-semibold text-[var(--accent-fg)]"
               >
-                <FaWhatsapp className="h-4 w-4" aria-hidden />
-                WhatsApp
+                <Mail className="h-4 w-4" aria-hidden />
+                Email us
               </a>
             </div>
           </motion.div>

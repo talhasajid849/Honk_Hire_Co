@@ -2,17 +2,20 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa6";
+import { CheckCircle2, Mail } from "lucide-react";
 import { SERVICE_AREA } from "@/lib/constants";
-import { defaultGreetingMessage, whatsAppHref } from "@/lib/contact/whatsapp";
+import { mailtoHref } from "@/lib/contact/mailto";
+import { defaultGreetingMessage } from "@/lib/contact/messages";
 
 export default function HeroSection() {
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const waHero = whatsAppHref(defaultGreetingMessage());
+  const emailHero = mailtoHref({
+    subject: "Scooter hire enquiry",
+    body: defaultGreetingMessage(),
+  });
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[var(--bg)] pt-20">
@@ -84,15 +87,13 @@ export default function HeroSection() {
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <motion.a
-              href={waHero}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={emailHero}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--whatsapp)] px-8 py-4 text-sm font-semibold text-[var(--whatsapp-fg)] shadow-lg shadow-[var(--whatsapp)]/30 transition-colors hover:bg-[var(--whatsapp-hover)]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/30 transition-colors hover:bg-[var(--accent-hover)]"
             >
-              <FaWhatsapp className="h-5 w-5" aria-hidden />
-              Chat on WhatsApp
+              <Mail className="h-5 w-5" aria-hidden />
+              Email us
             </motion.a>
             <button
               type="button"

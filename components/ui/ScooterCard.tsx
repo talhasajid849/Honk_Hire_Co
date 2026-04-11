@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa6";
+import { Check, Mail, X } from "lucide-react";
 import { ScooterType } from "@/types";
-import { quickScooterMessage, whatsAppHref } from "@/lib/contact/whatsapp";
+import { mailtoHref } from "@/lib/contact/mailto";
+import { quickScooterMessage } from "@/lib/contact/messages";
 
 interface ScooterCardProps {
   scooter: ScooterType;
@@ -13,7 +13,10 @@ interface ScooterCardProps {
 }
 
 export default function ScooterCard({ scooter, index }: ScooterCardProps) {
-  const wa = whatsAppHref(quickScooterMessage(scooter.name, scooter.cc));
+  const enquire = mailtoHref({
+    subject: `Enquiry: ${scooter.name}`,
+    body: quickScooterMessage(scooter.name, scooter.cc),
+  });
 
   return (
     <motion.article
@@ -93,16 +96,13 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
         </ul>
 
         <motion.a
-          href={wa}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={enquire}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-semibold text-[var(--whatsapp-fg)] transition-colors hover:opacity-95"
-          style={{ background: "var(--whatsapp)" }}
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] py-3.5 text-sm font-semibold text-[var(--accent-fg)] transition-colors hover:bg-[var(--accent-hover)]"
         >
-          <FaWhatsapp className="h-4 w-4" aria-hidden />
-          Chat on WhatsApp
+          <Mail className="h-4 w-4" aria-hidden />
+          Enquire by email
         </motion.a>
       </div>
     </motion.article>

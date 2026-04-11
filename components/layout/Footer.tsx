@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa6";
+import { Mail } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
-import { defaultGreetingMessage, whatsAppHref } from "@/lib/contact/whatsapp";
+import { mailtoHref } from "@/lib/contact/mailto";
+import { defaultGreetingMessage } from "@/lib/contact/messages";
+import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/contact/site";
 
 export default function Footer() {
-  const wa = whatsAppHref(defaultGreetingMessage());
+  const email = mailtoHref({
+    subject: "Scooter hire enquiry",
+    body: defaultGreetingMessage(),
+  });
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 pb-10 pt-16">
@@ -54,18 +60,38 @@ export default function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
               Contact
             </h4>
-            <p className="mb-4 text-sm text-[var(--fg-muted)]">
-              Message us on WhatsApp for bookings and questions.
+            <p className="mb-3 text-sm text-[var(--fg-muted)]">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-[var(--fg)] hover:underline">
+                {CONTACT_EMAIL}
+              </a>
             </p>
             <a
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--whatsapp)] px-5 py-2.5 text-sm font-semibold text-[var(--whatsapp-fg)] shadow-md shadow-[var(--whatsapp)]/20 transition-colors hover:bg-[var(--whatsapp-hover)]"
+              href={email}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] shadow-md shadow-[var(--accent)]/20 transition-colors hover:bg-[var(--accent-hover)]"
             >
-              <FaWhatsapp className="h-4 w-4" aria-hidden />
-              Open WhatsApp
+              <Mail className="h-4 w-4" aria-hidden />
+              Email us
             </a>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
+                aria-label="Honk Hire Co on Facebook"
+              >
+                <FaFacebook className="h-5 w-5" aria-hidden />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
+                aria-label="Honk Hire Co on Instagram"
+              >
+                <FaInstagram className="h-5 w-5" aria-hidden />
+              </a>
+            </div>
             <div className="mt-6 space-y-2 text-sm text-[var(--fg-muted)]">
               <p>Free pickup: Tewantin or Maroochydore</p>
               <p>Delivery: $30 across the Sunshine Coast</p>

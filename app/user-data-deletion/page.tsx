@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_EMAIL } from "@/lib/contact/site";
 
 export const metadata: Metadata = {
   title: "User Data Deletion | Honk Hire Co",
@@ -17,7 +18,11 @@ export default function UserDataDeletionPage() {
             <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">How to request deletion</h2>
             <p>
               To request deletion of your personal data (including data received from Facebook/Meta forms or
-              messages), contact Honk Hire Co via WhatsApp and include:
+              messages), email{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-[var(--fg)] underline">
+                {CONTACT_EMAIL}
+              </a>{" "}
+              and include:
             </p>
             <ul className="mt-2 list-disc space-y-1 pl-5">
               <li>Your full name.</li>
