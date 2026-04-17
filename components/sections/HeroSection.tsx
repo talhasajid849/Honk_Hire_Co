@@ -140,7 +140,7 @@ export default function HeroSection() {
             <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-card)]">
               <div className="absolute inset-0 z-10 bg-[var(--hero-veil)] lg:bg-none lg:opacity-0" />
               <Image
-                src="/images/honk-scooter-hero.png"
+                src="/images/125cc.jpeg"
                 alt="Honk Hire Co classic black scooter"
                 width={900}
                 height={1200}

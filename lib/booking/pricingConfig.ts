@@ -2,7 +2,7 @@
 
 export const MIN_HIRE_WEEKS = 2;
 export const SECURITY_DEPOSIT = 300;
-export const DELIVERY_FEE = 30;
+export const DELIVERY_FEE = 40;
 export const EXTRA_KM_RATE = 0.23;
 export const INCLUDED_KM_PER_WEEK = 500;
 

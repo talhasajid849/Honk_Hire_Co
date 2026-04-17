@@ -15,14 +15,14 @@ export const SCOOTERS: ScooterType[] = [
     cc: 50,
     weeklyPrice: 150,
     licenceRequired: "Car licence accepted",
-    passengerAllowed: false,
+    passengerAllowed: true,
     image: "🛵",
-    imageSrc: "/images/honk-scooter-showcase.png",
+    imageSrc: "/images/50cc.jpeg",
     color: "#3d6b4a",
     features: [
       "Automatic — twist and go",
       "Car licence accepted (QLD rules apply)",
-      "Solo rider only — no passengers",
+      "Passenger allowed only with a full motorcycle licence",
       "500 km included per week",
     ],
   },
@@ -34,12 +34,12 @@ export const SCOOTERS: ScooterType[] = [
     licenceRequired: "Motorcycle licence required",
     passengerAllowed: true,
     image: "🏍️",
-    imageSrc: "/images/honk-scooter-hero.png",
+    imageSrc: "/images/125cc.jpeg",
     color: "#2f4a3c",
     features: [
       "Retro style, comfortable ride",
       "Motorcycle licence required",
-      "Passenger allowed",
+      "Passenger allowed (full motorcycle licence required)",
       "500 km included per week",
     ],
   },
@@ -48,7 +48,7 @@ export const SCOOTERS: ScooterType[] = [
 export const PRICING_RULES: PricingRule[] = [
   { label: "Minimum hire", value: "2 weeks", icon: "📅" },
   { label: "Security deposit", value: "$300 (refundable)", icon: "🔐" },
-  { label: "Delivery", value: "$30 Sunshine Coast", icon: "🚚" },
+  { label: "Delivery", value: "$40 Sunshine Coast", icon: "🚚" },
   { label: "Free pickup", value: "Tewantin or Maroochydore", icon: "📍" },
   { label: "Included distance", value: "500 km / week", icon: "🛣️" },
   { label: "Extra distance", value: "$0.23 / km over allowance", icon: "⚡" },
@@ -56,39 +56,39 @@ export const PRICING_RULES: PricingRule[] = [
 
 export const FAQS: FAQ[] = [
   {
-    question: "What licence do I need?",
+    question: "What happens if I’m involved in an accident?",
     answer:
-      "50cc: a valid car licence. 125cc: a valid motorcycle licence. If you are unsure, email us your licence class before you book.",
+      "Safety first — make sure you and anyone else involved are safe. If there are injuries or significant damage call 000 immediately. Exchange details with any other parties involved, take photos of the scene, both vehicles, and any damage. Contact us straight away on 0493 654 132 — we’re available 24/7. Do not admit fault or liability to the other party.",
   },
   {
-    question: "How do I book or pay?",
+    question: "Do I need my own insurance?",
     answer:
-      "Email us or message on Facebook or Instagram — we’ll confirm availability, pickup, and payment steps from there.",
+      "All Honk Hire Co scooters are covered by third party, fire and theft insurance. This means damage you cause to another person’s vehicle or property is covered. It does not cover damage to the hired scooter itself — you are responsible for the scooter while it’s in your care. We recommend having your own travel insurance that covers personal injury and recreational activities.",
+  },
+  {
+    question: "What if the scooter breaks down?",
+    answer:
+      "We offer 24/7 breakdown support. If your scooter breaks down contact us immediately on 0493 654 132. For mechanical faults not caused by misuse we’ll arrange repair or a replacement bike as quickly as possible at no cost to you.",
+  },
+  {
+    question: "Are the scooters tracked?",
+    answer:
+      "Yes — all bikes are fitted with GPS tracking devices. This is for fleet management, security, and your safety. In the event of theft or a breakdown we can locate the bike immediately.",
+  },
+  {
+    question: "Is servicing included?",
+    answer:
+      "Yes — for long term hire all scheduled servicing is included. Our bikes are serviced every 2,000km. When your bike is due we’ll arrange a quick 10 minute oil change at a convenient time and location. You won’t be left without a bike.",
+  },
+  {
+    question: "What ID do I need to hire?",
+    answer:
+      "You’ll need a valid driver’s licence — any country accepted for the 50cc. An open motorcycle licence is required for the 125cc. We’ll ask you to send a photo of the front and back of your licence via WhatsApp before your hire is confirmed.",
   },
   {
     question: "Can I carry a passenger?",
     answer:
-      "125cc scooters allow a passenger where road rules permit. 50cc hires are solo only — no passengers.",
-  },
-  {
-    question: "How does the security deposit work?",
-    answer:
-      "We hold a $300 refundable security deposit. It is returned when the scooter comes back in the agreed condition, subject to any extra-kilometre charges.",
-  },
-  {
-    question: "What if I ride over 500 km in a week?",
-    answer:
-      "Additional kilometres are charged at $0.23/km over the weekly 500 km allowance. We reconcile at the end of your hire.",
-  },
-  {
-    question: "Where is pickup and delivery?",
-    answer:
-      "Free pickup and drop-off at Tewantin or Maroochydore. Delivery anywhere on the Sunshine Coast (between Noosa and Caloundra) is $30 each way unless you collect from those hubs.",
-  },
-  {
-    question: "What is the minimum hire?",
-    answer:
-      "Minimum hire is 2 weeks — perfect for a real Coast holiday without rushing.",
+      "Only riders with a full motorcycle licence can carry a passenger. With a full motorcycle licence, passengers are allowed on both 50cc and 125cc scooters where road rules permit.",
   },
 ];
 

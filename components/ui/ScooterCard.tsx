@@ -79,7 +79,9 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
             <X size={16} className="text-red-500/80" />
           )}
           <span>
-            {scooter.passengerAllowed ? "Passenger allowed" : "Solo rider — no passengers"}
+            {scooter.passengerAllowed
+              ? "Passenger allowed only with full motorcycle licence"
+              : "Solo rider — no passengers"}
           </span>
         </div>
 

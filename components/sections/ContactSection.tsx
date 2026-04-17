@@ -256,7 +256,7 @@ export default function ContactSection() {
                     className="mt-0.5 h-4 w-4 rounded border-[var(--border)] text-[var(--accent)] focus:ring-[var(--accent)]/40"
                   />
                   <span className="text-sm text-[var(--fg-muted)]">
-                    Include <strong className="text-[var(--fg)]">$30</strong> Sunshine Coast delivery
+                    Include <strong className="text-[var(--fg)]">$40</strong> Sunshine Coast delivery
                     (or use free pickup at Tewantin / Maroochydore).
                   </span>
                 </label>

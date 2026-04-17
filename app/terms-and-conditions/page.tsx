@@ -35,7 +35,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Fees and bond</h2>
             <ul className="list-disc space-y-1 pl-5">
               <li>Security bond: $300 (refundable subject to conditions).</li>
-              <li>Delivery fee: $30.</li>
+              <li>Delivery fee: $40.</li>
               <li>Free pickup points: Tewantin or Maroochydore.</li>
               <li>Included distance: 500 km per week.</li>
               <li>Excess distance: $0.23 per km over allowance.</li>
@@ -52,7 +52,10 @@ export default function TermsAndConditionsPage() {
 
           <section>
             <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Passenger rules</h2>
-            <p>Passengers are allowed on 125cc scooters only. 50cc scooters are solo rider only.</p>
+            <p>
+              Only riders with a full motorcycle licence can carry a passenger. With a full motorcycle
+              licence, passengers are allowed on both 50cc and 125cc scooters where road rules permit.
+            </p>
           </section>
 
           <section>

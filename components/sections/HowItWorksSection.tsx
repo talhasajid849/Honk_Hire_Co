@@ -14,7 +14,7 @@ const STEPS = [
   {
     step: "02",
     title: "Collect or we deliver",
-    desc: "Free from Tewantin or Maroochydore — or $30 delivery on the Sunshine Coast.",
+    desc: "Free from Tewantin or Maroochydore — or $40 delivery on the Sunshine Coast.",
     Icon: Truck,
   },
   {

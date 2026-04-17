@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { THEME_STORAGE_KEY } from "@/lib/theme/types";
 import "./globals.css";
 
@@ -28,6 +29,11 @@ export const metadata: Metadata = {
     "scooter hire caloundra",
     "honk hire co",
   ],
+  icons: {
+    icon: "/images/honk-logo.png",
+    shortcut: "/images/honk-logo.png",
+    apple: "/images/honk-logo.png",
+  },
 };
 
 const themeInitScript = `(function(){try{var k='${THEME_STORAGE_KEY}';var s=localStorage.getItem(k);var d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var t=s==='light'||s==='dark'?s:d;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t==='dark'?'dark':'light';}catch(e){}})();`;
@@ -39,13 +45,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-AU" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/images/honk-logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/honk-logo.png" />
+        <link rel="apple-touch-icon" href="/images/honk-logo.png" />
+      </head>
       <body
         className={`${playfair.variable} ${dmSans.variable} font-sans-ui antialiased grain min-h-screen`}
       >
         <Script id="honk-theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <WhatsAppButton />
+        </ThemeProvider>
       </body>
     </html>
   );
