@@ -101,6 +101,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="zThE97Bc_hO8EZ-xy_5ie6swTNM41Qn65UXQWldq3Ek" />
         <link rel="icon" href="/images/honk-logo.jpg" type="image/jpeg" />
         <link rel="shortcut icon" href="/images/honk-logo.jpg" />
         <link rel="apple-touch-icon" href="/images/honk-logo.jpg" />
