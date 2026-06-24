@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="mb-4 flex items-center gap-3">
               <span className="relative flex h-11 w-11 overflow-hidden rounded-full border border-[var(--logo-ring)] bg-white">
                 <Image
-                  src="/images/honk-logo.png"
+                  src="/images/honk-logo.jpg"
                   alt=""
                   width={44}
                   height={44}

@@ -48,7 +48,7 @@ export default function Navbar() {
         >
           <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--logo-ring)] bg-white shadow-sm">
             <Image
-              src="/images/honk-logo.png"
+              src="/images/honk-logo.jpg"
               alt="Honk Hire Co logo"
               width={40}
               height={40}
