@@ -45,10 +45,17 @@ export default function HeroSection() {
             transition={{ delay: 0.08, duration: 0.55 }}
             className="font-display mt-6 text-4xl font-semibold italic leading-[1.05] text-[var(--fg)] sm:text-5xl lg:text-[3.35rem] xl:text-6xl"
           >
-            Honk Hire Co —{" "}
-            <span className="not-italic text-[var(--accent)]">ride the Coast</span>{" "}
-            your way.
+            Scooter Hire Sunshine Coast – Pickup or Delivery
           </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.5 }}
+            className="mt-4 text-2xl font-semibold text-[var(--fg)] sm:text-3xl"
+          >
+            Honk Hire Co — ride the Coast your way
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -93,7 +100,7 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/30 transition-colors hover:bg-[var(--accent-hover)]"
             >
               <Mail className="h-5 w-5" aria-hidden />
-              Email us
+              Get a quote
             </motion.a>
             <button
               type="button"
@@ -141,9 +148,10 @@ export default function HeroSection() {
               <div className="absolute inset-0 z-10 bg-[var(--hero-veil)] lg:bg-none lg:opacity-0" />
               <Image
                 src="/images/125cc.jpeg"
-                alt="Honk Hire Co classic black scooter"
+                alt="Honk Hire Co scooter hire on the Sunshine Coast"
                 width={900}
                 height={1200}
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-auto w-full object-cover object-center"
                 priority
               />

@@ -20,20 +20,75 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Honk Hire Co | Scooter Hire Sunshine Coast",
+  metadataBase: new URL("https://honkhireco.com.au"),
+  title: "Scooter Hire Sunshine Coast | Pickup in Tewantin & Delivery | Honk Hire Co",
   description:
-    "Scooter hire on the Sunshine Coast, QLD. 50cc from $150/week, 125cc from $160/week. Noosa to Caloundra. Free pickup at Tewantin or Maroochydore.",
+    "Affordable scooter hire on the Sunshine Coast with pickup from Tewantin or delivery to your door. Weekly rentals from Noosa to Caloundra. Book online today.",
   keywords: [
     "scooter hire sunshine coast",
     "scooter rental noosa",
     "scooter hire caloundra",
+    "scooter hire tewantin",
     "honk hire co",
   ],
-  icons: {
-    icon: "/images/honk-logo.png",
-    shortcut: "/images/honk-logo.png",
-    apple: "/images/honk-logo.png",
+  alternates: {
+    canonical: "/",
   },
+  openGraph: {
+    title: "Scooter Hire Sunshine Coast | Pickup in Tewantin & Delivery | Honk Hire Co",
+    description:
+      "Affordable scooter hire on the Sunshine Coast with pickup from Tewantin or delivery to your door. Weekly rentals from Noosa to Caloundra.",
+    url: "https://honkhireco.com.au",
+    siteName: "Honk Hire Co",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/images/honk-logo.jpg",
+        width: 512,
+        height: 512,
+        alt: "Honk Hire Co scooter hire",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scooter Hire Sunshine Coast | Pickup in Tewantin & Delivery | Honk Hire Co",
+    description:
+      "Affordable scooter hire on the Sunshine Coast with pickup from Tewantin or delivery to your door.",
+    images: ["/images/honk-logo.jpg"],
+  },
+  icons: {
+    icon: "/images/honk-logo.jpg",
+    shortcut: "/images/honk-logo.jpg",
+    apple: "/images/honk-logo.jpg",
+  },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Honk Hire Co",
+  description:
+    "Affordable scooter hire on the Sunshine Coast with pickup from Tewantin or delivery to your door.",
+  url: "https://honkhireco.com.au",
+  telephone: "0493 654 132",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "10 Forest Ct",
+    addressLocality: "Tewantin",
+    addressRegion: "QLD",
+    postalCode: "4565",
+    addressCountry: "AU",
+  },
+  areaServed: [
+    "Noosa Heads",
+    "Tewantin",
+    "Maroochydore",
+    "Caloundra",
+    "Sunshine Coast",
+  ],
+  sameAs: ["https://www.facebook.com/HonkHireCo/", "https://www.instagram.com/honkhireco/"],
 };
 
 const themeInitScript = `(function(){try{var k='${THEME_STORAGE_KEY}';var s=localStorage.getItem(k);var d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var t=s==='light'||s==='dark'?s:d;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t==='dark'?'dark':'light';}catch(e){}})();`;
@@ -46,9 +101,13 @@ export default function RootLayout({
   return (
     <html lang="en-AU" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/honk-logo.png" type="image/png" />
-        <link rel="shortcut icon" href="/images/honk-logo.png" />
-        <link rel="apple-touch-icon" href="/images/honk-logo.png" />
+        <link rel="icon" href="/images/honk-logo.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/images/honk-logo.jpg" />
+        <link rel="apple-touch-icon" href="/images/honk-logo.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body
         className={`${playfair.variable} ${dmSans.variable} font-sans-ui antialiased grain min-h-screen`}

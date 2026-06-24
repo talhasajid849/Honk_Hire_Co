@@ -172,6 +172,24 @@ export default function ContactSection() {
 
               <div className="mt-8 border-t border-[var(--border)] pt-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+                  Pickup & delivery
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">
+                  Pickup from 10 Forest Ct, Tewantin QLD 4565, with delivery available across the Sunshine Coast for longer stays and convenience.
+                </p>
+                <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--border)]">
+                  <iframe
+                    title="Honk Hire Co Tewantin pickup location"
+                    src="https://www.google.com/maps?q=10+Forest+Ct+Tewantin+QLD+4565&z=14&output=embed"
+                    className="h-56 w-full"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-8 border-t border-[var(--border)] pt-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
                   Social
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">

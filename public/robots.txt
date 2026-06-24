@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://honkhireco.com.au/sitemap.xml

@@ -36,6 +36,13 @@ export default function Footer() {
               Boutique scooter hire on the Sunshine Coast — Noosa to Caloundra — for visitors who want the
               coast without the parking headache.
             </p>
+            <div className="mt-5 rounded-2xl border border-[var(--border)] bg-[var(--surface-elevated)]/70 p-4 text-sm text-[var(--fg-muted)]">
+              <p className="font-semibold text-[var(--fg)]">Honk Hire Co</p>
+              <p className="mt-1">10 Forest Ct, Tewantin QLD 4565</p>
+              <a href="tel:0493654132" className="mt-1 inline-flex font-medium text-[var(--accent)] hover:underline">
+                0493 654 132
+              </a>
+            </div>
           </div>
 
           <div>
