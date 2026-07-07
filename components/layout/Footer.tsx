@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 pb-10 pt-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-5">
           <div>
             <div className="mb-4 flex items-center gap-3">
               <span className="relative flex h-11 w-11 overflow-hidden rounded-full border border-[var(--logo-ring)] bg-white">
@@ -58,6 +58,31 @@ export default function Footer() {
                   >
                     {item.label}
                   </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+              Locations
+            </h4>
+            <ul className="space-y-2">
+              {[
+                { label: "Sunshine Coast", href: "/scooter-hire-sunshine-coast" },
+                { label: "Noosa", href: "/scooter-hire-noosa" },
+                { label: "Tewantin", href: "/scooter-hire-tewantin" },
+                { label: "Maroochydore", href: "/scooter-hire-maroochydore" },
+                { label: "Mooloolaba", href: "/scooter-hire-mooloolaba" },
+                { label: "Caloundra", href: "/scooter-hire-caloundra" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
