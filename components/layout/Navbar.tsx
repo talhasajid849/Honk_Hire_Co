@@ -125,7 +125,7 @@ export default function Navbar() {
               aria-expanded={locationsOpen}
               aria-haspopup="true"
             >
-              Areas
+              Locations
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${locationsOpen ? "rotate-180" : ""}`}
                 aria-hidden
@@ -239,7 +239,7 @@ export default function Navbar() {
                 onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
                 className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-[var(--fg)]"
               >
-                <span>Areas we serve</span>
+                <span>Locations</span>
                 <ChevronDown
                   className={`h-4 w-4 text-[var(--fg-muted)] transition-transform duration-200 ${
                     mobileLocationsOpen ? "rotate-180" : ""
