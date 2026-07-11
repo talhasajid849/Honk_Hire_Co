@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Mail, ArrowRight, Users, Truck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -191,26 +192,57 @@ export default function AmarokHirePage() {
 
         {/* ── Photo gallery ── */}
         <section className="bg-[var(--bg)] px-6 py-16">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { label: "Exterior", sub: "2023 VW Amarok Life — deep black", span: "sm:col-span-2 lg:col-span-2" },
-                { label: "Interior", sub: "Premium cabin & infotainment", span: "" },
-                { label: "Tray & cover", sub: "Roller tonneau — secure storage", span: "" },
-                { label: "Tow bar", sub: "Fitted + electronic brake controller", span: "sm:col-span-1 lg:col-span-2" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className={`flex aspect-[4/3] items-end rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 ${item.span}`}
-                >
-                  <div>
-                    <p className="font-display text-lg font-semibold italic text-[var(--fg)]">{item.label}</p>
-                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">{item.sub}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="mx-auto max-w-5xl space-y-4">
+            {/* Hero exterior — full width */}
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
+              <Image
+                src="/images/amarok-exterior.jpeg"
+                alt="2023 Volkswagen Amarok Life — exterior front, rear, and side"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
             </div>
-            <p className="mt-4 text-center text-xs text-[var(--fg-subtle)]">Photos loading — check back soon.</p>
+            {/* 4-image grid below */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
+                <Image
+                  src="/images/amarok-interior.jpeg"
+                  alt="Amarok interior — premium cabin and infotainment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
+                <Image
+                  src="/images/amarok-controls.jpeg"
+                  alt="Amarok electronic brake controller and 12V/USB ports"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
+                <Image
+                  src="/images/amarok-tray.jpeg"
+                  alt="Amarok roller tonneau cover — secure tray storage"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
+                <Image
+                  src="/images/amarok-towbar.jpeg"
+                  alt="Amarok tow bar and electronic brake controller fitted"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
