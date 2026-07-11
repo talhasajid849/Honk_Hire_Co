@@ -36,7 +36,7 @@ export default function TermsAndConditionsPage() {
             <ul className="list-disc space-y-1 pl-5">
               <li>Security bond: $300 (refundable subject to conditions).</li>
               <li>Delivery fee: $40.</li>
-              <li>Free pickup points: Tewantin or Maroochydore.</li>
+              <li>Free pickup point: Tewantin.</li>
               <li>Included distance: 500 km per week.</li>
               <li>Excess distance: $0.23 per km over allowance.</li>
             </ul>

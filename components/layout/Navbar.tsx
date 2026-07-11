@@ -16,7 +16,7 @@ const LOCATION_LINKS = [
   { label: "Sunshine Coast", slug: "sunshine-coast", tag: "All areas", hub: true },
   { label: "Noosa", slug: "noosa", tag: "$40 delivery" },
   { label: "Tewantin", slug: "tewantin", tag: "Free pickup" },
-  { label: "Maroochydore", slug: "maroochydore", tag: "Free pickup" },
+  { label: "Maroochydore", slug: "maroochydore", tag: "$40 delivery" },
   { label: "Mooloolaba", slug: "mooloolaba", tag: "$40 delivery" },
   { label: "Caloundra", slug: "caloundra", tag: "$40 delivery" },
 ];
@@ -108,6 +108,14 @@ export default function Navbar() {
               {item.label}
             </button>
           ))}
+
+          {/* Ute hire link */}
+          <Link
+            href="/amarok-hire"
+            className="rounded-full px-3 py-2 text-sm font-medium tracking-wide text-[var(--fg-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)]"
+          >
+            Ute Hire
+          </Link>
 
           {/* Locations dropdown */}
           <div

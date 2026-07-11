@@ -22,9 +22,8 @@ export default function ServiceStripSection() {
           Noosa to Caloundra
         </motion.h2>
         <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--fg-muted)]">
-          Free pickup hubs in <strong className="text-[var(--fg)]">Tewantin</strong> or{" "}
-          <strong className="text-[var(--fg)]">Maroochydore</strong>. Delivery elsewhere on
-          the Coast: <strong className="text-[var(--fg)]">$40</strong>.
+          Free pickup from <strong className="text-[var(--fg)]">Tewantin</strong>. Delivery
+          anywhere on the Coast: <strong className="text-[var(--fg)]">$40</strong>.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">

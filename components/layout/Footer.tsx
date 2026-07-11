@@ -60,6 +60,14 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/amarok-hire"
+                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                >
+                  Ute Hire
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -125,7 +133,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-6 space-y-2 text-sm text-[var(--fg-muted)]">
-              <p>Free pickup: Tewantin or Maroochydore</p>
+              <p>Free pickup: Tewantin</p>
               <p>Delivery: $40 across the Sunshine Coast</p>
               <p className="text-[var(--fg-subtle)]">Queensland, Australia</p>
               <p className="text-[var(--fg-subtle)]">ABN: 56 651 543 292</p>

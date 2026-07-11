@@ -49,7 +49,7 @@ export const PRICING_RULES: PricingRule[] = [
   { label: "Minimum hire", value: "2 weeks", icon: "📅" },
   { label: "Security deposit", value: "$300 (refundable)", icon: "🔐" },
   { label: "Delivery", value: "$40 Sunshine Coast", icon: "🚚" },
-  { label: "Free pickup", value: "Tewantin or Maroochydore", icon: "📍" },
+  { label: "Free pickup", value: "Tewantin", icon: "📍" },
   { label: "Included distance", value: "500 km / week", icon: "🛣️" },
   { label: "Extra distance", value: "$0.23 / km over allowance", icon: "⚡" },
 ];

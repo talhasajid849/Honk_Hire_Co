@@ -40,10 +40,7 @@ export function LocationPageTemplate({ location }: Props) {
           {
             step: "02",
             title: "Free pickup at our base",
-            desc:
-              location.slug === "tewantin"
-                ? "Come to 10 Forest Ct, Tewantin QLD 4565. We go through the scooter together and you are on your way."
-                : "Collect from our Maroochydore pickup point — no delivery fee, no waiting around.",
+            desc: "Come to 10 Forest Ct, Tewantin QLD 4565. We go through the scooter together and you are on your way.",
           },
           {
             step: "03",

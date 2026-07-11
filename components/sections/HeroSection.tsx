@@ -76,7 +76,7 @@ export default function HeroSection() {
             className="mt-6 flex flex-col gap-2 text-sm text-[var(--fg-muted)]"
           >
             {[
-              "Free pickup: Tewantin or Maroochydore",
+              "Free pickup: Tewantin",
               "$300 refundable security deposit",
               "Extra km: $0.23/km over 500 km/week",
             ].map((line) => (

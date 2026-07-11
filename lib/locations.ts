@@ -31,13 +31,13 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: "Sunshine Coast",
     metaTitle: "Scooter Hire Sunshine Coast | From $150/week | Honk Hire Co",
     metaDescription:
-      "Rent a scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or Maroochydore, or $40 delivery. From $150/week. Noosa to Caloundra. Book now.",
+      "Rent a scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or $40 delivery to your door. From $150/week. Noosa to Caloundra. Book now.",
     h1: "Scooter Hire Sunshine Coast",
     tagline: "From Noosa to Caloundra — pickup or delivery, your way",
     intro:
-      "Honk Hire Co covers the full Sunshine Coast. Two free pickup points at Tewantin and Maroochydore, or we deliver your scooter anywhere on the Coast for a flat $40. Weekly hire from $150, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast for a flat $40. Weekly hire from $150, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
     pickupType: "free",
-    pickupLabel: "Free pickup: Tewantin or Maroochydore",
+    pickupLabel: "Free pickup: Tewantin · $40 delivery everywhere else",
     highlights: [
       {
         title: "Noosa & Noosa Heads",
@@ -214,15 +214,15 @@ export const LOCATIONS: Record<string, LocationData> = {
   maroochydore: {
     slug: "maroochydore",
     name: "Maroochydore",
-    metaTitle: "Scooter Hire Maroochydore | Free Pickup Point | Honk Hire Co",
+    metaTitle: "Scooter Hire Maroochydore | Scooter Rental Delivered to Maroochydore | Honk Hire Co",
     metaDescription:
-      "Free scooter pickup from Maroochydore, or delivery to your door. From $150/week. Explore Cotton Tree, Alex Headland and the Sunshine Coast. Book now.",
+      "Explore Maroochydore, Cotton Tree & Alexandra Headland by scooter. Honk Hire Co delivers to Maroochydore for $40. From $150/week. Book now.",
     h1: "Scooter Hire Maroochydore",
-    tagline: "The Sunshine Coast hub — free pickup or delivery to your door",
+    tagline: "Cotton Tree, Alexandra Headland & the Sunshine Coast hub — delivered to your door",
     intro:
-      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast and one of our two free pickup points. Collect your scooter here and you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
-    pickupType: "free",
-    pickupLabel: "Free pickup from Maroochydore",
+      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast. We deliver your scooter straight to your accommodation for $40 — then you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
+    pickupType: "delivery",
+    pickupLabel: "$40 flat delivery to Maroochydore",
     highlights: [
       {
         title: "Cotton Tree",

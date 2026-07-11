@@ -21,7 +21,7 @@ export function buildInquiryMessage(d: InquiryDraft): string {
       ? `• Scooter: ${d.scooterLabel}`
       : "• Scooter: (please advise)",
     `• Weeks: ${d.weeks >= 2 ? d.weeks : "—"} (min. 2 weeks)`,
-    `• Sunshine Coast delivery ($40): ${d.wantsDelivery ? "Yes" : "No — I'll use free Tewantin/Maroochydore pickup"}`,
+    `• Sunshine Coast delivery ($40): ${d.wantsDelivery ? "Yes" : "No — I'll use free Tewantin pickup"}`,
   ];
 
   if (d.scooterId && d.weeks >= 2) {

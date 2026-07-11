@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Scooter Hire Maroochydore",
+  name: "Scooter Hire Maroochydore — Delivery Available",
   description: location.metaDescription,
   provider: {
     "@type": "LocalBusiness",

@@ -275,7 +275,7 @@ export default function ContactSection() {
                   />
                   <span className="text-sm text-[var(--fg-muted)]">
                     Include <strong className="text-[var(--fg)]">$40</strong> Sunshine Coast delivery
-                    (or use free pickup at Tewantin / Maroochydore).
+                    (or use free pickup at Tewantin).
                   </span>
                 </label>
 
