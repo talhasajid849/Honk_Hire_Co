@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Mail, ArrowRight, Users, Truck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -194,43 +193,24 @@ export default function AmarokHirePage() {
         <section className="bg-[var(--bg)] px-6 py-16">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] sm:col-span-2 lg:col-span-2">
-                <Image
-                  src="/images/amarok-exterior.jpg"
-                  alt="2023 Volkswagen Amarok Life — exterior"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                />
-              </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
-                <Image
-                  src="/images/amarok-interior.jpg"
-                  alt="Amarok interior and dashboard"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)]">
-                <Image
-                  src="/images/amarok-tray.jpg"
-                  alt="Amarok roll-cover tray"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] sm:col-span-1 lg:col-span-2">
-                <Image
-                  src="/images/amarok-towbar.jpg"
-                  alt="Amarok tow bar — fitted and ready"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                />
-              </div>
+              {[
+                { label: "Exterior", sub: "2023 VW Amarok Life — deep black", span: "sm:col-span-2 lg:col-span-2" },
+                { label: "Interior", sub: "Premium cabin & infotainment", span: "" },
+                { label: "Tray & cover", sub: "Roller tonneau — secure storage", span: "" },
+                { label: "Tow bar", sub: "Fitted + electronic brake controller", span: "sm:col-span-1 lg:col-span-2" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className={`flex aspect-[4/3] items-end rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 ${item.span}`}
+                >
+                  <div>
+                    <p className="font-display text-lg font-semibold italic text-[var(--fg)]">{item.label}</p>
+                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">{item.sub}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+            <p className="mt-4 text-center text-xs text-[var(--fg-subtle)]">Photos loading — check back soon.</p>
           </div>
         </section>
 
