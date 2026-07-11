@@ -194,12 +194,13 @@ export default function AmarokHirePage() {
         <section className="bg-[var(--bg)] px-6 py-16">
           <div className="mx-auto max-w-5xl space-y-4">
             {/* Hero exterior — full width */}
-            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
+            <div className="relative w-full overflow-hidden rounded-2xl border border-[var(--border)]">
               <Image
                 src="/images/amarok-exterior.jpeg"
                 alt="2023 Volkswagen Amarok Life — exterior front, rear, and side"
-                fill
-                className="object-cover"
+                width={1270}
+                height={952}
+                className="h-auto w-full"
                 sizes="100vw"
                 priority
               />
