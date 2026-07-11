@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LocationPageTemplate } from "@/components/location/LocationPageTemplate";
 import { LOCATIONS } from "@/lib/locations";
+import { buildLocalBusinessSchema } from "@/lib/schema";
 
 const location = LOCATIONS.tewantin;
 
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     description: location.metaDescription,
   },
 };
+
+const localBusinessSchema = buildLocalBusinessSchema([
+  "Tewantin", "Noosa", "Noosaville",
+]);
 
 const schema = {
   "@context": "https://schema.org",
@@ -51,6 +56,10 @@ const schema = {
 export default function TewantinPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}

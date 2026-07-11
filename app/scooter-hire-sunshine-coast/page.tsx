@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LocationPageTemplate } from "@/components/location/LocationPageTemplate";
 import { LOCATIONS } from "@/lib/locations";
+import { buildLocalBusinessSchema } from "@/lib/schema";
 
 const location = LOCATIONS["sunshine-coast"];
 
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
     description: location.metaDescription,
   },
 };
+
+const localBusinessSchema = buildLocalBusinessSchema([
+  "Noosa", "Tewantin", "Noosaville", "Sunshine Beach",
+  "Coolum Beach", "Maroochydore", "Mooloolaba",
+  "Kawana", "Caloundra", "Sunshine Coast",
+]);
 
 const schema = {
   "@context": "https://schema.org",
@@ -54,6 +61,10 @@ const schema = {
 export default function SunshineCoastPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
