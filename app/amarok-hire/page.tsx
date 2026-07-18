@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Mail, ArrowRight, Users, Truck } from "lucide-react";
+import { CheckCircle2, ArrowRight, Users, Truck, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { mailtoHref } from "@/lib/contact/mailto";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
@@ -64,11 +63,6 @@ const schema = {
   areaServed: { "@type": "State", name: "Queensland" },
   url: "https://honkhireco.com.au/amarok-hire",
 };
-
-const emailHref = mailtoHref({
-  subject: "Amarok ute hire enquiry",
-  body: "Hi, I'm interested in hiring the Amarok. Please let me know about availability and any towing requirements I should be aware of.",
-});
 
 const FEATURES = [
   "Electronic brake controller fitted",
@@ -156,11 +150,13 @@ export default function AmarokHirePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={emailHref}
+                href="https://www.camplify.com.au/rv/154095"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                Check availability
+                <CalendarCheck className="h-4 w-4" aria-hidden />
+                Book now
               </a>
               <Link
                 href="/#contact"
@@ -332,7 +328,7 @@ export default function AmarokHirePage() {
         <section className="bg-[var(--bg)] px-6 py-20">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5 inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--accent-soft)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-              Check availability
+              Book now
             </div>
             <h2 className="font-display text-3xl font-semibold italic text-[var(--fg)] sm:text-4xl">
               Ready to hire the Amarok?
@@ -343,11 +339,13 @@ export default function AmarokHirePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={emailHref}
+                href="https://www.camplify.com.au/rv/154095"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-5 w-5" aria-hidden />
-                Check availability
+                <CalendarCheck className="h-5 w-5" aria-hidden />
+                Book now
               </a>
               <Link
                 href="/scooter-hire-sunshine-coast"
