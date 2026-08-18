@@ -8,20 +8,40 @@ import ScootersSection from "@/components/sections/ScootersSection";
 import CoastHighlightsSection from "@/components/sections/CoastHighlightsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { FAQS } from "@/lib/constants";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      <Navbar />
-      <HeroSection />
-      <ServiceStripSection />
-      <HowItWorksSection />
-      <PricingSection />
-      <ScootersSection />
-      <CoastHighlightsSection />
-      <FAQSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
+      />
+      <main className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+        <Navbar />
+        <HeroSection />
+        <ServiceStripSection />
+        <HowItWorksSection />
+        <PricingSection />
+        <ScootersSection />
+        <CoastHighlightsSection />
+        <FAQSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }
