@@ -65,8 +65,8 @@ export default function HeroSection() {
           >
             Scooter rental for tourists and short stays from{" "}
             <strong className="font-medium text-[var(--fg)]">Noosa to Caloundra</strong>.
-            50cc from <strong className="text-[var(--fg)]">$150/week</strong>, 125cc from{" "}
-            <strong className="text-[var(--fg)]">$160/week</strong>. Minimum 2 weeks.
+            50cc from <strong className="text-[var(--fg)]">$135/week</strong>, 125cc from{" "}
+            <strong className="text-[var(--fg)]">$145/week</strong>. Minimum 2 weeks.
           </motion.p>
 
           <motion.ul
@@ -168,7 +168,7 @@ export default function HeroSection() {
                   From
                 </p>
                 <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
-                  $150<span className="text-lg not-italic">/week</span>
+                  $135<span className="text-lg not-italic">/week</span>
                 </p>
                 <p className="mt-1 text-xs text-[var(--fg-muted)]">50cc · min. 2 weeks · bond extra</p>
               </div>

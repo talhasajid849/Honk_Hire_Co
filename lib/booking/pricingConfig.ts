@@ -3,12 +3,14 @@
 export const MIN_HIRE_WEEKS = 2;
 export const SECURITY_DEPOSIT = 300;
 export const DELIVERY_FEE = 40;
+export const DELIVERY_FREE_RADIUS_KM = 30;
+export const DELIVERY_EXTRA_KM_RATE = 1;
 export const EXTRA_KM_RATE = 0.23;
 export const INCLUDED_KM_PER_WEEK = 500;
 
 export const WEEKLY_RATES = {
-  "50cc": 150,
-  "125cc": 160,
+  "50cc": 135,
+  "125cc": 145,
 } as const;
 
 export type ScooterTierId = keyof typeof WEEKLY_RATES;

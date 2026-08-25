@@ -245,8 +245,8 @@ export default function ContactSection() {
                       className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-3 text-sm text-[var(--fg)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
                     >
                       <option value="">Select model</option>
-                      <option value="50cc">Coastal 50 — $150/wk</option>
-                      <option value="125cc">Classic 125 — $160/wk</option>
+                      <option value="50cc">Coastal 50 — $135/wk</option>
+                      <option value="125cc">Classic 125 — $145/wk</option>
                     </select>
                   </label>
                   <label className="block">
@@ -274,8 +274,8 @@ export default function ContactSection() {
                     className="mt-0.5 h-4 w-4 rounded border-[var(--border)] text-[var(--accent)] focus:ring-[var(--accent)]/40"
                   />
                   <span className="text-sm text-[var(--fg-muted)]">
-                    Include <strong className="text-[var(--fg)]">$40</strong> Sunshine Coast delivery
-                    (or use free pickup at Tewantin).
+                    Include <strong className="text-[var(--fg)]">$40</strong> delivery — covers the
+                    first 30km from Tewantin, then $1/km beyond (or use free pickup at Tewantin).
                   </span>
                 </label>
 

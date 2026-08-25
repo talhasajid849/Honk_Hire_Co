@@ -9,7 +9,7 @@ import { mailtoHref } from "@/lib/contact/mailto";
 import { getLocation, locationPath, type LocationData } from "@/lib/locations";
 
 const QUICK_FACTS = [
-  { label: "From", value: "$150/week", sub: "50cc automatic" },
+  { label: "From", value: "$135/week", sub: "50cc automatic" },
   { label: "Minimum", value: "2 weeks", sub: "hire period" },
   { label: "Bond", value: "$300", sub: "fully refundable" },
   { label: "Included", value: "500 km/week", sub: "$0.23/km over" },
@@ -56,8 +56,8 @@ export function LocationPageTemplate({ location }: Props) {
           },
           {
             step: "02",
-            title: "$40 delivery to you",
-            desc: `We bring the scooter to your ${location.name} accommodation. You don't lift a finger.`,
+            title: "We deliver to you",
+            desc: `We bring the scooter to your ${location.name} accommodation. Delivery is from $40 — the first 30km from our Tewantin base is included, then $1/km beyond.`,
           },
           {
             step: "03",
@@ -267,7 +267,7 @@ export function LocationPageTemplate({ location }: Props) {
                       {nearby.name}
                     </p>
                     <p className="mt-0.5 text-xs text-[var(--fg-subtle)]">
-                      {nearby.pickupType === "free" ? "Free pickup available" : "$40 delivery"}
+                      {nearby.pickupType === "free" ? "Free pickup available" : "Delivery available"}
                     </p>
                   </div>
                   <ArrowRight className="h-4 w-4 shrink-0 text-[var(--fg-subtle)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--accent)]" aria-hidden />

@@ -16,9 +16,9 @@ const LOCATION_LINKS = [
   { label: "Sunshine Coast", slug: "sunshine-coast", tag: "All areas", hub: true },
   { label: "Noosa", slug: "noosa", tag: "$40 delivery" },
   { label: "Tewantin", slug: "tewantin", tag: "Free pickup" },
-  { label: "Maroochydore", slug: "maroochydore", tag: "$40 delivery" },
-  { label: "Mooloolaba", slug: "mooloolaba", tag: "$40 delivery" },
-  { label: "Caloundra", slug: "caloundra", tag: "$40 delivery" },
+  { label: "Maroochydore", slug: "maroochydore", tag: "Delivery available" },
+  { label: "Mooloolaba", slug: "mooloolaba", tag: "Delivery available" },
+  { label: "Caloundra", slug: "caloundra", tag: "Delivery available" },
 ];
 
 export default function Navbar() {
