@@ -53,9 +53,9 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
           </div>
           <div className="text-right">
             <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
-              ${scooter.weeklyPrice}
+              from ${scooter.weeklyPrice}
             </p>
-            <p className="text-xs text-[var(--fg-subtle)]">per week</p>
+            <p className="text-xs text-[var(--fg-subtle)]">per week, 2+ wks</p>
           </div>
         </div>
       </div>

@@ -23,11 +23,11 @@ export default function TermsAndConditionsPage() {
           </section>
 
           <section>
-            <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Rates and minimum period</h2>
+            <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Rates and hire period</h2>
             <ul className="list-disc space-y-1 pl-5">
-              <li>50cc scooter: $135 per week.</li>
-              <li>125cc scooter: $145 per week.</li>
-              <li>Minimum hire period: 2 weeks.</li>
+              <li>50cc scooter: $135 per week for hires of 2 weeks or more; $180 per week for hires under 2 weeks.</li>
+              <li>125cc scooter: $145 per week for hires of 2 weeks or more; $200 per week for hires under 2 weeks.</li>
+              <li>Minimum hire period: 1 week.</li>
             </ul>
           </section>
 
@@ -37,6 +37,7 @@ export default function TermsAndConditionsPage() {
               <li>Security bond: $300 (refundable subject to conditions).</li>
               <li>Delivery fee: $40, covering the first 30km from our Tewantin base. $1 per km beyond 30km.</li>
               <li>Free pickup point: Tewantin.</li>
+              <li>Payment: the first week&apos;s hire, the bond, and any delivery fee are due upfront. Remaining weeks are billed as you go.</li>
               <li>Included distance: 500 km per week.</li>
               <li>Excess distance: $0.23 per km over allowance.</li>
             </ul>

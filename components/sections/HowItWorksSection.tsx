@@ -20,7 +20,7 @@ const STEPS = [
   {
     step: "03",
     title: "Pay weekly + bond",
-    desc: "Minimum 2 weeks. $300 refundable deposit. 500 km/week included; extra at $0.23/km.",
+    desc: "Pay week 1 + bond upfront, then weekly as you go. Short stays under 2 weeks cost more per week. 500 km/week included; extra at $0.23/km.",
     Icon: Wallet,
   },
   {

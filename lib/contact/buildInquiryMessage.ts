@@ -5,10 +5,11 @@ export interface InquiryDraft {
   scooterLabel: string;
   weeks: number;
   wantsDelivery: boolean;
-  hireSubtotal: number;
+  weeklyRate: number;
   deposit: number;
   delivery: number;
-  totalFormatted: string;
+  dueTodayFormatted: string;
+  fullStayFormatted: string;
   notes: string;
 }
 
@@ -20,16 +21,26 @@ export function buildInquiryMessage(d: InquiryDraft): string {
     d.scooterId
       ? `• Scooter: ${d.scooterLabel}`
       : "• Scooter: (please advise)",
-    `• Weeks: ${d.weeks >= 2 ? d.weeks : "—"} (min. 2 weeks)`,
+    `• Weeks: ${d.weeks >= 1 ? d.weeks : "—"}`,
     `• Delivery (from $40 — 30km included, then $1/km): ${d.wantsDelivery ? "Yes" : "No — I'll use free Tewantin pickup"}`,
   ];
 
-  if (d.scooterId && d.weeks >= 2) {
-    lines.push("", "Rough estimate (guide only):", `• Hire: $${d.hireSubtotal.toLocaleString("en-AU")}`, `• Bond: $${d.deposit}`);
+  if (d.scooterId && d.weeks >= 1) {
+    lines.push(
+      "",
+      "Rough estimate (guide only):",
+      `• Week 1 (due now): $${d.weeklyRate}`,
+      `• Bond: $${d.deposit}`
+    );
     if (d.delivery > 0) {
       lines.push(`• Delivery: $${d.delivery}`);
     }
-    lines.push(`• Typical upfront total: ${d.totalFormatted}`);
+    lines.push(`• Due today: ${d.dueTodayFormatted}`);
+    if (d.weeks > 1) {
+      lines.push(
+        `• Then $${d.weeklyRate}/wk billed as you go — full ${d.weeks}-week stay est.: ${d.fullStayFormatted}`
+      );
+    }
   }
 
   lines.push("");

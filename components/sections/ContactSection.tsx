@@ -69,10 +69,11 @@ export default function ContactSection() {
         scooterLabel,
         weeks: Number.parseInt(state.weeks, 10) || 0,
         wantsDelivery: state.wantsDelivery,
-        hireSubtotal: quote.hireSubtotal,
+        weeklyRate: quote.weeklyRate,
         deposit: quote.deposit,
         delivery: quote.delivery,
-        totalFormatted: quote.estimatedTotal,
+        dueTodayFormatted: quote.estimatedTotal,
+        fullStayFormatted: quote.fullStayEstimate,
         notes: state.notes,
       }),
     [state, scooterLabel, quote]
@@ -245,13 +246,13 @@ export default function ContactSection() {
                       className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-3 text-sm text-[var(--fg)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
                     >
                       <option value="">Select model</option>
-                      <option value="50cc">Coastal 50 — $135/wk</option>
-                      <option value="125cc">Classic 125 — $145/wk</option>
+                      <option value="50cc">Coastal 50 — $135/wk (2+ wk) · $180/wk short stay</option>
+                      <option value="125cc">Classic 125 — $145/wk (2+ wk) · $200/wk short stay</option>
                     </select>
                   </label>
                   <label className="block">
                     <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--fg-muted)]">
-                      Weeks (min. 2)
+                      Weeks (min. 1)
                     </span>
                     <input
                       name="weeks"
@@ -289,32 +290,38 @@ export default function ContactSection() {
                   {!quote.valid ? (
                     <p className="mt-3 text-sm text-[var(--fg-muted)]">{quote.validationMessage}</p>
                   ) : (
-                    <ul className="mt-3 space-y-2 text-sm text-[var(--fg-muted)]">
-                      <li className="flex justify-between gap-4">
-                        <span>
-                          Hire ({quote.weeksBilled} wk × ${quote.weeklyRate})
-                        </span>
-                        <span className="font-medium tabular-nums text-[var(--fg)]">
-                          ${quote.hireSubtotal.toLocaleString("en-AU")}
-                        </span>
-                      </li>
-                      <li className="flex justify-between gap-4">
-                        <span>Refundable bond</span>
-                        <span className="font-medium tabular-nums text-[var(--fg)]">${quote.deposit}</span>
-                      </li>
-                      {quote.delivery > 0 && (
+                    <>
+                      <ul className="mt-3 space-y-2 text-sm text-[var(--fg-muted)]">
                         <li className="flex justify-between gap-4">
-                          <span>Delivery</span>
-                          <span className="font-medium tabular-nums text-[var(--fg)]">${quote.delivery}</span>
+                          <span>Week 1 (${quote.weeklyRate}/wk)</span>
+                          <span className="font-medium tabular-nums text-[var(--fg)]">
+                            ${quote.weeklyRate}
+                          </span>
                         </li>
+                        <li className="flex justify-between gap-4">
+                          <span>Refundable bond</span>
+                          <span className="font-medium tabular-nums text-[var(--fg)]">${quote.deposit}</span>
+                        </li>
+                        {quote.delivery > 0 && (
+                          <li className="flex justify-between gap-4">
+                            <span>Delivery</span>
+                            <span className="font-medium tabular-nums text-[var(--fg)]">${quote.delivery}</span>
+                          </li>
+                        )}
+                        <li className="mt-3 flex justify-between gap-4 border-t border-[var(--border)] pt-3 font-semibold text-[var(--fg)]">
+                          <span>Due today</span>
+                          <span className="font-display text-lg italic text-[var(--accent)]">
+                            {quote.estimatedTotal}
+                          </span>
+                        </li>
+                      </ul>
+                      {quote.weeksBilled > 1 && (
+                        <p className="mt-3 text-xs text-[var(--fg-subtle)]">
+                          Then ${quote.weeklyRate}/wk billed as you go — full {quote.weeksBilled}-week
+                          stay estimate: {quote.fullStayEstimate}
+                        </p>
                       )}
-                      <li className="mt-3 flex justify-between gap-4 border-t border-[var(--border)] pt-3 font-semibold text-[var(--fg)]">
-                        <span>Typical upfront total</span>
-                        <span className="font-display text-lg italic text-[var(--accent)]">
-                          {quote.estimatedTotal}
-                        </span>
-                      </li>
-                    </ul>
+                    </>
                   )}
                 </motion.div>
 

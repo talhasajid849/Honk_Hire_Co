@@ -20,7 +20,7 @@ export default function ScootersSection() {
 
         <p className="mx-auto mt-12 max-w-xl text-center text-sm text-[var(--fg-muted)]">
           <span className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 font-medium text-[var(--fg)]">
-            Minimum hire: 2 weeks
+            No minimum hire — short stays under 2 weeks cost more per week
           </span>
         </p>
       </div>

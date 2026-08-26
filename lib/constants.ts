@@ -46,7 +46,7 @@ export const SCOOTERS: ScooterType[] = [
 ];
 
 export const PRICING_RULES: PricingRule[] = [
-  { label: "Minimum hire", value: "2 weeks", icon: "📅" },
+  { label: "Short stays", value: "$180–$200/wk under 2 weeks", icon: "📅" },
   { label: "Security deposit", value: "$300 (refundable)", icon: "🔐" },
   { label: "Delivery", value: "$40 within 30km, then $1/km", icon: "🚚" },
   { label: "Free pickup", value: "Tewantin", icon: "📍" },

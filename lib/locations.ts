@@ -35,7 +35,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     h1: "Scooter Hire Sunshine Coast",
     tagline: "From Noosa to Caloundra — pickup or delivery, your way",
     intro:
-      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast — $40 covers the first 30km from our Tewantin base, then $1/km beyond. Weekly hire from $135, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast — $40 covers the first 30km from our Tewantin base, then $1/km beyond. Weekly hire from $135 for 2+ weeks (short stays from $180/week). 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
     pickupType: "free",
     pickupLabel: "Free pickup: Tewantin · delivery from $40 elsewhere",
     highlights: [
