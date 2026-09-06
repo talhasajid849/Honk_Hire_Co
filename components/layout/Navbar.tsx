@@ -117,6 +117,14 @@ export default function Navbar() {
             Ute Hire
           </Link>
 
+          {/* Car hire link */}
+          <Link
+            href="/mg3-hire"
+            className="rounded-full px-3 py-2 text-sm font-medium tracking-wide text-[var(--fg-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)]"
+          >
+            Car Hire
+          </Link>
+
           {/* Locations dropdown */}
           <div
             className="relative"
@@ -240,6 +248,22 @@ export default function Navbar() {
                   {item.label}
                 </button>
               ))}
+
+              <Link
+                href="/amarok-hire"
+                className="rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                onClick={() => setMenuOpen(false)}
+              >
+                Ute Hire
+              </Link>
+
+              <Link
+                href="/mg3-hire"
+                className="rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                onClick={() => setMenuOpen(false)}
+              >
+                Car Hire
+              </Link>
 
               {/* Mobile locations section */}
               <button

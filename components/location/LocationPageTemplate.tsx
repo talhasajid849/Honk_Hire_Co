@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CheckCircle2, MapPin, Mail, ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import DeliveryQuoteRequest from "@/components/ui/DeliveryQuoteRequest";
 import { mailtoHref } from "@/lib/contact/mailto";
 import { getLocation, locationPath, type LocationData } from "@/lib/locations";
 
@@ -57,7 +58,10 @@ export function LocationPageTemplate({ location }: Props) {
           {
             step: "02",
             title: "We deliver to you",
-            desc: `We bring the scooter to your ${location.name} accommodation. Delivery is from $40 — the first 30km from our Tewantin base is included, then $1/km beyond.`,
+            desc:
+              location.deliveryPricing === "quote"
+                ? `We bring the scooter to your ${location.name} accommodation. You're outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address.`
+                : `We bring the scooter to your ${location.name} accommodation. Delivery is a flat $40 — you're within our 20km radius from Tewantin.`,
           },
           {
             step: "03",
@@ -159,12 +163,23 @@ export function LocationPageTemplate({ location }: Props) {
                 Get a quote
               </a>
               <Link
-                href="/#scooters"
+                href="/#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-7 py-3.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40"
               >
-                View fleet &amp; rates
+                Book now
               </Link>
             </motion.div>
+
+            {location.deliveryPricing === "quote" && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.28, duration: 0.44 }}
+                className="mt-6 max-w-md"
+              >
+                <DeliveryQuoteRequest locationName={location.name} />
+              </motion.div>
+            )}
           </div>
         </section>
 

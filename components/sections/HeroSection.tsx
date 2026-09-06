@@ -104,10 +104,10 @@ export default function HeroSection() {
             </motion.a>
             <button
               type="button"
-              onClick={() => scrollTo("#scooters")}
+              onClick={() => scrollTo("#contact")}
               className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-8 py-4 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40"
             >
-              View fleet &amp; rates
+              Book now
             </button>
           </motion.div>
 

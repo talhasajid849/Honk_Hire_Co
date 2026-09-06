@@ -14,7 +14,7 @@ const STEPS = [
   {
     step: "02",
     title: "Collect or we deliver",
-    desc: "Free pickup from Tewantin — or delivery from $40 (covers 30km, then $1/km beyond).",
+    desc: "Free pickup from Tewantin — or $40 delivery within 20km (further away is quoted individually).",
     Icon: Truck,
   },
   {

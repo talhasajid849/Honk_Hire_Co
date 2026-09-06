@@ -22,7 +22,7 @@ export function buildInquiryMessage(d: InquiryDraft): string {
       ? `• Scooter: ${d.scooterLabel}`
       : "• Scooter: (please advise)",
     `• Weeks: ${d.weeks >= 1 ? d.weeks : "—"}`,
-    `• Delivery (from $40 — 30km included, then $1/km): ${d.wantsDelivery ? "Yes" : "No — I'll use free Tewantin pickup"}`,
+    `• Delivery ($40 within 20km of Tewantin, quoted individually beyond that): ${d.wantsDelivery ? "Yes" : "No — I'll use free Tewantin pickup"}`,
   ];
 
   if (d.scooterId && d.weeks >= 1) {

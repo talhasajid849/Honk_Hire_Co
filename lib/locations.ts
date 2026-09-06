@@ -13,6 +13,8 @@ export interface LocationData {
   intro: string;
   pickupType: "free" | "delivery";
   pickupLabel: string;
+  /** "flat" = within the 20km $40 radius; "quote" = beyond it, priced individually. Omit for pickupType "free". */
+  deliveryPricing?: "flat" | "quote";
   highlights: LocationHighlight[];
   nearbyLocations: string[];
 }
@@ -31,13 +33,13 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: "Sunshine Coast",
     metaTitle: "Scooter Hire Sunshine Coast | From $135/week | Honk Hire Co",
     metaDescription:
-      "Rent a scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or delivery from $40. From $135/week. Noosa to Caloundra. Book now.",
+      "Rent a scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or $40 delivery within 20km. From $135/week. Noosa to Caloundra. Book now.",
     h1: "Scooter Hire Sunshine Coast",
     tagline: "From Noosa to Caloundra — pickup or delivery, your way",
     intro:
-      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast — $40 covers the first 30km from our Tewantin base, then $1/km beyond. Weekly hire from $135 for 2+ weeks (short stays from $180/week). 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast — $40 covers delivery within 20km of our Tewantin base, and anywhere further is quoted individually based on your exact location. Weekly hire from $135 for 2+ weeks (short stays from $180/week). 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
     pickupType: "free",
-    pickupLabel: "Free pickup: Tewantin · delivery from $40 elsewhere",
+    pickupLabel: "Free pickup: Tewantin · $40 delivery within 20km, quoted beyond",
     highlights: [
       {
         title: "Noosa & Noosa Heads",
@@ -52,7 +54,7 @@ export const LOCATIONS: Record<string, LocationData> = {
       {
         title: "Caloundra & the south",
         description:
-          "Kings Beach, Bulcock Beach, and views to the Glass House Mountains — all reachable, with delivery from $40.",
+          "Kings Beach, Bulcock Beach, and views to the Glass House Mountains — all reachable; delivery this far south is quoted individually.",
       },
       {
         title: "Tewantin — our home base",
@@ -75,6 +77,7 @@ export const LOCATIONS: Record<string, LocationData> = {
       "Noosa is one of Australia's most iconic coastal destinations, and the best way to enjoy it is not by car. We deliver your scooter to your Noosa accommodation for $40 — then you ride between Main Beach, the National Park, and Hastings Street without ever stressing about parking.",
     pickupType: "delivery",
     pickupLabel: "$40 flat delivery to Noosa",
+    deliveryPricing: "flat",
     highlights: [
       {
         title: "Noosa National Park",
@@ -142,13 +145,14 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: "Caloundra",
     metaTitle: "Scooter Hire Caloundra | Rent a Scooter in Caloundra | Honk Hire Co",
     metaDescription:
-      "Explore Kings Beach and Caloundra's coastline by scooter. Honk Hire Co delivers to Caloundra from $40. From $135/week. Book now.",
+      "Explore Kings Beach and Caloundra's coastline by scooter. Honk Hire Co delivers to Caloundra — request a delivery quote. From $135/week. Book now.",
     h1: "Scooter Hire Caloundra",
     tagline: "Kings Beach, Bulcock Beach & the Glass House Mountains — all within reach",
     intro:
-      "Caloundra sits at the southern gateway to the Sunshine Coast with a string of beautiful beaches and a relaxed pace that makes scooter riding genuinely enjoyable. We deliver straight to your accommodation — $40 covers the first 30km from our Tewantin base, then $1/km beyond, confirmed exactly when you enquire — then the whole coastline is yours.",
+      "Caloundra sits at the southern gateway to the Sunshine Coast with a string of beautiful beaches and a relaxed pace that makes scooter riding genuinely enjoyable. We deliver straight to your accommodation — Caloundra is outside our 20km flat-rate radius from Tewantin, so delivery here is quoted individually based on your exact address — then the whole coastline is yours.",
     pickupType: "delivery",
-    pickupLabel: "Delivery from $40 (distance-based)",
+    pickupLabel: "Delivery quoted — outside 20km radius",
+    deliveryPricing: "quote",
     highlights: [
       {
         title: "Kings Beach",
@@ -179,13 +183,14 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: "Mooloolaba",
     metaTitle: "Scooter Hire Mooloolaba | Scooter Rental Delivered to Mooloolaba | Honk Hire Co",
     metaDescription:
-      "Explore Mooloolaba Beach and The Esplanade by scooter. Honk Hire Co delivers to Mooloolaba from $40. From $135/week. Book now.",
+      "Explore Mooloolaba Beach and The Esplanade by scooter. Honk Hire Co delivers to Mooloolaba — request a delivery quote. From $135/week. Book now.",
     h1: "Scooter Hire Mooloolaba",
     tagline: "The Esplanade, the marina & Alexandra Headland — cruise it all",
     intro:
-      "Mooloolaba is one of the Sunshine Coast's most popular beach towns and one of the best for scooter riding. The flat esplanade, the marina strip, and the headland roads make for easy, enjoyable cruising — and we deliver your scooter right to where you are staying, from $40 (30km included, then $1/km beyond).",
+      "Mooloolaba is one of the Sunshine Coast's most popular beach towns and one of the best for scooter riding. The flat esplanade, the marina strip, and the headland roads make for easy, enjoyable cruising — and we deliver your scooter right to where you are staying. Mooloolaba sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address.",
     pickupType: "delivery",
-    pickupLabel: "Delivery from $40 (distance-based)",
+    pickupLabel: "Delivery quoted — outside 20km radius",
+    deliveryPricing: "quote",
     highlights: [
       {
         title: "Mooloolaba Beach & Esplanade",
@@ -216,13 +221,14 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: "Maroochydore",
     metaTitle: "Scooter Hire Maroochydore | Scooter Rental Delivered to Maroochydore | Honk Hire Co",
     metaDescription:
-      "Explore Maroochydore, Cotton Tree & Alexandra Headland by scooter. Honk Hire Co delivers to Maroochydore from $40. From $135/week. Book now.",
+      "Explore Maroochydore, Cotton Tree & Alexandra Headland by scooter. Honk Hire Co delivers to Maroochydore — request a delivery quote. From $135/week. Book now.",
     h1: "Scooter Hire Maroochydore",
     tagline: "Cotton Tree, Alexandra Headland & the Sunshine Coast hub — delivered to your door",
     intro:
-      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast. We deliver your scooter straight to your accommodation — $40 covers the first 30km from our Tewantin base, then $1/km beyond — then you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
+      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast. We deliver your scooter straight to your accommodation — Maroochydore sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address — then you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
     pickupType: "delivery",
-    pickupLabel: "Delivery from $40 (distance-based)",
+    pickupLabel: "Delivery quoted — outside 20km radius",
+    deliveryPricing: "quote",
     highlights: [
       {
         title: "Cotton Tree",

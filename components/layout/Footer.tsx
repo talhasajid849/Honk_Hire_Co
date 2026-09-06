@@ -68,6 +68,14 @@ export default function Footer() {
                   Ute Hire
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/mg3-hire"
+                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                >
+                  Car Hire
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -134,7 +142,7 @@ export default function Footer() {
             </div>
             <div className="mt-6 space-y-2 text-sm text-[var(--fg-muted)]">
               <p>Free pickup: Tewantin</p>
-              <p>Delivery: from $40 (30km included, then $1/km)</p>
+              <p>Delivery: $40 within 20km (quoted beyond)</p>
               <p className="text-[var(--fg-subtle)]">Queensland, Australia</p>
               <p className="text-[var(--fg-subtle)]">ABN: 56 651 543 292</p>
             </div>

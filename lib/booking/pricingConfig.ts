@@ -3,8 +3,8 @@
 export const MIN_HIRE_WEEKS = 1;
 export const SECURITY_DEPOSIT = 300;
 export const DELIVERY_FEE = 40;
-export const DELIVERY_FREE_RADIUS_KM = 30;
-export const DELIVERY_EXTRA_KM_RATE = 1;
+/** Flat $40 delivery applies within this radius; beyond it, delivery is quoted individually. */
+export const DELIVERY_FREE_RADIUS_KM = 20;
 export const EXTRA_KM_RATE = 0.23;
 export const INCLUDED_KM_PER_WEEK = 500;
 

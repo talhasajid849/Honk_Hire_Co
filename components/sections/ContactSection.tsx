@@ -6,6 +6,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa6";
 import { HiEnvelope, HiOutlineClock, HiOutlineShieldCheck } from "react-icons/hi2";
 import { TbScooter } from "react-icons/tb";
 import SectionHeader from "@/components/ui/SectionHeader";
+import DeliveryQuoteRequest from "@/components/ui/DeliveryQuoteRequest";
 import { calculateBookingQuote } from "@/lib/booking/calculateQuote";
 import type { ScooterTierId } from "@/lib/booking/pricingConfig";
 import { SCOOTERS } from "@/lib/constants";
@@ -275,10 +276,12 @@ export default function ContactSection() {
                     className="mt-0.5 h-4 w-4 rounded border-[var(--border)] text-[var(--accent)] focus:ring-[var(--accent)]/40"
                   />
                   <span className="text-sm text-[var(--fg-muted)]">
-                    Include <strong className="text-[var(--fg)]">$40</strong> delivery — covers the
-                    first 30km from Tewantin, then $1/km beyond (or use free pickup at Tewantin).
+                    Include <strong className="text-[var(--fg)]">$40</strong> delivery — within 20km
+                    of Tewantin (or use free pickup at Tewantin).
                   </span>
                 </label>
+
+                <DeliveryQuoteRequest />
 
                 <motion.div
                   layout

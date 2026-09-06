@@ -35,7 +35,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="mb-2 text-base font-semibold text-[var(--fg)]">Fees and bond</h2>
             <ul className="list-disc space-y-1 pl-5">
               <li>Security bond: $300 (refundable subject to conditions).</li>
-              <li>Delivery fee: $40, covering the first 30km from our Tewantin base. $1 per km beyond 30km.</li>
+              <li>Delivery fee: $40, covering the first 20km from our Tewantin base. Deliveries beyond 20km are quoted individually based on distance and location.</li>
               <li>Free pickup point: Tewantin.</li>
               <li>Payment: the first week&apos;s hire, the bond, and any delivery fee are due upfront. Remaining weeks are billed as you go.</li>
               <li>Included distance: 500 km per week.</li>
