@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Car, Mail } from "lucide-react";
+import { CheckCircle2, ArrowRight, Car, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { mailtoHref } from "@/lib/contact/mailto";
@@ -157,8 +157,8 @@ export default function Mg3HirePage() {
                 href={emailHref}
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                Get a quote
+                <CalendarCheck className="h-4 w-4" aria-hidden />
+                Book now
               </a>
               <Link
                 href="/#contact"
@@ -332,8 +332,8 @@ export default function Mg3HirePage() {
                 href={emailHref}
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-5 w-5" aria-hidden />
-                Get a quote
+                <CalendarCheck className="h-5 w-5" aria-hidden />
+                Book now
               </a>
               <Link
                 href="/scooter-hire-sunshine-coast"
