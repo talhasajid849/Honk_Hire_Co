@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CheckCircle2, ArrowRight, Car, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { mailtoHref } from "@/lib/contact/mailto";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
@@ -94,11 +93,6 @@ const SPECS = [
 ];
 
 export default function Mg3HirePage() {
-  const emailHref = mailtoHref({
-    subject: "MG3 car hire enquiry",
-    body: "Hi, I'm interested in hiring the MG3. Please let me know about availability, rates, and delivery/pickup options.",
-  });
-
   return (
     <>
       <script
@@ -154,7 +148,9 @@ export default function Mg3HirePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={emailHref}
+                href="https://www.888carhire.com.au/fleet/mg3"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
                 <CalendarCheck className="h-4 w-4" aria-hidden />
@@ -329,7 +325,9 @@ export default function Mg3HirePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={emailHref}
+                href="https://www.888carhire.com.au/fleet/mg3"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
                 <CalendarCheck className="h-5 w-5" aria-hidden />

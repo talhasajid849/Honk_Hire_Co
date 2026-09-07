@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-5 right-5 z-[70] inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-transform hover:scale-[1.02] hover:bg-[#1ebe5d] active:scale-[0.98]"
     >
       <FaWhatsapp className="h-5 w-5" aria-hidden />
-      <span>WhatsApp</span>
+      <span>Book now</span>
     </a>
   );
 }
