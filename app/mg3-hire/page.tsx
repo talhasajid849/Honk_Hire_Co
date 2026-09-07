@@ -287,15 +287,23 @@ export default function Mg3HirePage() {
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[var(--fg-muted)]">
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Driver&apos;s licence</strong> — a valid car licence is required. No special conditions apply.</span>
+                  <span><strong className="text-[var(--fg)]">Driver&apos;s licence</strong> — a valid car licence is required. Minimum age and any additional conditions are confirmed before your hire is issued.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Bond</strong> — a refundable security bond applies, confirmed when you enquire.</span>
+                  <span><strong className="text-[var(--fg)]">Bond</strong> — a refundable $500 security deposit applies.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Pickup &amp; delivery</strong> — free pickup from our Tewantin base, or $40 delivery within 20km (further away is quoted individually).</span>
+                  <span><strong className="text-[var(--fg)]">Included distance</strong> — 1,000km per week included; $0.30/km for any excess.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
+                  <span><strong className="text-[var(--fg)]">Additional driver</strong> — $25/week per approved additional driver.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
+                  <span><strong className="text-[var(--fg)]">Pickup &amp; delivery</strong> — free pickup from our Tewantin base, or $100 delivery within 20km (further away is quoted individually).</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
