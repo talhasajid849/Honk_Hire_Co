@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import VehiclePricingSection from "@/components/sections/VehiclePricingSection";
 import ServiceStripSection from "@/components/sections/ServiceStripSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import PricingSection from "@/components/sections/PricingSection";
@@ -33,6 +34,7 @@ export default function Home() {
       <main className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
         <Navbar />
         <HeroSection />
+        <VehiclePricingSection />
         <ServiceStripSection />
         <HowItWorksSection />
         <PricingSection />

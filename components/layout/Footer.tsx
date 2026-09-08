@@ -9,7 +9,7 @@ import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/contact/site";
 
 export default function Footer() {
   const email = mailtoHref({
-    subject: "Scooter hire enquiry",
+    subject: "Vehicle hire enquiry",
     body: defaultGreetingMessage(),
   });
 

@@ -7,14 +7,14 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
-  title: "MG3 Car Hire Sunshine Coast | From $50/day | Honk Hire Co",
+  title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
   description:
-    "Hire an automatic MG3 hatchback on the Sunshine Coast. From $50/day, $298/week, or $1,050/month. Apple CarPlay, reverse camera, 4-star ANCAP safety. Pickup from Tewantin.",
+    "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum. Apple CarPlay, reverse camera, 4-star ANCAP safety. Pickup from Tewantin.",
   alternates: { canonical: "/mg3-hire" },
   openGraph: {
-    title: "MG3 Car Hire Sunshine Coast | From $50/day | Honk Hire Co",
+    title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
     description:
-      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $50/day, $298/week, or $1,050/month. Apple CarPlay, reverse camera, 4-star ANCAP safety.",
+      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum. Apple CarPlay, reverse camera, 4-star ANCAP safety.",
     url: "https://honkhireco.com.au/mg3-hire",
     siteName: "Honk Hire Co",
     type: "website",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MG3 Car Hire Sunshine Coast | From $50/day | Honk Hire Co",
+    title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
     description:
-      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $50/day, $298/week, or $1,050/month.",
+      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum.",
   },
 };
 
@@ -34,7 +34,7 @@ const schema = {
   name: "MG3 Car Hire — Sunshine Coast",
   serviceType: "Vehicle Rental",
   description:
-    "Automatic MG3 hatchback available for daily, weekly, or monthly hire on the Sunshine Coast. Apple CarPlay & Android Auto, reverse camera, 4-star ANCAP safety rating. Pickup from Tewantin.",
+    "Automatic MG3 hatchback available for weekly hire on the Sunshine Coast, 4-week minimum. Apple CarPlay & Android Auto, reverse camera, 4-star ANCAP safety rating. Pickup from Tewantin.",
   provider: {
     "@type": "LocalBusiness",
     name: "Honk Hire Co",
@@ -51,13 +51,13 @@ const schema = {
   },
   offers: {
     "@type": "Offer",
-    price: "50",
+    price: "199",
     priceCurrency: "AUD",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "50",
+      price: "199",
       priceCurrency: "AUD",
-      unitText: "DAY",
+      unitText: "WEEK",
     },
   },
   areaServed: { "@type": "State", name: "Queensland" },
@@ -73,20 +73,20 @@ const FEATURES = [
   "Fuel-efficient — approx. 6.5L/100km combined",
   "Seats 5 comfortably",
   "293L boot space",
-  "Approved for DiDi, Ola & other rideshare platforms",
+  "Available for approved delivery-driver work (Uber Eats, DoorDash & similar)",
 ];
 
 const IDEAL_FOR = [
   { icon: "🚗", title: "Everyday driving", desc: "Easy, economical transport for getting around the Sunshine Coast." },
   { icon: "🧳", title: "Visitors & tourists", desc: "No car? Explore Noosa to Caloundra at your own pace." },
-  { icon: "🚕", title: "Rideshare driving", desc: "Approved for DiDi, Ola, and other rideshare platforms." },
+  { icon: "📦", title: "Delivery driving", desc: "Approved for food and parcel delivery work — declare your intended use when you enquire." },
   { icon: "✈️", title: "Airport pickup & drop-off", desc: "Land, collect, and go — no waiting around." },
   { icon: "🛍️", title: "Weekly errands & commuting", desc: "Fuel-efficient and easy to park around town." },
-  { icon: "📅", title: "Short or long-term hire", desc: "Daily, weekly, or monthly rates to suit your stay." },
+  { icon: "🏢", title: "Business & longer stays", desc: "Weekly hire suits workers, local businesses, and extended visits." },
 ];
 
 const SPECS = [
-  { label: "Rate", value: "$50/day", sub: "or $298/week" },
+  { label: "Rate", value: "$199/week", sub: "4-week minimum" },
   { label: "Vehicle", value: "MG3", sub: "automatic hatchback" },
   { label: "Seats", value: "5 seats", sub: "293L boot" },
   { label: "Safety", value: "4★ ANCAP", sub: "2025 rating" },
@@ -131,14 +131,14 @@ export default function Mg3HirePage() {
             </h1>
 
             <p className="mt-3 text-xl font-medium text-[var(--fg-muted)]">
-              Automatic hatchback, ready for daily driving, rideshare, or weekly hire. From $50/day.
+              Automatic hatchback, ready for weekly hire. From $199/week, 4-week minimum.
             </p>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)]">
               Need an easy, fuel-efficient car for getting around the Sunshine Coast? Our MG3 automatic
               hatchback comes with Apple CarPlay &amp; Android Auto, a reverse camera, and a 4-star ANCAP
-              safety rating (2025) — comfortable, economical, and approved for rideshare platforms like
-              DiDi and Ola.
+              safety rating (2025) — comfortable and economical for travellers, workers, and local
+              businesses on a longer stay.
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">
@@ -284,6 +284,10 @@ export default function Mg3HirePage() {
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
                   <span><strong className="text-[var(--fg)]">Driver&apos;s licence</strong> — a valid car licence is required. Minimum age and any additional conditions are confirmed before your hire is issued.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
+                  <span><strong className="text-[var(--fg)]">Minimum hire</strong> — 4 weeks.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>

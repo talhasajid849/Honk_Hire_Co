@@ -26,10 +26,10 @@ export default function PricingSection() {
             >
               <div>
                 <p className="text-sm font-semibold text-[var(--fg)]">{scooter.name}</p>
-                <p className="text-xs text-[var(--fg-muted)]">{scooter.cc}cc · weekly (2+ wks)</p>
+                <p className="text-xs text-[var(--fg-muted)]">{scooter.cc}cc · weekly</p>
               </div>
               <p className="font-display text-2xl font-semibold italic text-[var(--accent)]">
-                from ${scooter.weeklyPrice}
+                ${scooter.weeklyPrice}
               </p>
             </motion.div>
           ))}
@@ -69,7 +69,6 @@ export default function PricingSection() {
         >
           The <strong className="text-[var(--fg)]">$300</strong> bond is separate from your weekly hire
           and is refunded when the scooter returns in agreed condition, subject to any extra-km charges.
-          Hires under 2 weeks are billed at $180/wk (50cc) or $200/wk (125cc).
         </motion.p>
       </div>
     </section>

@@ -247,13 +247,13 @@ export default function ContactSection() {
                       className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-3 text-sm text-[var(--fg)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
                     >
                       <option value="">Select model</option>
-                      <option value="50cc">Coastal 50 — $135/wk (2+ wk) · $180/wk short stay</option>
-                      <option value="125cc">Classic 125 — $145/wk (2+ wk) · $200/wk short stay</option>
+                      <option value="50cc">Coastal 50 — $135/wk</option>
+                      <option value="125cc">Classic 125 — $145/wk</option>
                     </select>
                   </label>
                   <label className="block">
                     <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--fg-muted)]">
-                      Weeks (min. 1)
+                      Weeks (min. 2)
                     </span>
                     <input
                       name="weeks"

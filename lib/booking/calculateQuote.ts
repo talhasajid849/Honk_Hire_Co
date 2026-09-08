@@ -1,9 +1,7 @@
 import {
   DELIVERY_FEE,
-  LONG_TERM_THRESHOLD_WEEKS,
   MIN_HIRE_WEEKS,
   SECURITY_DEPOSIT,
-  SHORT_TERM_WEEKLY_RATES,
   WEEKLY_RATES,
   type ScooterTierId,
 } from "./pricingConfig";
@@ -47,9 +45,7 @@ export function calculateBookingQuote(input: BookingQuoteInput): BookingQuoteRes
 
   const weeklyRate =
     input.scooterId && input.scooterId in WEEKLY_RATES
-      ? weeks >= LONG_TERM_THRESHOLD_WEEKS
-        ? WEEKLY_RATES[input.scooterId as ScooterTierId]
-        : SHORT_TERM_WEEKLY_RATES[input.scooterId as ScooterTierId]
+      ? WEEKLY_RATES[input.scooterId as ScooterTierId]
       : 0;
 
   const delivery = input.wantsDelivery ? DELIVERY_FEE : 0;
@@ -67,7 +63,7 @@ export function calculateBookingQuote(input: BookingQuoteInput): BookingQuoteRes
       fullStayEstimate: "—",
       validationMessage: !input.scooterId
         ? "Select a scooter."
-        : `Minimum hire is ${MIN_HIRE_WEEKS} week${MIN_HIRE_WEEKS === 1 ? "" : "s"}.`,
+        : `Minimum hire is ${MIN_HIRE_WEEKS} weeks.`,
     };
   }
 

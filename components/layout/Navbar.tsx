@@ -60,7 +60,7 @@ export default function Navbar() {
   };
 
   const emailQuick = mailtoHref({
-    subject: "Scooter hire enquiry",
+    subject: "Vehicle hire enquiry",
     body: defaultGreetingMessage(),
   });
 

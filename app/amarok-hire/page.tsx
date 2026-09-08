@@ -7,14 +7,14 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
-  title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $104/day | Honk Hire Co",
+  title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
   description:
-    "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $104/day including insurance. Electronic brake controller fitted. Perfect for caravan and camper towing. Pickup from Noosa.",
+    "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing. Pickup from Noosa.",
   alternates: { canonical: "/amarok-hire" },
   openGraph: {
-    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $104/day | Honk Hire Co",
+    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
     description:
-      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $104/day including insurance. Electronic brake controller fitted. Perfect for caravan and camper towing.",
+      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing.",
     url: "https://honkhireco.com.au/amarok-hire",
     siteName: "Honk Hire Co",
     type: "website",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $104/day | Honk Hire Co",
+    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
     description:
-      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $104/day including insurance. Electronic brake controller fitted.",
+      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum.",
   },
 };
 
@@ -34,7 +34,7 @@ const schema = {
   name: "VW Amarok Ute Hire — Noosa & Sunshine Coast",
   serviceType: "Vehicle Rental",
   description:
-    "Near-new 2023 Volkswagen Amarok Life available for daily hire on the Sunshine Coast. $104/day including insurance. Electronic brake controller fitted for caravan and camper towing. Pickup from Noosa.",
+    "Near-new 2023 Volkswagen Amarok Life available for daily or weekly hire on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted for caravan and camper towing. Pickup from Noosa.",
   provider: {
     "@type": "LocalBusiness",
     name: "Honk Hire Co",
@@ -51,11 +51,11 @@ const schema = {
   },
   offers: {
     "@type": "Offer",
-    price: "104",
+    price: "120",
     priceCurrency: "AUD",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "104",
+      price: "120",
       priceCurrency: "AUD",
       unitText: "DAY",
     },
@@ -89,7 +89,7 @@ const IDEAL_FOR = [
 ];
 
 const SPECS = [
-  { label: "Rate", value: "$104/day", sub: "insurance included" },
+  { label: "Rate", value: "$120/day", sub: "or $600/week" },
   { label: "Vehicle", value: "2023 Amarok", sub: "VW Life — near-new" },
   { label: "Seats", value: "5 seats", sub: "dual cab" },
   { label: "Towing", value: "Up to 3.5t", sub: "brake controller fitted" },
@@ -134,7 +134,7 @@ export default function AmarokHirePage() {
             </h1>
 
             <p className="mt-3 text-xl font-medium text-[var(--fg-muted)]">
-              Near-new 2023 Amarok Life, set up and ready to tow. $104/day including insurance.
+              Near-new 2023 Amarok Life, set up and ready to tow. $120/day or $600/week including insurance.
             </p>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)]">
@@ -303,6 +303,10 @@ export default function AmarokHirePage() {
                 Good to know
               </h2>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[var(--fg-muted)]">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
+                  <span><strong className="text-[var(--fg)]">Minimum hire</strong> — 2 days.</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
                   <span><strong className="text-[var(--fg)]">North shore beach driving</strong> — available subject to conditions. Ask us when you enquire and we will walk you through what applies.</span>

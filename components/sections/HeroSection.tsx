@@ -13,7 +13,7 @@ export default function HeroSection() {
   };
 
   const emailHero = mailtoHref({
-    subject: "Scooter hire enquiry",
+    subject: "Vehicle hire enquiry",
     body: defaultGreetingMessage(),
   });
 
@@ -45,7 +45,7 @@ export default function HeroSection() {
             transition={{ delay: 0.08, duration: 0.55 }}
             className="font-display mt-6 text-4xl font-semibold italic leading-[1.05] text-[var(--fg)] sm:text-5xl lg:text-[3.35rem] xl:text-6xl"
           >
-            Scooter Hire Sunshine Coast – Pickup or Delivery
+            Car, Ute &amp; Scooter Hire Sunshine Coast
           </motion.h1>
 
           <motion.h2
@@ -54,7 +54,7 @@ export default function HeroSection() {
             transition={{ delay: 0.12, duration: 0.5 }}
             className="mt-4 text-2xl font-semibold text-[var(--fg)] sm:text-3xl"
           >
-            Honk Hire Co — ride the Coast your way
+            Affordable wheels. Flexible hire. Delivered across the Coast.
           </motion.h2>
 
           <motion.p
@@ -63,10 +63,9 @@ export default function HeroSection() {
             transition={{ delay: 0.16, duration: 0.5 }}
             className="mt-6 max-w-lg text-base leading-relaxed text-[var(--fg-muted)] md:text-lg"
           >
-            Scooter rental for tourists and short stays from{" "}
+            Vehicle hire for travellers, workers, local businesses and longer stays — available across
+            the Sunshine Coast, from{" "}
             <strong className="font-medium text-[var(--fg)]">Noosa to Caloundra</strong>.
-            50cc from <strong className="text-[var(--fg)]">$135/week</strong>, 125cc from{" "}
-            <strong className="text-[var(--fg)]">$145/week</strong> (2+ weeks) — shorter stays from $180/week.
           </motion.p>
 
           <motion.ul
@@ -76,9 +75,11 @@ export default function HeroSection() {
             className="mt-6 flex flex-col gap-2 text-sm text-[var(--fg-muted)]"
           >
             {[
-              "Free pickup: Tewantin",
-              "$300 refundable security deposit",
-              "Extra km: $0.23/km over 500 km/week",
+              "Pickup from Tewantin",
+              "Delivery available across the Sunshine Coast",
+              "Short & long-term options",
+              "International drivers welcome, subject to approval",
+              "Business & delivery-driver options available",
             ].map((line) => (
               <li key={line} className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--accent)]" />
@@ -104,10 +105,10 @@ export default function HeroSection() {
             </motion.a>
             <button
               type="button"
-              onClick={() => scrollTo("#contact")}
+              onClick={() => scrollTo("#vehicles")}
               className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-8 py-4 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40"
             >
-              Book now
+              View vehicles
             </button>
           </motion.div>
 
@@ -165,12 +166,12 @@ export default function HeroSection() {
             >
               <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-4 shadow-xl backdrop-blur-md">
                 <p className="text-xs font-medium uppercase tracking-wider text-[var(--fg-subtle)]">
-                  From
+                  Scooters from
                 </p>
                 <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
                   $135<span className="text-lg not-italic">/week</span>
                 </p>
-                <p className="mt-1 text-xs text-[var(--fg-muted)]">50cc · 2+ week rate · bond extra</p>
+                <p className="mt-1 text-xs text-[var(--fg-muted)]">50cc · min. 2 weeks · bond extra</p>
               </div>
             </motion.div>
           </div>
