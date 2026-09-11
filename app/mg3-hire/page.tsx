@@ -189,10 +189,10 @@ export default function Mg3HirePage() {
           <div className="mx-auto max-w-5xl space-y-4">
             <div className="relative w-full overflow-hidden rounded-2xl border border-[var(--border)]">
               <Image
-                src="/images/mg3-1.webp"
-                alt="MG3 automatic hatchback — exterior"
-                width={1080}
-                height={608}
+                src="/images/mg3-coastal.jpeg"
+                alt="MG3 automatic hatchback — exterior, Sunshine Coast"
+                width={1290}
+                height={739}
                 className="h-auto w-full"
                 sizes="100vw"
                 priority

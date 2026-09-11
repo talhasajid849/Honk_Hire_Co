@@ -17,7 +17,7 @@ export const SCOOTERS: ScooterType[] = [
     licenceRequired: "Car licence accepted",
     passengerAllowed: true,
     image: "🛵",
-    imageSrc: "/images/50cc.jpeg",
+    imageSrc: "/images/50cc-coastal.jpeg",
     color: "#3d6b4a",
     features: [
       "Automatic — twist and go",

@@ -146,34 +146,16 @@ export default function HeroSection() {
               }}
             />
             <div className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-card)]">
-              <div className="absolute inset-0 z-10 bg-[var(--hero-veil)] lg:bg-none lg:opacity-0" />
               <Image
-                src="/images/125cc.jpeg"
-                alt="Honk Hire Co scooter hire on the Sunshine Coast"
-                width={900}
-                height={1200}
+                src="/images/fleet-lineup.jpeg"
+                alt="Honk Hire Co fleet — car, ute, and scooters on the Sunshine Coast"
+                width={1254}
+                height={1254}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-auto w-full object-cover object-center"
                 priority
               />
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute -bottom-4 left-4 right-4 z-20 sm:left-auto sm:right-6 sm:w-[min(100%,280px)]"
-            >
-              <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-4 shadow-xl backdrop-blur-md">
-                <p className="text-xs font-medium uppercase tracking-wider text-[var(--fg-subtle)]">
-                  Scooters from
-                </p>
-                <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
-                  $135<span className="text-lg not-italic">/week</span>
-                </p>
-                <p className="mt-1 text-xs text-[var(--fg-muted)]">50cc · min. 2 weeks · bond extra</p>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
       </div>
