@@ -29,11 +29,9 @@ const VEHICLES = [
   },
 ];
 
-export default function VehiclePricingSection() {
-  return (
-    <section id="vehicles" className="bg-[var(--bg)] px-6 py-20">
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-4 sm:grid-cols-3">
+export default function VehiclePricingSection({ embedded = false }: { embedded?: boolean }) {
+  const cards = (
+    <div className="grid gap-4 sm:grid-cols-3">
           {VEHICLES.map(({ imageSrc, imageAlt, title, price, note, href }) => (
             <Link
               key={title}
@@ -60,8 +58,14 @@ export default function VehiclePricingSection() {
               </div>
             </Link>
           ))}
-        </div>
-      </div>
+    </div>
+  );
+
+  if (embedded) return cards;
+
+  return (
+    <section id="vehicles" className="bg-[var(--bg)] px-6 py-20">
+      <div className="mx-auto max-w-5xl">{cards}</div>
     </section>
   );
 }

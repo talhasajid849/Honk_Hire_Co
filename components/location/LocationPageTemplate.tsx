@@ -6,6 +6,7 @@ import { CheckCircle2, MapPin, Mail, ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import DeliveryQuoteRequest from "@/components/ui/DeliveryQuoteRequest";
+import VehiclePricingSection from "@/components/sections/VehiclePricingSection";
 import { mailtoHref } from "@/lib/contact/mailto";
 import { getLocation, locationPath, type LocationData } from "@/lib/locations";
 
@@ -231,6 +232,28 @@ export function LocationPageTemplate({ location }: Props) {
             </div>
           </section>
         )}
+
+        {/* ── Car & ute ── */}
+        <section className="bg-[var(--bg)] px-6 pb-20">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="font-display text-3xl font-semibold italic text-[var(--fg)] sm:text-4xl">
+              {location.carUteSection.heading}
+            </h2>
+            <p className="mt-3 max-w-2xl text-[var(--fg-muted)]">{location.carUteSection.body}</p>
+            <div className="mt-8">
+              <VehiclePricingSection embedded />
+            </div>
+            <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium">
+              <Link href="/mg3-hire" className="text-[var(--accent)] underline-offset-4 hover:underline">
+                View Car Hire
+              </Link>
+              <span className="text-[var(--fg-subtle)]" aria-hidden>·</span>
+              <Link href="/amarok-hire" className="text-[var(--accent)] underline-offset-4 hover:underline">
+                View Ute Hire
+              </Link>
+            </p>
+          </div>
+        </section>
 
         {/* ── How it works ── */}
         <section className="bg-[var(--bg-alt)] px-6 py-20">

@@ -11,6 +11,7 @@ export interface LocationData {
   h1: string;
   tagline: string;
   intro: string;
+  carUteSection: { heading: string; body: string };
   pickupType: "free" | "delivery";
   pickupLabel: string;
   /** "flat" = within the 20km $40 radius; "quote" = beyond it, priced individually. Omit for pickupType "free". */
@@ -31,13 +32,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   "sunshine-coast": {
     slug: "sunshine-coast",
     name: "Sunshine Coast",
-    metaTitle: "Scooter Hire Sunshine Coast | From $135/week | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Sunshine Coast | From $135/week | Honk Hire Co",
     metaDescription:
-      "Rent a scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or $40 delivery within 20km. From $135/week. Noosa to Caloundra. Book now.",
-    h1: "Scooter Hire Sunshine Coast",
+      "Rent a car, ute or scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or delivery across the Coast. Noosa to Caloundra. Book now.",
+    h1: "Car, Ute & Scooter Hire Sunshine Coast",
     tagline: "From Noosa to Caloundra — pickup or delivery, your way",
     intro:
-      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your scooter anywhere on the Coast — $40 covers delivery within 20km of our Tewantin base, and anywhere further is quoted individually based on your exact location. Weekly hire from $135, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your car, ute or scooter anywhere on the Coast — $40 covers delivery within 20km of our Tewantin base, and anywhere further is quoted individually based on your exact location. Weekly hire from $135, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+    carUteSection: {
+      heading: "Need a car or ute instead?",
+      body:
+        "Prefer four wheels? We've also got you covered. Our MG3 hatchback is perfect for couples and small families exploring the Coast, and our Amarok ute suits tradies, movers, and anyone needing extra space. Same easy process, same Tewantin pickup or Sunshine Coast delivery.",
+    },
     pickupType: "free",
     pickupLabel: "Free pickup: Tewantin · $40 delivery within 20km, quoted beyond",
     highlights: [
@@ -68,13 +74,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   noosa: {
     slug: "noosa",
     name: "Noosa",
-    metaTitle: "Scooter Hire Noosa | Rent a Scooter Near Noosa Heads | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Noosa | Rent Near Noosa Heads | Honk Hire Co",
     metaDescription:
-      "Explore Noosa Heads, the National Park & Hastings Street by scooter. Delivery to Noosa for $40. Weekly hire from $135. Book with Honk Hire Co.",
-    h1: "Scooter Hire Noosa",
+      "Explore Noosa Heads, the National Park & Hastings Street by scooter, car or ute. Delivery to Noosa available. Book with Honk Hire Co.",
+    h1: "Car, Ute & Scooter Hire Noosa",
     tagline: "Noosa National Park, Hastings Street & the Noosa River — on your schedule",
     intro:
-      "Noosa is one of Australia's most iconic coastal destinations, and the best way to enjoy it is not by car. We deliver your scooter to your Noosa accommodation for $40 — then you ride between Main Beach, the National Park, and Hastings Street without ever stressing about parking.",
+      "Noosa is one of Australia's most iconic coastal destinations, whether you're weaving through town on a scooter or exploring further afield in a car or ute, we've got the right vehicle for it. We deliver your scooter to your Noosa accommodation for $40 — then you ride between Main Beach, the National Park, and Hastings Street without ever stressing about parking.",
+    carUteSection: {
+      heading: "Prefer a car or ute in Noosa?",
+      body:
+        "If you're travelling with family, carrying luggage, or just prefer four wheels, our MG3 (car) and Amarok (ute) are available with delivery to Noosa too.",
+    },
     pickupType: "delivery",
     pickupLabel: "$40 flat delivery to Noosa",
     deliveryPricing: "flat",
@@ -106,13 +117,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   tewantin: {
     slug: "tewantin",
     name: "Tewantin",
-    metaTitle: "Scooter Hire Tewantin | Free Pickup — Our Home Base | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Tewantin | Free Pickup | Honk Hire Co",
     metaDescription:
-      "Free scooter pickup from our Tewantin base at 10 Forest Ct. Weekly hire from $135. 5 minutes from Noosa — the most convenient start to your Sunshine Coast ride.",
-    h1: "Scooter Hire Tewantin",
+      "Free pickup on scooters, cars and utes from our Tewantin base. Explore the Sunshine Coast your way. Book with Honk Hire Co today.",
+    h1: "Car, Ute & Scooter Hire Tewantin",
     tagline: "Our home base — free pickup, 5 minutes from Noosa",
     intro:
-      "Tewantin is where Honk Hire Co is based, making it the most cost-effective place to start your Sunshine Coast adventure. Pick up your scooter for free from 10 Forest Ct and you are immediately minutes from Noosa, the Noosa River, and the National Park — with no delivery fee to pay.",
+      "Tewantin is where Honk Hire Co is based, making it the most cost-effective place to start your Sunshine Coast adventure. Pick up your car, ute or scooter for free from 10 Forest Ct and you are immediately minutes from Noosa, the Noosa River, and the National Park — with no delivery fee to pay.",
+    carUteSection: {
+      heading: "Cars and utes also available for free pickup",
+      body:
+        "Since Tewantin is our home base, it's the most cost-effective way to pick up any vehicle in our fleet, not just scooters. Our MG3 (car) and Amarok (ute) are both available for free pickup here too.",
+    },
     pickupType: "free",
     pickupLabel: "Free pickup — 10 Forest Ct, Tewantin QLD 4565",
     highlights: [
@@ -143,13 +159,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   caloundra: {
     slug: "caloundra",
     name: "Caloundra",
-    metaTitle: "Scooter Hire Caloundra | Rent a Scooter in Caloundra | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Caloundra | Honk Hire Co",
     metaDescription:
-      "Explore Kings Beach and Caloundra's coastline by scooter. Honk Hire Co delivers to Caloundra — request a delivery quote. From $135/week. Book now.",
-    h1: "Scooter Hire Caloundra",
+      "Rent a scooter, car or ute in Caloundra. Delivery quoted individually, free pickup from nearby Tewantin. Book with Honk Hire Co.",
+    h1: "Car, Ute & Scooter Hire Caloundra",
     tagline: "Kings Beach, Bulcock Beach & the Glass House Mountains — all within reach",
     intro:
-      "Caloundra sits at the southern gateway to the Sunshine Coast with a string of beautiful beaches and a relaxed pace that makes scooter riding genuinely enjoyable. We deliver straight to your accommodation — Caloundra is outside our 20km flat-rate radius from Tewantin, so delivery here is quoted individually based on your exact address — then the whole coastline is yours.",
+      "Caloundra sits at the southern gateway to the Sunshine Coast with a string of beautiful beaches and a relaxed pace that makes scooter riding genuinely enjoyable but if you prefer 4 wheels, we’ve got you covered. We deliver straight to your accommodation — Caloundra is outside our 20km flat-rate radius from Tewantin, so delivery here is quoted individually based on your exact address — then the whole coastline is yours.",
+    carUteSection: {
+      heading: "Also need a car or ute in Caloundra?",
+      body:
+        "Kings Beach, Bulcock Beach and the Glass House Mountains are all easy to reach, whether you're on a scooter or prefer our MG3 (car) or Amarok (ute).",
+    },
     pickupType: "delivery",
     pickupLabel: "Delivery quoted — outside 20km radius",
     deliveryPricing: "quote",
@@ -181,13 +202,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   mooloolaba: {
     slug: "mooloolaba",
     name: "Mooloolaba",
-    metaTitle: "Scooter Hire Mooloolaba | Scooter Rental Delivered to Mooloolaba | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Mooloolaba | Honk Hire Co",
     metaDescription:
-      "Explore Mooloolaba Beach and The Esplanade by scooter. Honk Hire Co delivers to Mooloolaba — request a delivery quote. From $135/week. Book now.",
-    h1: "Scooter Hire Mooloolaba",
+      "Rent a scooter, car or ute in Mooloolaba. Delivery available, free pickup from nearby Tewantin. Book with Honk Hire Co.",
+    h1: "Car, Ute & Scooter Hire Mooloolaba",
     tagline: "The Esplanade, the marina & Alexandra Headland — cruise it all",
     intro:
-      "Mooloolaba is one of the Sunshine Coast's most popular beach towns and one of the best for scooter riding. The flat esplanade, the marina strip, and the headland roads make for easy, enjoyable cruising — and we deliver your scooter right to where you are staying. Mooloolaba sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address.",
+      "Mooloolaba is one of the Sunshine Coast's most popular beach towns and one of the best for scooter riding but if you prefer 4 wheels, we’ve got you covered. The flat esplanade, the marina strip, and the headland roads make for easy, enjoyable cruising — and we deliver your car, ute or scooter right to where you are staying. Mooloolaba sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address.",
+    carUteSection: {
+      heading: "Also need a car or ute in Mooloolaba?",
+      body:
+        "Cruising the Esplanade is great on a scooter, but if you'd rather four wheels, our MG3 (car) and Amarok (ute) are available with delivery to Mooloolaba too.",
+    },
     pickupType: "delivery",
     pickupLabel: "Delivery quoted — outside 20km radius",
     deliveryPricing: "quote",
@@ -219,13 +245,18 @@ export const LOCATIONS: Record<string, LocationData> = {
   maroochydore: {
     slug: "maroochydore",
     name: "Maroochydore",
-    metaTitle: "Scooter Hire Maroochydore | Scooter Rental Delivered to Maroochydore | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Maroochydore | Honk Hire Co",
     metaDescription:
-      "Explore Maroochydore, Cotton Tree & Alexandra Headland by scooter. Honk Hire Co delivers to Maroochydore — request a delivery quote. From $135/week. Book now.",
-    h1: "Scooter Hire Maroochydore",
+      "Rent a scooter, car or ute in Maroochydore. Delivery available, free pickup from nearby Tewantin. Book with Honk Hire Co.",
+    h1: "Car, Ute & Scooter Hire Maroochydore",
     tagline: "Cotton Tree, Alexandra Headland & the Sunshine Coast hub — delivered to your door",
     intro:
-      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast. We deliver your scooter straight to your accommodation — Maroochydore sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address — then you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
+      "Maroochydore is the commercial and lifestyle heart of the Sunshine Coast. We deliver your car, ute or scooter straight to your accommodation — Maroochydore sits outside our 20km flat-rate radius from Tewantin, so delivery is quoted individually based on your exact address — then you are instantly positioned to ride north toward Noosa or south toward Caloundra. Cotton Tree, Alexandra Headland, and the new city centre are all within easy reach.",
+    carUteSection: {
+      heading: "Also need a car or ute in Maroochydore?",
+      body:
+        "Whether it's for exploring The Esplanade or getting around for work, our MG3 (car) and Amarok (ute) are available with delivery to Maroochydore.",
+    },
     pickupType: "delivery",
     pickupLabel: "Delivery quoted — outside 20km radius",
     deliveryPricing: "quote",
