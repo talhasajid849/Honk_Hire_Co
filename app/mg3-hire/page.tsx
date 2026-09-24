@@ -303,7 +303,7 @@ export default function Mg3HirePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Pickup &amp; delivery</strong> — free pickup from our Tewantin base, or $100 delivery within 20km (further away is quoted individually).</span>
+                  <span><strong className="text-[var(--fg)]">Pickup &amp; delivery</strong> — free pickup from our Tewantin base, or delivery from $80 within 20km (further away is quoted individually).</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>

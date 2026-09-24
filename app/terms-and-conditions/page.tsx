@@ -25,7 +25,7 @@ const KEY_TERMS = [
   {
     label: "Delivery / collection",
     scooters: "Current scooter pricing",
-    cars: "$100 within 20 km; further quoted",
+    cars: "From $80 within 20 km; further quoted",
   },
 ];
 
@@ -37,7 +37,7 @@ const CAR_SCHEDULE = [
   { item: "Included distance", value: "1,000 km per week" },
   { item: "Excess distance", value: "$0.30 per km" },
   { item: "Additional approved driver", value: "$25 per week" },
-  { item: "Delivery / collection", value: "$100 within 20 km, subject to availability; further distances quoted" },
+  { item: "Delivery / collection", value: "From $80 within 20 km, subject to availability; further distances quoted" },
   { item: "Delivery work", value: "Permitted only where declared and approved; insurance conditions may apply" },
   { item: "Passenger rideshare", value: "Not permitted unless later approved in writing" },
   { item: "General cleaning", value: "$120 where applicable" },
@@ -256,7 +256,7 @@ export default function TermsAndConditionsPage() {
             <div className="space-y-3">
               <p>
                 <strong className="text-[var(--fg)]">5.1 Cars.</strong> Car delivery and/or collection is
-                subject to availability. The standard charge is $100 within 20 km of Honk Hire Co&apos;s
+                subject to availability. The standard charge starts at $80 within 20 km of Honk Hire Co&apos;s
                 nominated service location. Locations beyond 20 km are quoted individually.
               </p>
               <p>
