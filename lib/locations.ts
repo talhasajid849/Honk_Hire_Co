@@ -32,13 +32,13 @@ export const LOCATIONS: Record<string, LocationData> = {
   "sunshine-coast": {
     slug: "sunshine-coast",
     name: "Sunshine Coast",
-    metaTitle: "Car, Ute & Scooter Hire Sunshine Coast | From $135/week | Honk Hire Co",
+    metaTitle: "Car, Ute & Scooter Hire Sunshine Coast | From $150/week | Honk Hire Co",
     metaDescription:
       "Rent a car, ute or scooter anywhere on the Sunshine Coast. Free pickup from Tewantin or delivery across the Coast. Noosa to Caloundra. Book now.",
     h1: "Car, Ute & Scooter Hire Sunshine Coast",
     tagline: "From Noosa to Caloundra — pickup or delivery, your way",
     intro:
-      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your car, ute or scooter anywhere on the Coast — $40 covers delivery within 20km of our Tewantin base, and anywhere further is quoted individually based on your exact location. Weekly hire from $135, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
+      "Honk Hire Co covers the full Sunshine Coast. Free pickup from Tewantin, or we deliver your car, ute or scooter anywhere on the Coast — $40 covers delivery within 20km of our Tewantin base, and anywhere further is quoted individually based on your exact location. Weekly hire from $150, minimum 2 weeks. 50cc automatic (car licence accepted) or 125cc retro — both built for coastal riding.",
     carUteSection: {
       heading: "Need a car or ute instead?",
       body:

@@ -23,7 +23,7 @@ const VEHICLES = [
     imageSrc: "/images/50cc-coastal.jpeg",
     imageAlt: "Coastal 50 scooter — scooter hire",
     title: "Scooter Hire",
-    price: "From $135/week",
+    price: "From $150/week",
     note: "2-week minimum",
     href: "/scooter-hire-sunshine-coast",
   },

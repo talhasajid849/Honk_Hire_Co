@@ -11,7 +11,7 @@ import { mailtoHref } from "@/lib/contact/mailto";
 import { getLocation, locationPath, type LocationData } from "@/lib/locations";
 
 const QUICK_FACTS = [
-  { label: "From", value: "$135/week", sub: "50cc automatic" },
+  { label: "From", value: "$150/week", sub: "50cc automatic" },
   { label: "Minimum", value: "2 weeks", sub: "hire period" },
   { label: "Bond", value: "$300", sub: "fully refundable" },
   { label: "Included", value: "500 km/week", sub: "$0.23/km over" },

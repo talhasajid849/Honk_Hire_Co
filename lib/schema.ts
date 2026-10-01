@@ -15,13 +15,13 @@ export function buildLocalBusinessSchema(areaServed: string[]) {
     "@id": "https://honkhireco.com.au/#business",
     name: "Honk Hire Co",
     description:
-      "Weekly scooter hire on the Sunshine Coast. 50cc automatic from $135/week, car licence accepted. Free pickup from Tewantin or $40 delivery within 20km (quoted individually beyond that).",
+      "Weekly scooter hire on the Sunshine Coast. 50cc automatic from $150/week, car licence accepted. Free pickup from Tewantin or $40 delivery within 20km (quoted individually beyond that).",
     url: "https://honkhireco.com.au",
     telephone: "+61493654132",
     email: "info@honkhireco.com.au",
     image: "https://honkhireco.com.au/images/honk-logo.jpg",
     logo: "https://honkhireco.com.au/images/honk-logo.jpg",
-    priceRange: "$135-$145 per week",
+    priceRange: "$150-$160 per week",
     currenciesAccepted: "AUD",
     address: {
       "@type": "PostalAddress",
