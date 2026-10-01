@@ -4,6 +4,17 @@ import Link from "next/link";
 import { CheckCircle2, ArrowRight, Car, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { whatsappHref } from "@/lib/contact/site";
+
+const BOOKING_MESSAGE = [
+  "Hi Honk Hire Co, I'd like to book the MG3 (from $199/week, 4-week minimum).",
+  "",
+  "Start date: ",
+  "Number of weeks: ",
+  "Pickup from Tewantin or delivery (address): ",
+  "What will you use it for (e.g. personal, Uber Eats/DoorDash): ",
+  "Your name: ",
+].join("\n");
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
@@ -148,7 +159,7 @@ export default function Mg3HirePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://www.888carhire.com.au/fleet/mg3"
+                href={whatsappHref(BOOKING_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
@@ -329,7 +340,7 @@ export default function Mg3HirePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="https://www.888carhire.com.au/fleet/mg3"
+                href={whatsappHref(BOOKING_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"

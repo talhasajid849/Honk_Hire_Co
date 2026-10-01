@@ -4,6 +4,16 @@ import Link from "next/link";
 import { CheckCircle2, ArrowRight, Users, Truck, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { whatsappHref } from "@/lib/contact/site";
+
+const BOOKING_MESSAGE = [
+  "Hi Honk Hire Co, I'd like to book the VW Amarok ($120/day or $600/week, 2-day minimum).",
+  "",
+  "Start date: ",
+  "End date / number of days: ",
+  "Towing a caravan or camper? (make & model): ",
+  "Your name: ",
+].join("\n");
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
@@ -150,7 +160,7 @@ export default function AmarokHirePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://www.camplify.com.au/rv/154095"
+                href={whatsappHref(BOOKING_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
@@ -343,7 +353,7 @@ export default function AmarokHirePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="https://www.camplify.com.au/rv/154095"
+                href={whatsappHref(BOOKING_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
