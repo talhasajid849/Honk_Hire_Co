@@ -3,7 +3,7 @@ import { ScooterType, PricingRule, NavItem, FAQ } from "@/types";
 export const NAV_ITEMS: NavItem[] = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Rates", href: "#pricing" },
-  { label: "Fleet", href: "#scooters" },
+  { label: "Fleet", href: "#fleet" },
   { label: "FAQ", href: "#faq" },
   { label: "Book", href: "#contact" },
 ];

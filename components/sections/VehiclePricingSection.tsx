@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const VEHICLES = [
   {
@@ -64,8 +65,15 @@ export default function VehiclePricingSection({ embedded = false }: { embedded?:
   if (embedded) return cards;
 
   return (
-    <section id="vehicles" className="bg-[var(--bg)] px-6 py-20">
-      <div className="mx-auto max-w-5xl">{cards}</div>
+    <section id="fleet" className="bg-[var(--bg)] px-6 py-24">
+      <div className="mx-auto max-w-5xl">
+        <SectionHeader
+          badge="Fleet"
+          title="Cars, utes and scooters."
+          subtitle="Pick the vehicle that suits your stay — tap any card for full rates, terms and photos."
+        />
+        <div className="mt-16">{cards}</div>
+      </div>
     </section>
   );
 }

@@ -7,7 +7,7 @@ export default function ScootersSection() {
     <section id="scooters" className="bg-[var(--bg)] px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          badge="Fleet"
+          badge="Scooters"
           title="Two scooters. Two licence paths."
           subtitle="Pick the tier that matches your licence — we spell out passengers, bond, and weekly km upfront."
         />

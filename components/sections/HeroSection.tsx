@@ -105,10 +105,10 @@ export default function HeroSection() {
             </motion.a>
             <button
               type="button"
-              onClick={() => scrollTo("#vehicles")}
+              onClick={() => scrollTo("#fleet")}
               className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-8 py-4 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40"
             >
-              View vehicles
+              View fleet
             </button>
           </motion.div>
 
