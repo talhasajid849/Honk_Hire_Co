@@ -21,20 +21,43 @@ const LOCATION_LINKS = [
   { label: "Caloundra", slug: "caloundra", tag: "Delivery available" },
 ];
 
+const desktopItem = (active: boolean) =>
+  `cursor-pointer rounded-full px-3 py-2 text-sm font-medium tracking-wide transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)] ${
+    active ? "bg-[var(--accent-soft)] text-[var(--accent)]" : "text-[var(--fg-muted)]"
+  }`;
+
+const mobileItem = (active: boolean) =>
+  `cursor-pointer rounded-xl px-3 py-3 text-left ${
+    active ? "bg-[var(--accent-soft)] font-semibold text-[var(--accent)]" : "text-[var(--fg)]"
+  }`;
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isLocationPage = pathname.startsWith("/scooter-hire-");
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", handler);
+    const handler = () => {
+      setScrolled(window.scrollY > 24);
+      if (!isHome) return;
+      // Highlight the nav item whose section sits under the upper part of the viewport
+      const probe = window.innerHeight * 0.35;
+      const current = NAV_ITEMS.find(({ href }) => {
+        const rect = document.querySelector(href)?.getBoundingClientRect();
+        return rect && rect.top <= probe && rect.bottom > probe;
+      });
+      setActiveSection(current?.href ?? null);
+    };
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -46,7 +69,7 @@ export default function Navbar() {
     if (isHome) {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = `/${href}`;
+      window.location.assign(`/${href}`);
     }
   };
 
@@ -63,6 +86,8 @@ export default function Navbar() {
     subject: "Vehicle hire enquiry",
     body: defaultGreetingMessage(),
   });
+
+  const sectionActive = (href: string) => isHome && activeSection === href;
 
   return (
     <motion.header
@@ -103,7 +128,8 @@ export default function Navbar() {
               key={item.href}
               type="button"
               onClick={() => handleNav(item.href)}
-              className="rounded-full px-3 py-2 text-sm font-medium tracking-wide text-[var(--fg-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)]"
+              className={desktopItem(sectionActive(item.href))}
+              aria-current={sectionActive(item.href) ? "location" : undefined}
             >
               {item.label}
             </button>
@@ -112,7 +138,8 @@ export default function Navbar() {
           {/* Ute hire link */}
           <Link
             href="/amarok-hire"
-            className="rounded-full px-3 py-2 text-sm font-medium tracking-wide text-[var(--fg-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)]"
+            className={desktopItem(pathname === "/amarok-hire")}
+            aria-current={pathname === "/amarok-hire" ? "page" : undefined}
           >
             Ute Hire
           </Link>
@@ -120,7 +147,8 @@ export default function Navbar() {
           {/* Car hire link */}
           <Link
             href="/mg3-hire"
-            className="rounded-full px-3 py-2 text-sm font-medium tracking-wide text-[var(--fg-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)]"
+            className={desktopItem(pathname === "/mg3-hire")}
+            aria-current={pathname === "/mg3-hire" ? "page" : undefined}
           >
             Car Hire
           </Link>
@@ -133,11 +161,7 @@ export default function Navbar() {
           >
             <button
               type="button"
-              className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)] ${
-                locationsOpen
-                  ? "bg-[var(--accent-soft)] text-[var(--fg)]"
-                  : "text-[var(--fg-muted)]"
-              }`}
+              className={`flex items-center gap-1 ${desktopItem(isLocationPage || locationsOpen)}`}
               aria-expanded={locationsOpen}
               aria-haspopup="true"
             >
@@ -162,7 +186,10 @@ export default function Navbar() {
                   {/* Hub link */}
                   <Link
                     href="/scooter-hire-sunshine-coast"
-                    className="flex items-center gap-3 rounded-xl bg-[var(--accent-soft)] px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)]/80"
+                    aria-current={pathname === "/scooter-hire-sunshine-coast" ? "page" : undefined}
+                    className={`flex items-center gap-3 rounded-xl bg-[var(--accent-soft)] px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)]/80 ${
+                      pathname === "/scooter-hire-sunshine-coast" ? "ring-1 ring-[var(--accent)]/40" : ""
+                    }`}
                     onClick={() => setLocationsOpen(false)}
                   >
                     <MapPin className="h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
@@ -176,25 +203,37 @@ export default function Navbar() {
 
                   {/* Individual locations */}
                   <div className="grid grid-cols-1 gap-0.5">
-                    {LOCATION_LINKS.filter((l) => !l.hub).map((loc) => (
-                      <Link
-                        key={loc.slug}
-                        href={locationPath(loc.slug)}
-                        className="flex items-center justify-between rounded-xl px-3 py-2 transition-colors hover:bg-[var(--accent-soft)]"
-                        onClick={() => setLocationsOpen(false)}
-                      >
-                        <span className="text-sm font-medium text-[var(--fg)]">{loc.label}</span>
-                        <span
-                          className={`text-xs font-medium ${
-                            loc.tag === "Free pickup"
-                              ? "text-[var(--accent)]"
-                              : "text-[var(--fg-subtle)]"
+                    {LOCATION_LINKS.filter((l) => !l.hub).map((loc) => {
+                      const current = pathname === locationPath(loc.slug);
+                      return (
+                        <Link
+                          key={loc.slug}
+                          href={locationPath(loc.slug)}
+                          aria-current={current ? "page" : undefined}
+                          className={`flex items-center justify-between rounded-xl px-3 py-2 transition-colors hover:bg-[var(--accent-soft)] ${
+                            current ? "bg-[var(--accent-soft)]" : ""
                           }`}
+                          onClick={() => setLocationsOpen(false)}
                         >
-                          {loc.tag}
-                        </span>
-                      </Link>
-                    ))}
+                          <span
+                            className={`text-sm font-medium ${
+                              current ? "text-[var(--accent)]" : "text-[var(--fg)]"
+                            }`}
+                          >
+                            {loc.label}
+                          </span>
+                          <span
+                            className={`text-xs font-medium ${
+                              loc.tag === "Free pickup"
+                                ? "text-[var(--accent)]"
+                                : "text-[var(--fg-subtle)]"
+                            }`}
+                          >
+                            {loc.tag}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
@@ -219,7 +258,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-full border border-[var(--border)] p-2 text-[var(--fg)]"
+            className="cursor-pointer rounded-full border border-[var(--border)] p-2 text-[var(--fg)]"
             aria-expanded={menuOpen}
             aria-label="Menu"
           >
@@ -243,7 +282,8 @@ export default function Navbar() {
                   key={item.href}
                   type="button"
                   onClick={() => handleNav(item.href)}
-                  className="rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                  className={mobileItem(sectionActive(item.href))}
+                  aria-current={sectionActive(item.href) ? "location" : undefined}
                 >
                   {item.label}
                 </button>
@@ -251,7 +291,8 @@ export default function Navbar() {
 
               <Link
                 href="/amarok-hire"
-                className="rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                className={mobileItem(pathname === "/amarok-hire")}
+                aria-current={pathname === "/amarok-hire" ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
               >
                 Ute Hire
@@ -259,7 +300,8 @@ export default function Navbar() {
 
               <Link
                 href="/mg3-hire"
-                className="rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                className={mobileItem(pathname === "/mg3-hire")}
+                aria-current={pathname === "/mg3-hire" ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
               >
                 Car Hire
@@ -269,7 +311,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
-                className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-[var(--fg)]"
+                className={`flex items-center justify-between ${mobileItem(isLocationPage)}`}
               >
                 <span>Locations</span>
                 <ChevronDown
@@ -288,27 +330,39 @@ export default function Navbar() {
                     exit={{ opacity: 0, height: 0 }}
                     className="ml-3 overflow-hidden border-l-2 border-[var(--accent-soft)] pl-3"
                   >
-                    {LOCATION_LINKS.map((loc) => (
-                      <Link
-                        key={loc.slug}
-                        href={locationPath(loc.slug)}
-                        className="flex items-center justify-between py-2.5 text-sm"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        <span className={loc.hub ? "font-semibold text-[var(--fg)]" : "text-[var(--fg-muted)]"}>
-                          {loc.label}
-                        </span>
-                        {loc.tag && !loc.hub && (
+                    {LOCATION_LINKS.map((loc) => {
+                      const current = pathname === locationPath(loc.slug);
+                      return (
+                        <Link
+                          key={loc.slug}
+                          href={locationPath(loc.slug)}
+                          aria-current={current ? "page" : undefined}
+                          className="flex items-center justify-between py-2.5 text-sm"
+                          onClick={() => setMenuOpen(false)}
+                        >
                           <span
-                            className={`text-xs ${
-                              loc.tag === "Free pickup" ? "text-[var(--accent)]" : "text-[var(--fg-subtle)]"
-                            }`}
+                            className={
+                              current
+                                ? "font-semibold text-[var(--accent)]"
+                                : loc.hub
+                                  ? "font-semibold text-[var(--fg)]"
+                                  : "text-[var(--fg-muted)]"
+                            }
                           >
-                            {loc.tag}
+                            {loc.label}
                           </span>
-                        )}
-                      </Link>
-                    ))}
+                          {loc.tag && !loc.hub && (
+                            <span
+                              className={`text-xs ${
+                                loc.tag === "Free pickup" ? "text-[var(--accent)]" : "text-[var(--fg-subtle)]"
+                              }`}
+                            >
+                              {loc.tag}
+                            </span>
+                          )}
+                        </Link>
+                      );
+                    })}
                   </motion.div>
                 )}
               </AnimatePresence>
