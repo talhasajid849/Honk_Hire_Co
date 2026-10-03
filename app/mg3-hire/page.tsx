@@ -286,7 +286,31 @@ export default function Mg3HirePage() {
 
         {/* ── Important notes ── */}
         <section className="bg-[var(--bg-alt)] px-6 py-16">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-5xl space-y-4">
+            {/* Other car hire options */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link
+                href="/not-at-fault-car-hire-sunshine-coast"
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--accent)]/40"
+              >
+                <div>
+                  <p className="font-semibold text-[var(--fg)]">Not-at-fault accident?</p>
+                  <p className="mt-1 text-sm text-[var(--fg-muted)]">Check if you qualify for a replacement car.</p>
+                </div>
+                <ArrowRight className="h-5 w-5 shrink-0 text-[var(--accent)] transition-transform group-hover:translate-x-1" aria-hidden />
+              </Link>
+              <Link
+                href="/ride-share-car-hire"
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--accent)]/40"
+              >
+                <div>
+                  <p className="font-semibold text-[var(--fg)]">Driving for Uber Eats or DoorDash?</p>
+                  <p className="mt-1 text-sm text-[var(--fg-muted)]">See our ride-share &amp; delivery car hire.</p>
+                </div>
+                <ArrowRight className="h-5 w-5 shrink-0 text-[var(--accent)] transition-transform group-hover:translate-x-1" aria-hidden />
+              </Link>
+            </div>
+
             <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
               <h2 className="font-display text-xl font-semibold italic text-[var(--fg)]">
                 Good to know

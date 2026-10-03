@@ -53,7 +53,7 @@ export default function Footer() {
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
-                    href={item.href}
+                    href={`/${item.href}`}
                     className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
                   >
                     {item.label}
@@ -68,14 +68,20 @@ export default function Footer() {
                   Ute Hire
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/mg3-hire"
-                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
-                >
-                  Car Hire
-                </Link>
-              </li>
+              {[
+                { label: "Car Hire", href: "/mg3-hire" },
+                { label: "Ride-Share Car Hire", href: "/ride-share-car-hire" },
+                { label: "Not-at-Fault Car Hire", href: "/not-at-fault-car-hire-sunshine-coast" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

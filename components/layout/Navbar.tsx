@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Menu, X, ChevronDown, MapPin } from "lucide-react";
+import { Mail, Menu, X, ChevronDown, MapPin, Car } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { locationPath } from "@/lib/locations";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -21,6 +21,12 @@ const LOCATION_LINKS = [
   { label: "Caloundra", slug: "caloundra", tag: "Delivery available" },
 ];
 
+const CAR_LINKS = [
+  { label: "MG3 Car Hire", href: "/mg3-hire", desc: "Automatic hatchback · from $199/wk" },
+  { label: "Ride-Share & Delivery", href: "/ride-share-car-hire", desc: "Uber Eats, DoorDash & more" },
+  { label: "Not-at-Fault Replacement", href: "/not-at-fault-car-hire-sunshine-coast", desc: "Accident? Check eligibility" },
+];
+
 const desktopItem = (active: boolean) =>
   `cursor-pointer rounded-full px-3 py-2 text-sm font-medium tracking-wide transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--fg)] ${
     active ? "bg-[var(--accent-soft)] text-[var(--accent)]" : "text-[var(--fg-muted)]"
@@ -34,12 +40,16 @@ const mobileItem = (active: boolean) =>
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [locationsOpen, setLocationsOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<"cars" | "locations" | null>(null);
+  const [mobileCarsOpen, setMobileCarsOpen] = useState(false);
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isLocationPage = pathname.startsWith("/scooter-hire-");
+  const isCarPage = CAR_LINKS.some((c) => c.href === pathname);
+  const carsOpen = openMenu === "cars";
+  const locationsOpen = openMenu === "locations";
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -61,6 +71,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setMobileCarsOpen(false);
     setMobileLocationsOpen(false);
   }, [pathname]);
 
@@ -73,14 +84,17 @@ export default function Navbar() {
     }
   };
 
-  const openLocations = () => {
+  const openDropdown = (menu: "cars" | "locations") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setLocationsOpen(true);
+    setOpenMenu(menu);
   };
 
-  const closeLocations = () => {
-    closeTimer.current = setTimeout(() => setLocationsOpen(false), 120);
+  const closeDropdown = () => {
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 120);
   };
+
+  const openLocations = () => openDropdown("locations");
+  const closeLocations = closeDropdown;
 
   const emailQuick = mailtoHref({
     subject: "Vehicle hire enquiry",
@@ -144,14 +158,61 @@ export default function Navbar() {
             Ute Hire
           </Link>
 
-          {/* Car hire link */}
-          <Link
-            href="/mg3-hire"
-            className={desktopItem(pathname === "/mg3-hire")}
-            aria-current={pathname === "/mg3-hire" ? "page" : undefined}
+          {/* Car hire dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => openDropdown("cars")}
+            onMouseLeave={closeDropdown}
           >
-            Car Hire
-          </Link>
+            <button
+              type="button"
+              className={`flex items-center gap-1 ${desktopItem(isCarPage || carsOpen)}`}
+              aria-expanded={carsOpen}
+              aria-haspopup="true"
+              onClick={() => (carsOpen ? setOpenMenu(null) : openDropdown("cars"))}
+            >
+              Car Hire
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${carsOpen ? "rotate-180" : ""}`}
+                aria-hidden
+              />
+            </button>
+
+            <AnimatePresence>
+              {carsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 top-full mt-2 w-72 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-2 shadow-xl backdrop-blur-lg"
+                >
+                  {CAR_LINKS.map((car) => {
+                    const current = pathname === car.href;
+                    return (
+                      <Link
+                        key={car.href}
+                        href={car.href}
+                        aria-current={current ? "page" : undefined}
+                        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)] ${
+                          current ? "bg-[var(--accent-soft)]" : ""
+                        }`}
+                        onClick={() => setOpenMenu(null)}
+                      >
+                        <Car className="h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
+                        <div>
+                          <p className={`text-sm font-semibold ${current ? "text-[var(--accent)]" : "text-[var(--fg)]"}`}>
+                            {car.label}
+                          </p>
+                          <p className="text-xs text-[var(--fg-subtle)]">{car.desc}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Locations dropdown */}
           <div
@@ -190,7 +251,7 @@ export default function Navbar() {
                     className={`flex items-center gap-3 rounded-xl bg-[var(--accent-soft)] px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)]/80 ${
                       pathname === "/scooter-hire-sunshine-coast" ? "ring-1 ring-[var(--accent)]/40" : ""
                     }`}
-                    onClick={() => setLocationsOpen(false)}
+                    onClick={() => setOpenMenu(null)}
                   >
                     <MapPin className="h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
                     <div>
@@ -213,7 +274,7 @@ export default function Navbar() {
                           className={`flex items-center justify-between rounded-xl px-3 py-2 transition-colors hover:bg-[var(--accent-soft)] ${
                             current ? "bg-[var(--accent-soft)]" : ""
                           }`}
-                          onClick={() => setLocationsOpen(false)}
+                          onClick={() => setOpenMenu(null)}
                         >
                           <span
                             className={`text-sm font-medium ${
@@ -298,14 +359,49 @@ export default function Navbar() {
                 Ute Hire
               </Link>
 
-              <Link
-                href="/mg3-hire"
-                className={mobileItem(pathname === "/mg3-hire")}
-                aria-current={pathname === "/mg3-hire" ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
+              {/* Mobile car hire section */}
+              <button
+                type="button"
+                onClick={() => setMobileCarsOpen(!mobileCarsOpen)}
+                className={`flex items-center justify-between ${mobileItem(isCarPage)}`}
+                aria-expanded={mobileCarsOpen}
               >
-                Car Hire
-              </Link>
+                <span>Car Hire</span>
+                <ChevronDown
+                  className={`h-4 w-4 text-[var(--fg-muted)] transition-transform duration-200 ${
+                    mobileCarsOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden
+                />
+              </button>
+
+              <AnimatePresence>
+                {mobileCarsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="ml-3 overflow-hidden border-l-2 border-[var(--accent-soft)] pl-3"
+                  >
+                    {CAR_LINKS.map((car) => {
+                      const current = pathname === car.href;
+                      return (
+                        <Link
+                          key={car.href}
+                          href={car.href}
+                          aria-current={current ? "page" : undefined}
+                          className="flex items-center justify-between py-2.5 text-sm"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          <span className={current ? "font-semibold text-[var(--accent)]" : "text-[var(--fg-muted)]"}>
+                            {car.label}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* Mobile locations section */}
               <button
