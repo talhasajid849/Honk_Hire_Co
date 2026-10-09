@@ -330,7 +330,7 @@ export default function Mg3HirePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Included distance</strong> — 1,000km per week included; $0.30/km for any excess.</span>
+                  <span><strong className="text-[var(--fg)]">Included distance</strong> — 500km per week included; $0.30/km for any excess.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>

@@ -20,7 +20,7 @@ import type { FAQ } from "@/types";
 const PAGE_URL = "https://honkhireco.com.au/ride-share-car-hire";
 const TITLE = "Ride-Share & Delivery Car Hire Sunshine Coast | From $199/week | Honk Hire Co";
 const DESCRIPTION =
-  "Weekly car hire for Uber Eats, DoorDash and delivery drivers on the Sunshine Coast. Automatic MG3 from $199/week, 1,000km/week included. Pickup from Tewantin.";
+  "Weekly car hire for Uber Eats, DoorDash and delivery drivers on the Sunshine Coast. Automatic MG3 from $199/week, 500km/week included. Pickup from Tewantin.";
 
 const BOOKING_MESSAGE = [
   "Hi Honk Hire Co, I'd like to hire the MG3 for ride-share / delivery work.",
@@ -58,7 +58,7 @@ const WHY = [
 const FEATURES = [
   "Automatic MG3 hatchback — 5 seats",
   "Fuel-efficient — approx. 6.5L/100km combined",
-  "1,000km per week included",
+  "500km per week included",
   "Apple CarPlay & Android Auto for navigation",
   "Reverse camera & USB charging",
   "4-Star ANCAP safety rating (2025)",
@@ -68,7 +68,7 @@ const TERMS = [
   { label: "Rate", value: "$199/week" },
   { label: "Minimum hire", value: "4 weeks" },
   { label: "Bond", value: "$500 refundable" },
-  { label: "Included km", value: "1,000km/week" },
+  { label: "Included km", value: "500km/week" },
   { label: "Excess km", value: "$0.30/km" },
   { label: "Extra driver", value: "$25/week" },
 ];
@@ -87,7 +87,7 @@ const FAQS: FAQ[] = [
   {
     question: "How much does it cost?",
     answer:
-      "$199/week with a 4-week minimum, plus a refundable $500 bond. 1,000km per week is included, then $0.30/km. Additional approved drivers are $25/week.",
+      "$199/week with a 4-week minimum, plus a refundable $500 bond. 500km per week is included, then $0.30/km. Additional approved drivers are $25/week.",
   },
   {
     question: "Can you deliver the car?",
@@ -150,7 +150,7 @@ export default function RideShareCarHirePage() {
 
               <p className="mt-5 text-lg leading-relaxed text-[var(--fg-muted)]">
                 A fuel-efficient automatic MG3, ready for delivery work on the Sunshine Coast. From
-                $199/week with 1,000km a week included.
+                $199/week with 500km a week included.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">

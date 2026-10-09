@@ -14,7 +14,7 @@ const KEY_TERMS = [
     scooters: "1 week upfront; weekly in advance",
     cars: "1 week upfront; weekly in advance via Stripe",
   },
-  { label: "Included kilometres", scooters: "500 km/week", cars: "1,000 km/week" },
+  { label: "Included kilometres", scooters: "500 km/week", cars: "500 km/week" },
   { label: "Excess kilometres", scooters: "$0.23/km", cars: "$0.30/km" },
   {
     label: "Standard damage liability",
@@ -34,7 +34,7 @@ const CAR_SCHEDULE = [
   { item: "Minimum hire", value: "2 weeks" },
   { item: "Security deposit", value: "$500 — security only; not a liability cap" },
   { item: "Standard damage liability", value: "$1,000 per incident, subject to insurer confirmation" },
-  { item: "Included distance", value: "1,000 km per week" },
+  { item: "Included distance", value: "500 km per week" },
   { item: "Excess distance", value: "$0.30 per km" },
   { item: "Additional approved driver", value: "$25 per week" },
   { item: "Delivery / collection", value: "From $80 within 20 km, subject to availability; further distances quoted" },
