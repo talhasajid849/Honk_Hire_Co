@@ -22,7 +22,7 @@ const LOCATION_LINKS = [
 ];
 
 const CAR_LINKS = [
-  { label: "MG3 Car Hire", href: "/mg3-hire", desc: "Automatic hatchback · from $199/wk" },
+  { label: "Car Hire", href: "/mg3-hire", desc: "Economical cars · from $199/wk" },
   { label: "Ride-Share & Delivery", href: "/ride-share-car-hire", desc: "Uber Eats, DoorDash & more" },
   { label: "Not-at-Fault Replacement", href: "/not-at-fault-car-hire-sunshine-coast", desc: "Accident? Check eligibility" },
 ];

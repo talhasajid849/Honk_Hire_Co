@@ -7,7 +7,9 @@ import Footer from "@/components/layout/Footer";
 import { whatsappHref } from "@/lib/contact/site";
 
 const BOOKING_MESSAGE = [
-  "Hi Honk Hire Co, I'd like to book the MG3 (from $199/week, 4-week minimum).",
+  "Hi Honk Hire Co, I'd like to hire a car (from $199/week, 4-week minimum).",
+  "",
+  "Automatic or manual: ",
   "",
   "Start date: ",
   "Number of weeks: ",
@@ -18,14 +20,14 @@ const BOOKING_MESSAGE = [
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
-  title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
+  title: "Affordable Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
   description:
-    "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum. Apple CarPlay, reverse camera, 4-star ANCAP safety. Pickup from Tewantin.",
+    "Affordable, reliable car hire on the Sunshine Coast from $199/week, 4-week minimum. Economical automatic and manual vehicles for travellers, seasonal workers, locals and delivery drivers. Pickup from Tewantin.",
   alternates: { canonical: "/mg3-hire" },
   openGraph: {
-    title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
+    title: "Affordable Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
     description:
-      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum. Apple CarPlay, reverse camera, 4-star ANCAP safety.",
+      "Affordable, reliable car hire on the Sunshine Coast from $199/week, 4-week minimum. Economical automatic and manual vehicles.",
     url: "https://honkhireco.com.au/mg3-hire",
     siteName: "Honk Hire Co",
     type: "website",
@@ -33,19 +35,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MG3 Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
+    title: "Affordable Car Hire Sunshine Coast | From $199/week | Honk Hire Co",
     description:
-      "Hire an automatic MG3 hatchback on the Sunshine Coast. From $199/week, 4-week minimum.",
+      "Affordable, reliable car hire on the Sunshine Coast from $199/week, 4-week minimum.",
   },
 };
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "MG3 Car Hire — Sunshine Coast",
+  name: "Affordable Car Hire — Sunshine Coast",
   serviceType: "Vehicle Rental",
   description:
-    "Automatic MG3 hatchback available for weekly hire on the Sunshine Coast, 4-week minimum. Apple CarPlay & Android Auto, reverse camera, 4-star ANCAP safety rating. Pickup from Tewantin.",
+    "Economical automatic and manual vehicles for long-term hire on the Sunshine Coast, from $199/week with a 4-week minimum. Pickup from Tewantin.",
   provider: {
     "@type": "LocalBusiness",
     name: "Honk Hire Co",
@@ -98,9 +100,9 @@ const IDEAL_FOR = [
 
 const SPECS = [
   { label: "Rate", value: "$199/week", sub: "4-week minimum" },
-  { label: "Vehicle", value: "MG3", sub: "automatic hatchback" },
-  { label: "Seats", value: "5 seats", sub: "293L boot" },
-  { label: "Safety", value: "4★ ANCAP", sub: "2025 rating" },
+  { label: "Vehicles", value: "Auto & manual", sub: "economical options" },
+  { label: "Kilometres", value: "Flexible", sub: "km packages available" },
+  { label: "Pickup", value: "Tewantin", sub: "or delivery available" },
 ];
 
 export default function Mg3HirePage() {
@@ -129,7 +131,7 @@ export default function Mg3HirePage() {
             <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-[var(--fg-subtle)]">
               <Link href="/" className="transition-colors hover:text-[var(--accent)]">Home</Link>
               <span>/</span>
-              <span className="text-[var(--fg-muted)]">MG3 Car Hire</span>
+              <span className="text-[var(--fg-muted)]">Car Hire</span>
             </nav>
 
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-muted)] shadow-sm">
@@ -138,19 +140,42 @@ export default function Mg3HirePage() {
             </div>
 
             <h1 className="font-display mt-5 text-4xl font-semibold italic leading-tight text-[var(--fg)] sm:text-5xl lg:text-6xl">
-              MG3 Car Hire — Sunshine Coast
+              Affordable Car Hire — Sunshine Coast
             </h1>
 
             <p className="mt-3 text-xl font-medium text-[var(--fg-muted)]">
-              Automatic hatchback, ready for weekly hire. From $199/week, 4-week minimum.
+              Reliable, economical vehicles from $199 per week. 4-week minimum hire.
             </p>
 
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)]">
-              Need an easy, fuel-efficient car for getting around the Sunshine Coast? Our MG3 automatic
-              hatchback comes with Apple CarPlay &amp; Android Auto, a reverse camera, and a 4-star ANCAP
-              safety rating (2025) — comfortable and economical for travellers, workers, and local
-              businesses on a longer stay.
+            <div className="mt-5 max-w-2xl space-y-3 text-base leading-relaxed text-[var(--fg-muted)]">
+              <p>
+                Looking for affordable, reliable transport on the Sunshine Coast? Honk Hire Co offers a range
+                of economical vehicles for long-term hire, including automatic and manual options.
+              </p>
+              <p>
+                Perfect for travellers, seasonal workers, locals and delivery drivers. We offer competitive
+                weekly rates, flexible kilometre packages and straightforward booking.
+              </p>
+            </div>
+
+            <p className="font-display mt-5 text-xl font-semibold italic text-[var(--fg)]">
+              Affordable Cars. Flexible Hire. No Fuss.
             </p>
+
+            {/* Pricing display */}
+            <div className="mt-6 max-w-2xl rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+              <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
+                <span className="text-sm font-semibold not-italic uppercase tracking-[0.18em] text-[var(--fg-subtle)]">From </span>
+                $199/week
+              </p>
+              <p className="mt-2 text-sm text-[var(--fg-muted)]">
+                4-week minimum hire. Security bond, optional extras and applicable surcharges are additional.
+              </p>
+              <p className="mt-3 border-t border-[var(--border)] pt-3 text-xs text-[var(--fg-subtle)]">
+                <strong className="text-[var(--fg-muted)]">Important:</strong> Vehicle makes, models and features
+                vary depending on availability.
+              </p>
+            </div>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">
               <Car className="h-4 w-4" aria-hidden />
@@ -221,7 +246,7 @@ export default function Mg3HirePage() {
               </div>
               <div className="flex flex-col justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--fg-subtle)]">
-                  Inside the MG3
+                  Example vehicle — MG3
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
                   Apple CarPlay &amp; Android Auto keep you connected, the reverse camera makes parking easy,
@@ -236,13 +261,13 @@ export default function Mg3HirePage() {
         <section className="bg-[var(--bg-alt)] px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <div className="mb-5 inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--accent-soft)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-              What&apos;s included
+              Example vehicle
             </div>
             <h2 className="font-display text-3xl font-semibold italic text-[var(--fg)] sm:text-4xl">
-              Everything you need, already fitted
+              MG3 automatic hatchback
             </h2>
             <p className="mt-3 max-w-xl text-[var(--fg-muted)]">
-              No extra setup required. The MG3 leaves Tewantin ready to drive.
+              One of the cars in our fleet. Makes, models and features vary depending on availability.
             </p>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURES.map((feature) => (
@@ -342,7 +367,7 @@ export default function Mg3HirePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-[var(--accent)]">•</span>
-                  <span><strong className="text-[var(--fg)]">Clean, reliable, professionally maintained</strong> — the MG3 is serviced and presented to a high standard on every hire.</span>
+                  <span><strong className="text-[var(--fg)]">Clean, reliable, professionally maintained</strong> — every vehicle is serviced and presented to a high standard on every hire.</span>
                 </li>
               </ul>
             </div>
@@ -356,7 +381,7 @@ export default function Mg3HirePage() {
               Book now
             </div>
             <h2 className="font-display text-3xl font-semibold italic text-[var(--fg)] sm:text-4xl">
-              Ready to hire the MG3?
+              Ready to hire a car?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[var(--fg-muted)]">
               Message us with your dates. We will get back to you quickly —
