@@ -4,27 +4,18 @@ import Link from "next/link";
 import { CheckCircle2, ArrowRight, Users, Truck, CalendarCheck } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { whatsappHref } from "@/lib/contact/site";
-
-const BOOKING_MESSAGE = [
-  "Hi Honk Hire Co, I'd like to book the VW Amarok ($120/day or $600/week, 2-day minimum).",
-  "",
-  "Start date: ",
-  "End date / number of days: ",
-  "Towing a caravan or camper? (make & model): ",
-  "Your name: ",
-].join("\n");
+import { AMAROK_BOOKING_URL } from "@/lib/contact/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://honkhireco.com.au"),
-  title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
+  title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $150/day | Honk Hire Co",
   description:
-    "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing. Pickup from Noosa.",
+    "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $150/day or $900/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing. Pickup from Noosa.",
   alternates: { canonical: "/amarok-hire" },
   openGraph: {
-    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
+    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $150/day | Honk Hire Co",
     description:
-      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing.",
+      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $150/day or $900/week including insurance, 2-day minimum. Electronic brake controller fitted. Perfect for caravan and camper towing.",
     url: "https://honkhireco.com.au/amarok-hire",
     siteName: "Honk Hire Co",
     type: "website",
@@ -32,9 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $120/day | Honk Hire Co",
+    title: "Amarok Ute Hire Noosa | Tow Vehicle Rental $150/day | Honk Hire Co",
     description:
-      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum.",
+      "Hire a near-new 2023 VW Amarok on the Sunshine Coast. $150/day or $900/week including insurance, 2-day minimum.",
   },
 };
 
@@ -44,7 +35,7 @@ const schema = {
   name: "VW Amarok Ute Hire — Noosa & Sunshine Coast",
   serviceType: "Vehicle Rental",
   description:
-    "Near-new 2023 Volkswagen Amarok Life available for daily or weekly hire on the Sunshine Coast. $120/day or $600/week including insurance, 2-day minimum. Electronic brake controller fitted for caravan and camper towing. Pickup from Noosa.",
+    "Near-new 2023 Volkswagen Amarok Life available for daily or weekly hire on the Sunshine Coast. $150/day or $900/week including insurance, 2-day minimum. Electronic brake controller fitted for caravan and camper towing. Pickup from Noosa.",
   provider: {
     "@type": "LocalBusiness",
     name: "Honk Hire Co",
@@ -61,11 +52,11 @@ const schema = {
   },
   offers: {
     "@type": "Offer",
-    price: "120",
+    price: "150",
     priceCurrency: "AUD",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "120",
+      price: "150",
       priceCurrency: "AUD",
       unitText: "DAY",
     },
@@ -99,7 +90,7 @@ const IDEAL_FOR = [
 ];
 
 const SPECS = [
-  { label: "Rate", value: "$120/day", sub: "or $600/week" },
+  { label: "Rate", value: "$150/day", sub: "or $900/week" },
   { label: "Vehicle", value: "2023 Amarok", sub: "VW Life — near-new" },
   { label: "Seats", value: "5 seats", sub: "dual cab" },
   { label: "Towing", value: "Up to 3.5t", sub: "brake controller fitted" },
@@ -144,7 +135,7 @@ export default function AmarokHirePage() {
             </h1>
 
             <p className="mt-3 text-xl font-medium text-[var(--fg-muted)]">
-              Near-new 2023 Amarok Life, set up and ready to tow. $120/day or $600/week including insurance.
+              Near-new 2023 Amarok Life, set up and ready to tow. $150/day or $900/week including insurance.
             </p>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)]">
@@ -160,7 +151,7 @@ export default function AmarokHirePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={whatsappHref(BOOKING_MESSAGE)}
+                href={AMAROK_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
@@ -348,12 +339,12 @@ export default function AmarokHirePage() {
               Ready to hire the Amarok?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[var(--fg-muted)]">
-              Message us with your dates and towing requirements. We will get back to you quickly —
-              no booking fees, no forms, just a straight reply.
+              Check availability and book online through Camplify. Questions about towing or your
+              dates? Message us and we will get back to you quickly.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={whatsappHref(BOOKING_MESSAGE)}
+                href={AMAROK_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"

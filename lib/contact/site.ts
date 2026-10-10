@@ -8,6 +8,9 @@ export const FACEBOOK_URL = "https://www.facebook.com/HonkHireCo/";
 
 export const INSTAGRAM_URL = "https://www.instagram.com/honkhireco/";
 
+/** Online booking for the VW Amarok ute (Camplify listing). */
+export const AMAROK_BOOKING_URL = "https://www.camplify.com.au/rv/154095";
+
 /** WhatsApp click-to-chat link with a pre-filled message. */
 export function whatsappHref(message: string): string {
   return `https://wa.me/${WHATSAPP_PHONE_E164}?text=${encodeURIComponent(message)}`;

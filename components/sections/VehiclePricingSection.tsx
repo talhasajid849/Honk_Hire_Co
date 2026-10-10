@@ -16,7 +16,7 @@ const VEHICLES = [
     imageSrc: "/images/amarok-exterior.jpeg",
     imageAlt: "2023 Volkswagen Amarok — ute hire",
     title: "Ute Hire",
-    price: "$120/day · $600/week",
+    price: "$150/day · $900/week",
     note: "2-day minimum",
     href: "/amarok-hire",
   },
