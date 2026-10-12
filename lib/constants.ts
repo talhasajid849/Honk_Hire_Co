@@ -11,7 +11,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const SCOOTERS: ScooterType[] = [
   {
     id: "50cc",
-    name: "Coastal 50",
+    name: "Crox 50",
     cc: 50,
     weeklyPrice: 150,
     licenceRequired: "Car licence accepted",
@@ -28,7 +28,7 @@ export const SCOOTERS: ScooterType[] = [
   },
   {
     id: "125cc",
-    name: "Classic 125",
+    name: "Esch 125",
     cc: 125,
     weeklyPrice: 160,
     licenceRequired: "Motorcycle licence required",

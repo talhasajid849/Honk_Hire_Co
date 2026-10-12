@@ -22,7 +22,7 @@ const VEHICLES = [
   },
   {
     imageSrc: "/images/50cc-coastal.jpeg",
-    imageAlt: "Coastal 50 scooter — scooter hire",
+    imageAlt: "Crox 50 scooter — scooter hire",
     title: "Scooter Hire",
     price: "From $150/week",
     note: "2-week minimum",

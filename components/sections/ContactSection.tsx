@@ -247,8 +247,8 @@ export default function ContactSection() {
                       className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-3 text-sm text-[var(--fg)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
                     >
                       <option value="">Select model</option>
-                      <option value="50cc">Coastal 50 — $150/wk</option>
-                      <option value="125cc">Classic 125 — $160/wk</option>
+                      <option value="50cc">Crox 50 — $150/wk</option>
+                      <option value="125cc">Esch 125 — $160/wk</option>
                     </select>
                   </label>
                   <label className="block">
