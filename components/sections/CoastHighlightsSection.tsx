@@ -24,7 +24,7 @@ const HIGHLIGHTS = [
 
 export default function CoastHighlightsSection() {
   return (
-    <section className="bg-[var(--bg)] px-5 py-24 lg:px-8 lg:py-32">
+    <section className="bg-[var(--bg)] px-5 py-16 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Why Honk Hire Co"
@@ -32,7 +32,7 @@ export default function CoastHighlightsSection() {
           subtitle="Tourists and backpackers — we keep the experience breezy and the terms honest."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 sm:mt-16 gap-6 md:grid-cols-3">
           {HIGHLIGHTS.map((item, i) => {
             const Icon = item.icon;
             return (

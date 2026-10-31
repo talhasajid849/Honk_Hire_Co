@@ -37,7 +37,7 @@ export default function VehiclePricingSection({ embedded = false }: { embedded?:
         <Link
           key={title}
           href={href}
-          className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[2rem] bg-[var(--ink)] text-[var(--ink-fg)] shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1 md:aspect-[3/4]"
+          className="group relative flex aspect-[5/4] flex-col sm:aspect-[4/5] justify-end overflow-hidden rounded-[2rem] bg-[var(--ink)] text-[var(--ink-fg)] shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1 md:aspect-[3/4]"
         >
           <Image
             src={imageSrc}
@@ -69,14 +69,14 @@ export default function VehiclePricingSection({ embedded = false }: { embedded?:
   if (embedded) return cards;
 
   return (
-    <section id="fleet" className="bg-[var(--bg)] px-5 py-24 lg:px-8 lg:py-32">
+    <section id="fleet" className="bg-[var(--bg)] px-5 py-16 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Fleet"
           title="Cars, utes and scooters."
           subtitle="Pick the vehicle that suits your stay — tap any card for full rates, terms and photos."
         />
-        <div className="mt-14">{cards}</div>
+        <div className="mt-10 sm:mt-14">{cards}</div>
       </div>
     </section>
   );

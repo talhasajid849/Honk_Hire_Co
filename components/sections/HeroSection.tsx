@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { ArrowDown } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
+import { whatsappHref } from "@/lib/contact/site";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
 
 const WORDS = ["Car", "Ute", "Scooter"];
 
 const CARDS = [
-  { src: "/images/mg3-coastal.jpeg", alt: "MG3 hatchback, car hire", label: "Car · from $199/wk", pos: "lg:right-[1%] lg:top-[0%] lg:h-[230px] lg:w-[310px]", tilt: -5, delay: "0s" },
-  { src: "/images/amarok-exterior.jpeg", alt: "Volkswagen Amarok, ute hire", label: "Ute · $900/wk", pos: "lg:right-[26%] lg:top-[56%] lg:h-[230px] lg:w-[320px]", tilt: 4, delay: "-2s" },
-  { src: "/images/50cc-coastal.jpeg", alt: "Crox 50 scooter, scooter hire", label: "Scooter · from $150/wk", pos: "lg:right-[3%] lg:top-[48%] lg:h-[290px] lg:w-[280px]", tilt: -3, delay: "-4s" },
+  { src: "/images/mg3-coastal.jpeg", alt: "MG3 hatchback, car hire", label: "Car · from $199/wk", short: "$199/wk", pos: "lg:right-[1%] lg:top-[0%] lg:h-[230px] lg:w-[310px]", tilt: -5, delay: "0s" },
+  { src: "/images/amarok-exterior.jpeg", alt: "Volkswagen Amarok, ute hire", label: "Ute · $900/wk", short: "$900/wk", pos: "lg:right-[26%] lg:top-[56%] lg:h-[230px] lg:w-[320px]", tilt: 4, delay: "-2s" },
+  { src: "/images/50cc-coastal.jpeg", alt: "Crox 50 scooter, scooter hire", label: "Scooter · from $150/wk", short: "$150/wk", pos: "lg:right-[3%] lg:top-[48%] lg:h-[290px] lg:w-[280px]", tilt: -3, delay: "-4s" },
 ];
 
 const FACTS = [
@@ -75,7 +76,7 @@ export default function HeroSection() {
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
-  const emailHero = mailtoHref({ subject: "Vehicle hire enquiry", body: defaultGreetingMessage() });
+  const chatHero = whatsappHref(defaultGreetingMessage());
 
   return (
     <section ref={stage} className="relative overflow-hidden bg-[var(--bg)] pt-24 text-[var(--fg)] lg:min-h-[920px] lg:pt-28">
@@ -167,13 +168,15 @@ export default function HeroSection() {
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <motion.a
-              href={emailHero}
+              href={chatHero}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-bold text-[var(--accent-fg)] shadow-[0_18px_36px_-14px_var(--accent)] transition-colors hover:bg-[var(--accent-hover)]"
             >
-              <Mail className="h-5 w-5" aria-hidden />
-              Get a quote
+              <FaWhatsapp className="h-5 w-5" aria-hidden />
+              Get a quote on WhatsApp
             </motion.a>
             <button
               type="button"
@@ -210,8 +213,9 @@ export default function HeroSection() {
                   className="object-cover"
                   priority={i === 0}
                 />
-                <span className="absolute bottom-2 left-2 rounded-full bg-[var(--ink)] px-2.5 py-1 text-[10px] font-extrabold text-[var(--ink-fg)] lg:bottom-3 lg:left-3 lg:px-3.5 lg:py-1.5 lg:text-[13px]">
-                  {card.label}
+                <span className="absolute bottom-2 left-2 rounded-full bg-[var(--ink)] px-2.5 py-1 text-[11px] font-extrabold text-[var(--ink-fg)] lg:bottom-3 lg:left-3 lg:px-3.5 lg:py-1.5 lg:text-[13px]">
+                  <span className="lg:hidden">{card.short}</span>
+                  <span className="hidden lg:inline">{card.label}</span>
                 </span>
               </div>
             </motion.div>

@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Mail, X } from "lucide-react";
+import { Check, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { ScooterType } from "@/types";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { whatsappHref } from "@/lib/contact/site";
 import { quickScooterMessage } from "@/lib/contact/messages";
 
 interface ScooterCardProps {
@@ -13,10 +14,7 @@ interface ScooterCardProps {
 }
 
 export default function ScooterCard({ scooter, index }: ScooterCardProps) {
-  const enquire = mailtoHref({
-    subject: `Enquiry: ${scooter.name}`,
-    body: quickScooterMessage(scooter.name, scooter.cc),
-  });
+  const enquire = whatsappHref(quickScooterMessage(scooter.name, scooter.cc));
 
   return (
     <motion.article
@@ -84,12 +82,14 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
 
         <motion.a
           href={enquire}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] py-4 text-sm font-bold text-[var(--ink-fg)] transition-colors hover:bg-[var(--ink-2)]"
         >
-          <Mail className="h-4 w-4" aria-hidden />
-          Enquire by email
+          <FaWhatsapp className="h-4 w-4" aria-hidden />
+          Enquire on WhatsApp
         </motion.a>
       </div>
     </motion.article>

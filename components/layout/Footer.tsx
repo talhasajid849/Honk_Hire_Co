@@ -1,20 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import { Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { NAV_ITEMS } from "@/lib/constants";
-import { mailtoHref } from "@/lib/contact/mailto";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
-import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/contact/site";
+import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL, whatsappHref } from "@/lib/contact/site";
 
 export default function Footer() {
-  const email = mailtoHref({
-    subject: "Vehicle hire enquiry",
-    body: defaultGreetingMessage(),
-  });
+  const chat = whatsappHref(defaultGreetingMessage());
 
   return (
-    <footer className="bg-[var(--ink)] px-5 pb-10 pt-20 text-[var(--ink-fg)] lg:px-8">
+    <footer className="bg-[var(--ink)] px-5 pb-10 pt-14 sm:pt-20 text-[var(--ink-fg)] lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-5">
           <div>
@@ -120,11 +116,13 @@ export default function Footer() {
               </a>
             </p>
             <a
-              href={email}
+              href={chat}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--sun)] px-5 py-2.5 text-sm font-bold text-[var(--sun-fg)] transition-all hover:brightness-105"
             >
-              <Mail className="h-4 w-4" aria-hidden />
-              Email us
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              WhatsApp us
             </a>
             <div className="mt-5 flex flex-wrap gap-2">
               <a

@@ -5,11 +5,12 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Menu, X, ChevronDown, MapPin, Car } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Car } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { NAV_ITEMS } from "@/lib/constants";
 import { locationPath } from "@/lib/locations";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { whatsappHref } from "@/lib/contact/site";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
 
 const LOCATION_LINKS = [
@@ -96,10 +97,7 @@ export default function Navbar() {
   const openLocations = () => openDropdown("locations");
   const closeLocations = closeDropdown;
 
-  const emailQuick = mailtoHref({
-    subject: "Vehicle hire enquiry",
-    body: defaultGreetingMessage(),
-  });
+  const chatQuick = whatsappHref(defaultGreetingMessage());
 
   const sectionActive = (href: string) => isHome && activeSection === href;
 
@@ -112,7 +110,9 @@ export default function Navbar() {
     >
       <div
         className={`mx-auto max-w-7xl rounded-[1.75rem] border transition-all duration-300 ${
-          scrolled
+          menuOpen
+            ? "border-[var(--border-strong)] bg-[var(--surface)] shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
+            : scrolled
             ? "border-[var(--border-strong)] bg-[var(--surface)]/90 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             : "border-[var(--border)] bg-[var(--surface)]/92 shadow-sm backdrop-blur-md"
         }`}
@@ -307,11 +307,13 @@ export default function Navbar() {
           <div className="ml-2 flex items-center gap-2 pl-2">
             <ThemeToggle />
             <a
-              href={emailQuick}
+              href={chatQuick}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--sun)] px-5 py-2.5 text-sm font-bold text-[var(--sun-fg)] transition-all hover:brightness-105 active:scale-[0.98]"
             >
-              <Mail className="h-4 w-4" aria-hidden />
-              Email us
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              WhatsApp us
             </a>
           </div>
         </nav>
@@ -467,11 +469,13 @@ export default function Navbar() {
               </AnimatePresence>
 
               <a
-                href={emailQuick}
+                href={chatQuick}
+              target="_blank"
+              rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--sun)] py-3 text-center text-sm font-bold text-[var(--sun-fg)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                Email us
+                <FaWhatsapp className="h-4 w-4" aria-hidden />
+                WhatsApp us
               </a>
             </div>
           </motion.div>

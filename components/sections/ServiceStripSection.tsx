@@ -7,7 +7,7 @@ export default function ServiceStripSection() {
   return (
     <section
       aria-label="Service area along the Sunshine Coast"
-      className="bg-[var(--bg-alt)] px-5 py-20 lg:px-8"
+      className="bg-[var(--bg-alt)] px-5 py-14 sm:py-20 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
@@ -43,7 +43,7 @@ export default function ServiceStripSection() {
           </div>
         </div>
 
-        <div className="mt-12 overflow-hidden border-y border-[var(--border-strong)] py-4">
+        <div className="mt-8 overflow-hidden sm:mt-12 border-y border-[var(--border-strong)] py-4">
           <div className="animate-marquee gap-6 text-[var(--fg-muted)]">
             {[...SERVICE_AREA, ...SERVICE_AREA].map((area, i) => (
               <span key={`${area}-${i}`} className="mx-4 text-sm font-semibold uppercase tracking-[0.18em]">

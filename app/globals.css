@@ -188,3 +188,8 @@ select option {
   border-radius: 0.15em;
   padding: 0 0.08em;
 }
+
+/* Anchor links land below the floating bar */
+section[id] {
+  scroll-margin-top: 6rem;
+}

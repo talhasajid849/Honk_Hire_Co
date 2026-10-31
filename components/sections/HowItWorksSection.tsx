@@ -33,7 +33,7 @@ const STEPS = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-[var(--ink)] px-5 py-24 text-[var(--ink-fg)] lg:px-8 lg:py-32">
+    <section id="how-it-works" className="bg-[var(--ink)] px-5 py-16 text-[var(--ink-fg)] sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           tone="ink"
@@ -43,7 +43,7 @@ export default function HowItWorksSection() {
           subtitle="Built for travellers who want clarity, not a call centre maze."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 sm:mt-16 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((item, i) => {
             const StepIcon = item.Icon;
             return (

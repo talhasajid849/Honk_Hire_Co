@@ -17,7 +17,7 @@ const RULE_ICONS: Record<string, LucideIcon> = {
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="bg-[var(--bg)] px-5 py-24 lg:px-8 lg:py-32">
+    <section id="pricing" className="bg-[var(--bg)] px-5 py-16 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Rates & conditions"
@@ -25,7 +25,7 @@ export default function PricingSection() {
           subtitle="Weekly hire, bond, delivery, and km policy — all in one place."
         />
 
-        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
           {SCOOTERS.map((scooter, i) => (
             <motion.div
               key={scooter.id}
