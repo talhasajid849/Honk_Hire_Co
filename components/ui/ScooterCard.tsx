@@ -7,6 +7,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { ScooterType } from "@/types";
 import { whatsappHref } from "@/lib/contact/site";
 import { quickScooterMessage } from "@/lib/contact/messages";
+import CountUp from "@/components/ui/CountUp";
 
 interface ScooterCardProps {
   scooter: ScooterType;
@@ -46,7 +47,7 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
           </div>
           <div className="text-right">
             <p className="font-display text-4xl font-extrabold text-[var(--accent)]">
-              ${scooter.weeklyPrice}
+              $<CountUp to={scooter.weeklyPrice} />
             </p>
             <p className="text-xs text-[var(--fg-subtle)]">per week</p>
           </div>

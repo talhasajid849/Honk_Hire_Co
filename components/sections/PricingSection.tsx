@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Gauge, LockKeyhole, MapPin, Truck, Zap, type LucideIcon } from "lucide-react";
+import { CalendarDays, CalendarRange, Gauge, LockKeyhole, MapPin, Truck, Zap, type LucideIcon } from "lucide-react";
+import CountUp from "@/components/ui/CountUp";
 import { PRICING_RULES, SCOOTERS } from "@/lib/constants";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -25,27 +26,6 @@ export default function PricingSection() {
           subtitle="Weekly hire, bond, delivery, and km policy — all in one place."
         />
 
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
-          {SCOOTERS.map((scooter, i) => (
-            <motion.div
-              key={scooter.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.45 }}
-              className="flex items-center justify-between rounded-[1.5rem] bg-[var(--ink)] px-6 py-5 text-[var(--ink-fg)] shadow-[var(--shadow-card)]"
-            >
-              <div>
-                <p className="font-display text-lg font-bold">{scooter.name}</p>
-                <p className="text-xs text-[var(--ink-muted)]">{scooter.cc}cc · weekly</p>
-              </div>
-              <p className="font-display text-4xl font-extrabold text-[var(--sun-on-ink)]">
-                ${scooter.weeklyPrice}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,6 +33,27 @@ export default function PricingSection() {
           className="mx-auto mt-10 max-w-2xl overflow-hidden rounded-[1.75rem] border border-[var(--border-strong)] bg-[var(--surface)]"
         >
           <ul className="divide-y divide-[var(--border)]">
+            {/* the weekly price of each scooter, once, here; the cards below show the detail */}
+            <li className="flex flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--sun-soft)] text-[var(--sun)]" aria-hidden>
+                  <CalendarRange className="h-[18px] w-[18px]" strokeWidth={2} />
+                </span>
+                <span className="text-sm font-semibold text-[var(--fg)]">Weekly hire</span>
+              </div>
+              <div className="flex flex-wrap gap-2 sm:justify-end">
+                {SCOOTERS.map((scooter) => (
+                  <span key={scooter.id} className="inline-flex items-baseline gap-2 rounded-full bg-[var(--ink)] px-4 py-1.5 text-[var(--ink-fg)]">
+                    <span className="text-xs font-semibold text-[var(--ink-muted)]">
+                      {scooter.name} · {scooter.cc}cc
+                    </span>
+                    <span className="font-display text-lg font-extrabold text-[var(--sun-on-ink)]">
+                      $<CountUp to={scooter.weeklyPrice} />
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </li>
             {PRICING_RULES.map((rule) => (
               <li
                 key={rule.label}

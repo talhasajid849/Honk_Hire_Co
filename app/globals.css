@@ -193,3 +193,117 @@ select option {
 section[id] {
   scroll-margin-top: 6rem;
 }
+
+/* ---- Coast map ---- */
+.map-route {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+}
+.map-play .map-route {
+  animation: map-draw 4s 0.3s ease-out forwards;
+}
+.map-pin {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+.map-play .map-pin {
+  animation: map-pop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+.map-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-pulse 2.2s ease-out infinite;
+}
+.map-wave {
+  animation: map-wave 6s ease-in-out infinite;
+}
+@keyframes map-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes map-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes map-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes map-wave {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-24px);
+  }
+}
+
+/* ---- Road divider ---- */
+.rd-drive {
+  animation: rd-cross linear infinite;
+  left: 0;
+}
+@keyframes rd-cross {
+  from {
+    transform: translateX(-320px);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+.rd-dash {
+  background: repeating-linear-gradient(90deg, #ffe9a8 0 60px, transparent 60px 120px);
+  animation: rd-dash 0.55s linear infinite;
+}
+@keyframes rd-dash {
+  to {
+    background-position: -120px 0;
+  }
+}
+.rd-wheel {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rd-spin 0.7s linear infinite;
+}
+@keyframes rd-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-route {
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+  .map-pin {
+    opacity: 1;
+    animation: none !important;
+  }
+  .map-pulse,
+  .map-wave,
+  .rd-drive,
+  .rd-dash,
+  .rd-wheel {
+    animation: none !important;
+  }
+  .rd-drive {
+    transform: translateX(10vw);
+  }
+}
