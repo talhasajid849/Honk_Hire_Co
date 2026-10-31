@@ -114,7 +114,6 @@ export default function ContactSection() {
                 <a className="block text-[1.15rem] text-[var(--sun-on-ink)] underline-offset-4 hover:underline sm:inline sm:text-2xl" href={`mailto:${CONTACT_EMAIL}`}>
                   {CONTACT_EMAIL}
                 </a>
-                .
               </p>
               <ul className="mt-8 space-y-5">
                 {[
