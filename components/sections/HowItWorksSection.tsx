@@ -33,39 +33,43 @@ const STEPS = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-[var(--bg)] px-6 py-24">
+    <section id="how-it-works" className="bg-[var(--ink)] px-5 py-24 text-[var(--ink-fg)] lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
+          tone="ink"
+          align="left"
           badge="How it works"
           title="Four calm steps from enquiry to ride."
           subtitle="Built for travellers who want clarity, not a call centre maze."
         />
 
-        <div className="relative mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="pointer-events-none absolute left-[8%] right-[8%] top-9 hidden h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent lg:block" />
-
+        <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((item, i) => {
             const StepIcon = item.Icon;
             return (
-            <motion.div
-              key={item.step}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.1, duration: 0.55 }}
-              className="relative rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm"
-            >
-              <div className="relative z-10 mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                <StepIcon size={24} strokeWidth={1.75} />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--accent)]">
-                Step {item.step}
-              </p>
-              <h3 className="mt-2 font-display text-lg font-semibold italic text-[var(--fg)]">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{item.desc}</p>
-            </motion.div>
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.1, duration: 0.55 }}
+                className="relative flex flex-col overflow-hidden rounded-[1.75rem] border border-[var(--ink-border)] bg-[var(--ink-2)] p-7"
+              >
+                <span
+                  aria-hidden
+                  className="font-display pointer-events-none absolute -right-2 -top-4 text-[7.5rem] font-extrabold leading-none text-white/[0.05]"
+                >
+                  {item.step}
+                </span>
+                <div className="relative mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--sun)] text-[var(--sun-fg)]">
+                  <StepIcon size={22} strokeWidth={2} />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--sun-on-ink)]">
+                  Step {item.step}
+                </p>
+                <h3 className="font-display mt-2 text-xl font-bold text-[var(--ink-fg)]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ink-muted)]">{item.desc}</p>
+              </motion.div>
             );
           })}
         </div>

@@ -1,55 +1,68 @@
 @import "tailwindcss";
 
-/* Honk Hire Co — theme tokens (monochrome + coastal accent) */
+/* Honk Hire Co: "kinetic type" theme. Warm paper, deep navy ink, one electric-blue accent. */
 :root,
 [data-theme="light"] {
-  --bg: #f4f3f0;
-  --bg-alt: #ebe8e3;
+  --bg: #f1eee7;
+  --bg-alt: #e8e4da;
   --surface: #ffffff;
-  --surface-elevated: #fafaf8;
-  --fg: #0d0d0d;
-  --fg-muted: #525252;
-  --fg-subtle: #737373;
-  --border: rgba(13, 13, 13, 0.1);
-  --border-strong: rgba(13, 13, 13, 0.18);
-  --accent: #3d6b4a;
-  --accent-hover: #325a3e;
+  --surface-elevated: #faf8f3;
+  --fg: #0e1330;
+  --fg-muted: #444b66;
+  --fg-subtle: #5a6180;
+  --border: rgba(14, 19, 48, 0.12);
+  --border-strong: rgba(14, 19, 48, 0.22);
+  --accent: #2b4bff;
+  --accent-hover: #1f3be0;
   --accent-fg: #ffffff;
-  --accent-soft: rgba(61, 107, 74, 0.12);
-  --ring: rgba(61, 107, 74, 0.35);
-  --hero-veil: linear-gradient(
-    135deg,
-    rgba(244, 243, 240, 0.92) 0%,
-    rgba(244, 243, 240, 0.65) 45%,
-    rgba(244, 243, 240, 0.2) 100%
-  );
-  --shadow-card: 0 24px 60px -20px rgba(13, 13, 13, 0.12);
-  --logo-ring: rgba(13, 13, 13, 0.06);
+  --accent-soft: rgba(43, 75, 255, 0.1);
+  --ring: rgba(43, 75, 255, 0.4);
+  --sun: #2b4bff;
+  --sun-soft: rgba(43, 75, 255, 0.11);
+  --sun-fg: #ffffff;
+  --sun-on-ink: #a3b2ff;
+  --ink: #0e1330;
+  --ink-2: #1a2150;
+  --ink-fg: #f1eee7;
+  --ink-muted: rgba(241, 238, 231, 0.72);
+  --ink-border: rgba(241, 238, 231, 0.16);
+  --hero-veil: linear-gradient(135deg, rgba(241, 238, 231, 0.92) 0%, rgba(241, 238, 231, 0.65) 45%, rgba(241, 238, 231, 0.2) 100%);
+  --shadow-card: 0 34px 70px -30px rgba(14, 19, 48, 0.45);
+  --logo-ring: rgba(14, 19, 48, 0.1);
+  --outline-word: rgba(14, 19, 48, 0.12);
+  --fill-word: rgba(43, 75, 255, 0.06);
+  --font-display: var(--font-sans);
 }
 
 [data-theme="dark"] {
-  --bg: #121212;
-  --bg-alt: #0a0a0a;
-  --surface: #1a1a1a;
-  --surface-elevated: #222222;
-  --fg: #fafafa;
-  --fg-muted: #a3a3a3;
-  --fg-subtle: #737373;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --accent: #5cb88a;
-  --accent-hover: #6bc997;
-  --accent-fg: #0a0a0a;
-  --accent-soft: rgba(92, 184, 138, 0.15);
-  --ring: rgba(92, 184, 138, 0.45);
-  --hero-veil: linear-gradient(
-    135deg,
-    rgba(18, 18, 18, 0.94) 0%,
-    rgba(18, 18, 18, 0.7) 40%,
-    rgba(18, 18, 18, 0.15) 100%
-  );
-  --shadow-card: 0 28px 80px -24px rgba(0, 0, 0, 0.65);
-  --logo-ring: rgba(255, 255, 255, 0.08);
+  --bg: #090c20;
+  --bg-alt: #0e1230;
+  --surface: #141a3d;
+  --surface-elevated: #1b2350;
+  --fg: #f1eee7;
+  --fg-muted: #b9bfd8;
+  --fg-subtle: #8f97b8;
+  --border: rgba(241, 238, 231, 0.1);
+  --border-strong: rgba(241, 238, 231, 0.2);
+  --accent: #8fa2ff;
+  --accent-hover: #aab8ff;
+  --accent-fg: #0a0d24;
+  --accent-soft: rgba(143, 162, 255, 0.16);
+  --ring: rgba(143, 162, 255, 0.5);
+  --sun: #7a8fff;
+  --sun-soft: rgba(122, 143, 255, 0.18);
+  --sun-fg: #070a1c;
+  --sun-on-ink: #a9b8ff;
+  --ink: #060818;
+  --ink-2: #0e1230;
+  --ink-fg: #f1eee7;
+  --ink-muted: rgba(241, 238, 231, 0.7);
+  --ink-border: rgba(241, 238, 231, 0.14);
+  --hero-veil: linear-gradient(135deg, rgba(9, 12, 32, 0.94) 0%, rgba(9, 12, 32, 0.7) 40%, rgba(9, 12, 32, 0.15) 100%);
+  --shadow-card: 0 34px 80px -30px rgba(0, 0, 0, 0.75);
+  --logo-ring: rgba(241, 238, 231, 0.12);
+  --outline-word: rgba(241, 238, 231, 0.12);
+  --fill-word: rgba(143, 162, 255, 0.08);
 }
 
 * {
@@ -105,7 +118,9 @@ select option {
 }
 
 .font-display {
-  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-style: normal;
+  letter-spacing: -0.035em;
 }
 
 .font-sans-ui {
@@ -127,3 +142,49 @@ select option {
   opacity: 0.055;
 }
 
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .kt-marquee,
+  .kt-bob {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Sunset highlight on a word in a heading */
+/* Kinetic hero helpers */
+@keyframes kt-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.kt-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: kt-marquee 34s linear infinite;
+}
+.kt-marquee-rev {
+  animation-direction: reverse;
+  animation-duration: 44s;
+}
+@keyframes kt-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--r, 0deg));
+  }
+}
+.kt-bob {
+  animation: kt-bob 6s ease-in-out infinite;
+}
+
+.hl {
+  background: linear-gradient(transparent 62%, var(--sun-soft) 62%);
+  border-radius: 0.15em;
+  padding: 0 0.08em;
+}

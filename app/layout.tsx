@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -7,16 +7,10 @@ import { THEME_STORAGE_KEY } from "@/lib/theme/types";
 import { buildLocalBusinessSchema } from "@/lib/schema";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -93,7 +87,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${playfair.variable} ${dmSans.variable} font-sans-ui antialiased grain min-h-screen`}
+        className={`${jakarta.variable} font-sans-ui antialiased grain min-h-screen`}
       >
         <Script id="honk-theme-init" strategy="beforeInteractive">
           {themeInitScript}

@@ -101,9 +101,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-[var(--bg-alt)] px-6 py-28">
+    <section id="contact" className="relative overflow-hidden bg-[var(--bg)] px-5 py-24 lg:px-8 lg:py-32">
       <div
-        className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-[var(--accent-soft)] blur-[100px]"
+        className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-[var(--sun-soft)] blur-[110px]"
         aria-hidden
       />
       <div
@@ -126,11 +126,11 @@ export default function ContactSection() {
           className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-12"
         >
           <motion.div variants={item} className="lg:col-span-5">
-            <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface)]/80 p-8 shadow-[var(--shadow-card)] backdrop-blur-md">
-              <p className="font-display text-2xl font-semibold italic leading-snug text-[var(--fg)]">
+            <div className="rounded-[2rem] bg-[var(--ink)] p-8 text-[var(--ink-fg)] shadow-[var(--shadow-card)]">
+              <p className="font-display text-2xl font-semibold italic leading-snug text-[var(--ink-fg)]">
                 Bookings &amp; questions —{" "}
                 <a
-                  className="text-[var(--accent)] underline-offset-4 hover:underline"
+                  className="text-[var(--sun-on-ink)] underline-offset-4 hover:underline"
                   href={mailtoHref()}
                 >
                   {CONTACT_EMAIL}
@@ -161,25 +161,25 @@ export default function ContactSection() {
                   },
                 ].map(({ Icon, title, text }) => (
                   <li key={title} className="flex gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--sun-on-ink)]">
                       <Icon className="h-5 w-5" aria-hidden />
                     </span>
                     <div>
-                      <p className="font-semibold text-[var(--fg)]">{title}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-[var(--fg-muted)]">{text}</p>
+                      <p className="font-semibold text-[var(--ink-fg)]">{title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-[var(--ink-muted)]">{text}</p>
                     </div>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 border-t border-[var(--border)] pt-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+              <div className="mt-8 border-t border-[var(--ink-border)] pt-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-muted)]">
                   Pickup & delivery
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ink-muted)]">
                   Pickup from 10 Forest Ct, Tewantin QLD 4565, with delivery available across the Sunshine Coast for longer stays and convenience.
                 </p>
-                <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--border)]">
+                <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--ink-border)]">
                   <iframe
                     title="Honk Hire Co Tewantin pickup location"
                     src="https://www.google.com/maps?q=10+Forest+Ct+Tewantin+QLD+4565&z=14&output=embed"
@@ -190,8 +190,8 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-[var(--border)] pt-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+              <div className="mt-8 border-t border-[var(--ink-border)] pt-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-muted)]">
                   Social
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -199,7 +199,7 @@ export default function ContactSection() {
                     href={FACEBOOK_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-2.5 text-sm font-medium text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40 hover:bg-[var(--accent-soft)]"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--ink-border)] bg-white/5 px-4 py-2.5 text-sm font-medium text-[var(--ink-fg)] transition-colors hover:border-[var(--sun)]/60 hover:bg-white/10"
                   >
                     <FaFacebook className="h-4 w-4 text-[#1877F2]" aria-hidden />
                     Facebook
@@ -208,7 +208,7 @@ export default function ContactSection() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-2.5 text-sm font-medium text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40 hover:bg-[var(--accent-soft)]"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--ink-border)] bg-white/5 px-4 py-2.5 text-sm font-medium text-[var(--ink-fg)] transition-colors hover:border-[var(--sun)]/60 hover:bg-white/10"
                   >
                     <FaInstagram className="h-4 w-4 text-[#E4405F]" aria-hidden />
                     Instagram
@@ -347,7 +347,7 @@ export default function ContactSection() {
                   layout
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-2xl bg-[var(--accent)] px-6 py-4 text-base font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-shadow hover:bg-[var(--accent-hover)] hover:shadow-xl hover:shadow-[var(--accent)]/30"
+                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-[var(--sun)] px-6 py-4 text-base font-bold text-[var(--sun-fg)] shadow-lg shadow-[var(--sun)]/25 transition-all hover:brightness-105"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 transition-opacity group-hover:opacity-100" />
                   <HiEnvelope className="relative h-6 w-6 shrink-0" aria-hidden />

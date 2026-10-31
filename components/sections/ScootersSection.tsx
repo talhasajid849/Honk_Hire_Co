@@ -4,7 +4,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function ScootersSection() {
   return (
-    <section id="scooters" className="bg-[var(--bg)] px-6 py-24">
+    <section id="scooters" className="bg-[var(--bg-alt)] px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Scooters"
@@ -19,7 +19,7 @@ export default function ScootersSection() {
         </div>
 
         <p className="mx-auto mt-12 max-w-xl text-center text-sm text-[var(--fg-muted)]">
-          <span className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 font-medium text-[var(--fg)]">
+          <span className="rounded-full bg-[var(--ink)] px-5 py-2.5 font-semibold text-[var(--ink-fg)]">
             Minimum hire: 2 weeks
           </span>
         </p>

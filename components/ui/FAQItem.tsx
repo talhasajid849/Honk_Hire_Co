@@ -19,9 +19,9 @@ export default function FAQItem({ faq, index }: FAQItemProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05, duration: 0.45 }}
-      className={`rounded-2xl border transition-colors ${
+      className={`rounded-[1.5rem] border transition-colors ${
         open
-          ? "border-[var(--accent)]/40 bg-[var(--accent-soft)]"
+          ? "border-[var(--accent)]/45 bg-[var(--surface)] shadow-[var(--shadow-card)]"
           : "border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]"
       }`}
     >
@@ -30,10 +30,10 @@ export default function FAQItem({ faq, index }: FAQItemProps) {
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between gap-4 p-5 text-left"
       >
-        <span className="text-sm font-semibold text-[var(--fg)] md:text-base">{faq.question}</span>
+        <span className="font-display text-base font-bold text-[var(--fg)] md:text-lg">{faq.question}</span>
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors ${
-            open ? "bg-[var(--accent)] text-[var(--accent-fg)]" : "bg-[var(--surface-elevated)] text-[var(--fg)]"
+            open ? "bg-[var(--sun)] text-[var(--sun-fg)]" : "bg-[var(--bg-alt)] text-[var(--fg)]"
           }`}
         >
           {open ? <Minus size={16} /> : <Plus size={16} />}

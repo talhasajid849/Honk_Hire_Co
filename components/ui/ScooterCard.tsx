@@ -24,13 +24,8 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.55, delay: index * 0.12 }}
-      className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-card)] transition-all duration-300 hover:border-[var(--accent)]/35"
+      className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1"
     >
-      <div
-        className="absolute inset-x-0 top-0 h-1"
-        style={{ background: scooter.color }}
-      />
-
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--bg-alt)]">
         {scooter.imageSrc ? (
           <Image
@@ -46,13 +41,13 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/90 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
           <div>
-            <h3 className="font-display text-2xl font-semibold italic text-[var(--fg)]">
+            <h3 className="font-display text-3xl font-bold text-[var(--fg)]">
               {scooter.name}
             </h3>
             <p className="text-sm text-[var(--fg-muted)]">{scooter.cc}cc automatic</p>
           </div>
           <div className="text-right">
-            <p className="font-display text-3xl font-semibold italic text-[var(--accent)]">
+            <p className="font-display text-4xl font-extrabold text-[var(--accent)]">
               ${scooter.weeklyPrice}
             </p>
             <p className="text-xs text-[var(--fg-subtle)]">per week</p>
@@ -61,14 +56,7 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
       </div>
 
       <div className="p-6 md:p-8">
-        <div
-          className="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold"
-          style={{
-            borderColor: `${scooter.color}55`,
-            background: `${scooter.color}14`,
-            color: scooter.color,
-          }}
-        >
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)] px-3 py-1.5 text-xs font-bold text-[var(--accent)]">
           {scooter.licenceRequired}
         </div>
 
@@ -88,10 +76,7 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
         <ul className="mb-8 space-y-3">
           {scooter.features.map((feat) => (
             <li key={feat} className="flex items-start gap-3 text-sm text-[var(--fg-muted)]">
-              <span
-                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                style={{ background: scooter.color }}
-              />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
               {feat}
             </li>
           ))}
@@ -101,7 +86,7 @@ export default function ScooterCard({ scooter, index }: ScooterCardProps) {
           href={enquire}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] py-3.5 text-sm font-semibold text-[var(--accent-fg)] transition-colors hover:bg-[var(--accent-hover)]"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] py-4 text-sm font-bold text-[var(--ink-fg)] transition-colors hover:bg-[var(--ink-2)]"
         >
           <Mail className="h-4 w-4" aria-hidden />
           Enquire by email
