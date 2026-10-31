@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Truck } from "lucide-react";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { whatsappHref } from "@/lib/contact/site";
 
 interface DeliveryQuoteRequestProps {
   locationName?: string;
@@ -12,12 +12,11 @@ interface DeliveryQuoteRequestProps {
 export default function DeliveryQuoteRequest({ locationName, className }: DeliveryQuoteRequestProps) {
   const [address, setAddress] = useState("");
 
-  const quoteHref = mailtoHref({
-    subject: `Delivery quote request${locationName ? ` — ${locationName}` : ""}`,
-    body: address.trim()
-      ? `Hi Honk Hire Co, I'm outside the 20km free-delivery radius from Tewantin. Please quote delivery to:\n\n${address.trim()}\n\nThanks!`
-      : "Hi Honk Hire Co, I'm outside the 20km free-delivery radius from Tewantin. Please quote delivery to my address:\n\n",
-  });
+  const quoteHref = whatsappHref(
+    address.trim()
+      ? `Hi Honk Hire Co, I'm outside the 20km free-delivery radius from Tewantin${locationName ? ` (${locationName})` : ""}. Please quote delivery to: ${address.trim()}`
+      : `Hi Honk Hire Co, I'm outside the 20km free-delivery radius from Tewantin${locationName ? ` (${locationName})` : ""}. Please quote delivery to my address.`,
+  );
 
   return (
     <div
@@ -36,10 +35,12 @@ export default function DeliveryQuoteRequest({ locationName, className }: Delive
       />
       <a
         href={quoteHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-3 inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--accent-fg)] transition-colors hover:bg-[var(--accent-hover)]"
       >
         <Truck className="h-4 w-4" aria-hidden />
-        Request a delivery quote
+        Request a delivery quote on WhatsApp
       </a>
     </div>
   );

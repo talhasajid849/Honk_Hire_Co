@@ -10,6 +10,7 @@ import CoastHighlightsSection from "@/components/sections/CoastHighlightsSection
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { FAQS } from "@/lib/constants";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -32,6 +33,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
       <main className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+        <ScrollProgress />
         <Navbar />
         <HeroSection />
         <VehiclePricingSection />

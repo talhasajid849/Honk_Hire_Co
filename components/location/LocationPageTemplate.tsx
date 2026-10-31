@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CheckCircle2, MapPin, Mail, ArrowRight } from "lucide-react";
+import { CheckCircle2, MapPin, ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import DeliveryQuoteRequest from "@/components/ui/DeliveryQuoteRequest";
 import VehiclePricingSection from "@/components/sections/VehiclePricingSection";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { whatsappHref } from "@/lib/contact/site";
 import { getLocation, locationPath, type LocationData } from "@/lib/locations";
 
 const QUICK_FACTS = [
@@ -22,10 +23,9 @@ interface Props {
 }
 
 export function LocationPageTemplate({ location }: Props) {
-  const emailHref = mailtoHref({
-    subject: `Scooter hire enquiry — ${location.name}`,
-    body: `Hi, I'm interested in hiring a scooter near ${location.name}. Please let me know about availability and pricing.`,
-  });
+  const chatHref = whatsappHref(
+    `Hi, I'm interested in hiring a scooter near ${location.name}. Please let me know about availability and pricing.`,
+  );
 
   const nearbyPages = location.nearbyLocations
     .map((slug) => getLocation(slug))
@@ -157,11 +157,13 @@ export function LocationPageTemplate({ location }: Props) {
               className="mt-8 flex flex-wrap gap-3"
             >
               <a
-                href={emailHref}
+                href={chatHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                Get a quote
+                <FaWhatsapp className="h-4 w-4" aria-hidden />
+                Get a quote on WhatsApp
               </a>
               <Link
                 href="/#contact"
@@ -336,22 +338,24 @@ export function LocationPageTemplate({ location }: Props) {
               Ready to explore {location.name}?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[var(--fg-muted)]">
-              Email us with your dates and we will get back to you quickly. No booking fees, no forms —
+              Message us on WhatsApp with your dates and we will get back to you quickly. No booking fees, no forms —
               just a straight reply.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={emailHref}
+                href={chatHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-sm font-semibold text-[var(--accent-fg)] shadow-lg shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-hover)]"
               >
-                <Mail className="h-5 w-5" aria-hidden />
-                Get a quote
+                <FaWhatsapp className="h-5 w-5" aria-hidden />
+                Get a quote on WhatsApp
               </a>
               <Link
                 href="/#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-8 py-4 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)]/40"
               >
-                Use the hire planner
+                More ways to contact us
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>

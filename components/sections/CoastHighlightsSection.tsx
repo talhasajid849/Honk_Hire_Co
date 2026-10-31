@@ -24,7 +24,7 @@ const HIGHLIGHTS = [
 
 export default function CoastHighlightsSection() {
   return (
-    <section className="border-y border-[var(--border)] bg-[var(--bg-alt)] py-24 px-6">
+    <section className="bg-[var(--bg)] px-5 py-16 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Why Honk Hire Co"
@@ -32,7 +32,7 @@ export default function CoastHighlightsSection() {
           subtitle="Tourists and backpackers — we keep the experience breezy and the terms honest."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 sm:mt-16 gap-6 md:grid-cols-3">
           {HIGHLIGHTS.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -42,12 +42,12 @@ export default function CoastHighlightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.55 }}
-              className="group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 shadow-[var(--shadow-card)] transition-colors hover:border-[var(--accent)]/35"
+              className="group relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)] p-8 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--sun-soft)] text-[var(--sun)]">
                 <Icon size={22} strokeWidth={1.75} />
               </div>
-              <h3 className="font-display text-xl font-semibold italic text-[var(--fg)]">
+              <h3 className="font-display text-2xl font-bold text-[var(--fg)]">
                 {item.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">

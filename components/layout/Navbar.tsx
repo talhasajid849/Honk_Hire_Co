@@ -5,11 +5,12 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Menu, X, ChevronDown, MapPin, Car } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Car } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { NAV_ITEMS } from "@/lib/constants";
 import { locationPath } from "@/lib/locations";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { mailtoHref } from "@/lib/contact/mailto";
+import { whatsappHref } from "@/lib/contact/site";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
 
 const LOCATION_LINKS = [
@@ -96,10 +97,7 @@ export default function Navbar() {
   const openLocations = () => openDropdown("locations");
   const closeLocations = closeDropdown;
 
-  const emailQuick = mailtoHref({
-    subject: "Vehicle hire enquiry",
-    body: defaultGreetingMessage(),
-  });
+  const chatQuick = whatsappHref(defaultGreetingMessage());
 
   const sectionActive = (href: string) => isHome && activeSection === href;
 
@@ -108,13 +106,18 @@ export default function Navbar() {
       initial={{ y: -72 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-[var(--border)] bg-[var(--surface)]/85 backdrop-blur-xl shadow-sm"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-6">
+      <div
+        className={`mx-auto max-w-7xl rounded-[1.75rem] border transition-all duration-300 ${
+          menuOpen
+            ? "border-[var(--border-strong)] bg-[var(--surface)] shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
+            : scrolled
+            ? "border-[var(--border-strong)] bg-[var(--surface)]/90 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "border-[var(--border)] bg-[var(--surface)]/92 shadow-sm backdrop-blur-md"
+        }`}
+      >
+      <div className="flex h-14 items-center justify-between px-3 pl-4 md:px-4 md:pl-5">
         {/* Logo */}
         <Link
           href="/"
@@ -130,7 +133,7 @@ export default function Navbar() {
               priority
             />
           </span>
-          <span className="font-display text-lg font-semibold italic leading-tight text-[var(--fg)] md:text-xl">
+          <span className="font-display text-lg font-bold leading-tight text-[var(--fg)] md:text-xl">
             Honk Hire Co
           </span>
         </Link>
@@ -304,11 +307,13 @@ export default function Navbar() {
           <div className="ml-2 flex items-center gap-2 pl-2">
             <ThemeToggle />
             <a
-              href={emailQuick}
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] shadow-md shadow-[var(--accent)]/25 transition-transform hover:bg-[var(--accent-hover)] active:scale-[0.98]"
+              href={chatQuick}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--sun)] px-5 py-2.5 text-sm font-bold text-[var(--sun-fg)] transition-all hover:brightness-105 active:scale-[0.98]"
             >
-              <Mail className="h-4 w-4" aria-hidden />
-              Email us
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              WhatsApp us
             </a>
           </div>
         </nav>
@@ -335,7 +340,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-lg md:hidden"
+            className="overflow-hidden rounded-b-[1.75rem] border-t border-[var(--border)] md:hidden"
           >
             <div className="flex flex-col gap-1 px-5 py-4">
               {NAV_ITEMS.map((item) => (
@@ -464,16 +469,19 @@ export default function Navbar() {
               </AnimatePresence>
 
               <a
-                href={emailQuick}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] py-3 text-center text-sm font-semibold text-[var(--accent-fg)]"
+                href={chatQuick}
+              target="_blank"
+              rel="noopener noreferrer"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--sun)] py-3 text-center text-sm font-bold text-[var(--sun-fg)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                Email us
+                <FaWhatsapp className="h-4 w-4" aria-hidden />
+                WhatsApp us
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </motion.header>
   );
 }

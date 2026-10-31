@@ -6,26 +6,65 @@ interface SectionHeaderProps {
   badge: string;
   title: string;
   subtitle?: string;
+  /** Left-aligned (default is centred); "ink" is for dark sections. */
+  align?: "center" | "left";
+  tone?: "default" | "ink";
 }
 
-export default function SectionHeader({ badge, title, subtitle }: SectionHeaderProps) {
+export default function SectionHeader({ badge, title, subtitle, align = "center", tone = "default" }: SectionHeaderProps) {
+  const ink = tone === "ink";
+  const centre = align === "center";
+  const words = title.split(" ");
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.55 }}
-      className="text-center"
-    >
-      <div className="mb-5 inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--accent-soft)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+    <div className={centre ? "text-center" : "text-left"}>
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        className={`mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] ${
+          ink ? "text-[var(--sun-on-ink)]" : "text-[var(--accent)]"
+        }`}
+      >
+        <span aria-hidden className="h-px w-8 bg-current opacity-60" />
         {badge}
-      </div>
-      <h2 className="font-display text-4xl font-semibold italic leading-tight text-[var(--fg)] md:text-5xl">
-        {title}
+      </motion.div>
+      {/* each word slides up from behind its own line */}
+      <h2
+        className={`font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-[3.4rem] ${
+          ink ? "text-[var(--ink-fg)]" : "text-[var(--fg)]"
+        }`}
+      >
+        {words.map((word, i) => (
+          <span key={`${word}-${i}`}>
+            <span className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+              <motion.span
+                className="inline-block"
+                initial={{ y: "110%" }}
+                whileInView={{ y: "0%" }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: 0.05 * i, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {word}
+              </motion.span>
+            </span>
+            {i < words.length - 1 ? " " : ""}
+          </span>
+        ))}
       </h2>
       {subtitle && (
-        <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--fg-muted)]">{subtitle}</p>
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className={`mt-5 max-w-xl text-lg ${centre ? "mx-auto" : ""} ${
+            ink ? "text-[var(--ink-muted)]" : "text-[var(--fg-muted)]"
+          }`}
+        >
+          {subtitle}
+        </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }

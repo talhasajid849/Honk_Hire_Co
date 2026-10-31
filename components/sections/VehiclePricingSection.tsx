@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const VEHICLES = [
@@ -32,47 +32,51 @@ const VEHICLES = [
 
 export default function VehiclePricingSection({ embedded = false }: { embedded?: boolean }) {
   const cards = (
-    <div className="grid gap-4 sm:grid-cols-3">
-          {VEHICLES.map(({ imageSrc, imageAlt, title, price, note, href }) => (
-            <Link
-              key={title}
-              href={href}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] transition-all hover:border-[var(--accent)]/40 hover:shadow-md"
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--bg-alt)]">
-                <Image
-                  src={imageSrc}
-                  alt={imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl font-semibold italic text-[var(--fg)]">{title}</h3>
-                <p className="mt-2 text-lg font-semibold text-[var(--accent)]">{price}</p>
-                <p className="mt-1 text-sm text-[var(--fg-muted)]">{note}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--fg-muted)] transition-colors group-hover:text-[var(--accent)]">
-                  View details
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden />
-                </span>
-              </div>
-            </Link>
-          ))}
+    <div className="grid gap-5 md:grid-cols-3">
+      {VEHICLES.map(({ imageSrc, imageAlt, title, price, note, href }) => (
+        <Link
+          key={title}
+          href={href}
+          className="group relative flex aspect-[5/4] flex-col sm:aspect-[4/5] justify-end overflow-hidden rounded-[2rem] bg-[var(--ink)] text-[var(--ink-fg)] shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1 md:aspect-[3/4]"
+        >
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-[var(--ink)]/55 to-transparent" />
+          <span className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md transition-colors group-hover:bg-[var(--sun)] group-hover:text-[var(--sun-fg)]">
+            <ArrowUpRight className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="relative p-6 md:p-7">
+            <h3 className="font-display text-3xl font-bold">{title}</h3>
+            <p className="mt-2 text-xl font-semibold text-[var(--sun-on-ink)]">{price}</p>
+            <div className="mt-3 flex items-center justify-between gap-3 text-sm text-[var(--ink-muted)]">
+              <span>{note}</span>
+              <span className="inline-flex items-center gap-1 font-semibold text-[var(--ink-fg)]">
+                View details
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden />
+              </span>
+            </div>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 
   if (embedded) return cards;
 
   return (
-    <section id="fleet" className="bg-[var(--bg)] px-6 py-24">
-      <div className="mx-auto max-w-5xl">
+    <section id="fleet" className="bg-[var(--bg)] px-5 py-16 sm:py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl">
         <SectionHeader
           badge="Fleet"
           title="Cars, utes and scooters."
           subtitle="Pick the vehicle that suits your stay — tap any card for full rates, terms and photos."
         />
-        <div className="mt-16">{cards}</div>
+        <div className="mt-10 sm:mt-14">{cards}</div>
       </div>
     </section>
   );

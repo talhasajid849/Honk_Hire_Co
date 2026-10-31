@@ -1,20 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import { Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { NAV_ITEMS } from "@/lib/constants";
-import { mailtoHref } from "@/lib/contact/mailto";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
-import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/contact/site";
+import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL, whatsappHref } from "@/lib/contact/site";
 
 export default function Footer() {
-  const email = mailtoHref({
-    subject: "Vehicle hire enquiry",
-    body: defaultGreetingMessage(),
-  });
+  const chat = whatsappHref(defaultGreetingMessage());
 
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 pb-10 pt-16">
+    <footer className="bg-[var(--ink)] px-5 pb-10 pt-14 sm:pt-20 text-[var(--ink-fg)] lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-5">
           <div>
@@ -28,25 +24,25 @@ export default function Footer() {
                   className="object-cover"
                 />
               </span>
-              <span className="font-display text-lg font-semibold italic text-[var(--fg)]">
+              <span className="font-display text-xl font-bold text-[var(--ink-fg)]">
                 Honk Hire Co
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-[var(--fg-muted)]">
+            <p className="text-sm leading-relaxed text-[var(--ink-muted)]">
               Boutique scooter hire on the Sunshine Coast — Noosa to Caloundra — for visitors who want the
               coast without the parking headache.
             </p>
-            <div className="mt-5 rounded-2xl border border-[var(--border)] bg-[var(--surface-elevated)]/70 p-4 text-sm text-[var(--fg-muted)]">
-              <p className="font-semibold text-[var(--fg)]">Honk Hire Co</p>
+            <div className="mt-5 rounded-2xl border border-[var(--ink-border)] bg-white/5 p-4 text-sm text-[var(--ink-muted)]">
+              <p className="font-semibold text-[var(--ink-fg)]">Honk Hire Co</p>
               <p className="mt-1">10 Forest Ct, Tewantin QLD 4565</p>
-              <a href="tel:0493654132" className="mt-1 inline-flex font-medium text-[var(--accent)] hover:underline">
+              <a href="tel:0493654132" className="mt-1 inline-flex font-medium text-[var(--sun-on-ink)] hover:underline">
                 0493 654 132
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sun-on-ink)]">
               Navigate
             </h4>
             <ul className="space-y-2">
@@ -54,7 +50,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={`/${item.href}`}
-                    className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                    className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                   >
                     {item.label}
                   </a>
@@ -63,7 +59,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/amarok-hire"
-                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                 >
                   Ute Hire
                 </Link>
@@ -76,7 +72,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                    className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                   >
                     {item.label}
                   </Link>
@@ -86,7 +82,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sun-on-ink)]">
               Locations
             </h4>
             <ul className="space-y-2">
@@ -101,7 +97,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                    className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                   >
                     {item.label}
                   </Link>
@@ -111,27 +107,29 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sun-on-ink)]">
               Contact
             </h4>
-            <p className="mb-3 text-sm text-[var(--fg-muted)]">
-              <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-[var(--fg)] hover:underline">
+            <p className="mb-3 text-sm text-[var(--ink-muted)]">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-[var(--ink-fg)] hover:underline">
                 {CONTACT_EMAIL}
               </a>
             </p>
             <a
-              href={email}
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] shadow-md shadow-[var(--accent)]/20 transition-colors hover:bg-[var(--accent-hover)]"
+              href={chat}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--sun)] px-5 py-2.5 text-sm font-bold text-[var(--sun-fg)] transition-all hover:brightness-105"
             >
-              <Mail className="h-4 w-4" aria-hidden />
-              Email us
+              <FaWhatsapp className="h-4 w-4" aria-hidden />
+              WhatsApp us
             </a>
             <div className="mt-5 flex flex-wrap gap-2">
               <a
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--ink-border)] text-[var(--ink-muted)] transition-colors hover:border-[var(--sun-on-ink)]/60 hover:text-[var(--sun-on-ink)]"
                 aria-label="Honk Hire Co on Facebook"
               >
                 <FaFacebook className="h-5 w-5" aria-hidden />
@@ -140,29 +138,29 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--ink-border)] text-[var(--ink-muted)] transition-colors hover:border-[var(--sun-on-ink)]/60 hover:text-[var(--sun-on-ink)]"
                 aria-label="Honk Hire Co on Instagram"
               >
                 <FaInstagram className="h-5 w-5" aria-hidden />
               </a>
             </div>
-            <div className="mt-6 space-y-2 text-sm text-[var(--fg-muted)]">
+            <div className="mt-6 space-y-2 text-sm text-[var(--ink-muted)]">
               <p>Free pickup: Tewantin</p>
               <p>Delivery: $40 within 20km (quoted beyond)</p>
-              <p className="text-[var(--fg-subtle)]">Queensland, Australia</p>
-              <p className="text-[var(--fg-subtle)]">ABN: 56 651 543 292</p>
+              <p className="text-[var(--ink-muted)]/80">Queensland, Australia</p>
+              <p className="text-[var(--ink-muted)]/80">ABN: 56 651 543 292</p>
             </div>
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--fg-subtle)]">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sun-on-ink)]">
               Legal
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                 >
                   Privacy Policy
                 </Link>
@@ -170,7 +168,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms-and-conditions"
-                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                 >
                   Terms & Conditions
                 </Link>
@@ -178,7 +176,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/user-data-deletion"
-                  className="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+                  className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--sun-on-ink)]"
                 >
                   User Data Deletion
                 </Link>
@@ -187,7 +185,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-8 text-xs text-[var(--fg-subtle)] md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--ink-border)] pt-8 text-xs text-[var(--ink-muted)]/80 md:flex-row">
           <p>© {new Date().getFullYear()} Honk Hire Co. All rights reserved.</p>
           <p>Sunshine Coast scooter hire</p>
         </div>
