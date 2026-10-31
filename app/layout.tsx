@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import GoogleTag from "@/components/analytics/GoogleTag";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { THEME_STORAGE_KEY } from "@/lib/theme/types";
 import { buildLocalBusinessSchema } from "@/lib/schema";
@@ -92,6 +93,7 @@ export default function RootLayout({
         <Script id="honk-theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
+        <GoogleTag />
         <ThemeProvider>
           {children}
           <WhatsAppButton />
