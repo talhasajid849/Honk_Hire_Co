@@ -10,7 +10,6 @@ import CoastHighlightsSection from "@/components/sections/CoastHighlightsSection
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { FAQS } from "@/lib/constants";
-import RoadDivider from "@/components/ui/RoadDivider";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const faqSchema = {
@@ -45,7 +44,6 @@ export default function Home() {
         <CoastHighlightsSection />
         <FAQSection />
         <ContactSection />
-        <RoadDivider />
         <Footer />
       </main>
     </>
