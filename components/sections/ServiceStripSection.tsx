@@ -59,8 +59,8 @@ export default function ServiceStripSection() {
             <svg viewBox="0 0 900 900" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" role="img" aria-label="Map of the Sunshine Coast from Noosa to Caloundra, with Tewantin marked as the free pickup point">
               <defs>
                 <linearGradient id="map-sea" x1="0" x2="1">
-                  <stop offset="0" stopColor="#bfd8ee" />
-                  <stop offset="1" stopColor="#8fb4e6" />
+                  <stop offset="0" stopColor="#cfe0e2" />
+                  <stop offset="1" stopColor="#a9c6ca" />
                 </linearGradient>
               </defs>
               <rect width="900" height="900" fill="url(#map-sea)" />
@@ -72,16 +72,16 @@ export default function ServiceStripSection() {
               </g>
               <path d="M0 0 H170 C260 120 290 200 300 280 C320 360 420 420 440 520 C470 620 560 700 600 800 C620 850 650 880 680 900 H0Z" fill="#f3efe0" />
               <path d="M0 0 H130 C220 130 250 210 262 290 C282 370 380 430 402 530 C432 630 520 710 560 810 C575 850 590 880 604 900 H0Z" fill="#dfe6d4" />
-              <path className="map-route" d={ROUTE} fill="none" stroke="#2b4bff" strokeWidth="7" strokeLinecap="round" />
+              <path className="map-route" d={ROUTE} fill="none" stroke="#3d6b4a" strokeWidth="7" strokeLinecap="round" />
               {inView && (
-                <circle r="13" fill="#0e1330" stroke="#fff" strokeWidth="4" className="map-dot">
+                <circle r="13" fill="#0d0d0d" stroke="#fff" strokeWidth="4" className="map-dot">
                   <animateMotion dur="9s" begin="2s" repeatCount="indefinite" path={ROUTE} />
                 </circle>
               )}
-              <g fontFamily="var(--font-sans), system-ui, sans-serif" fontWeight={800} fontSize={22} fill="#0e1330">
+              <g fontFamily="var(--font-sans), system-ui, sans-serif" fontWeight={800} fontSize={22} fill="#0d0d0d">
                 {STOPS.map((stop) => (
                   <g key={stop.name} className="map-pin" style={{ ["--d" as string]: `${stop.d}s` }}>
-                    <circle cx={stop.x} cy={stop.y} r={stop.pickup ? 14 : 12} fill={stop.pickup ? "#ff6a3d" : "#2b4bff"} stroke="#fff" strokeWidth={4} />
+                    <circle cx={stop.x} cy={stop.y} r={stop.pickup ? 14 : 12} fill={stop.pickup ? "#ff6a3d" : "#3d6b4a"} stroke="#fff" strokeWidth={4} />
                     {stop.pickup && <circle className="map-pulse" cx={stop.x} cy={stop.y} r={14} fill="#ff6a3d" opacity=".4" />}
                     <text x={stop.tx} y={stop.ty}>{stop.name}</text>
                     {stop.note && (

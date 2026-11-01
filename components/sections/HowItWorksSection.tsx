@@ -37,9 +37,9 @@ const END = 91;
 const stopAt = (i: number) => START + ((END - START) * i) / (STEPS.length - 1);
 
 const HILLS =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='120' viewBox='0 0 800 120'%3E%3Cpath d='M0 120V70Q100 20 200 62T400 52T600 66T800 56V120Z' fill='%231b2150'/%3E%3C/svg%3E\")";
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='120' viewBox='0 0 800 120'%3E%3Cpath d='M0 120V70Q100 20 200 62T400 52T600 66T800 56V120Z' fill='%231a2a20'/%3E%3C/svg%3E\")";
 const HILLS_FAR =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='120' viewBox='0 0 1000 120'%3E%3Cpath d='M0 120V80Q120 30 260 70T520 60T760 78T1000 64V120Z' fill='%23151a40'/%3E%3C/svg%3E\")";
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='120' viewBox='0 0 1000 120'%3E%3Cpath d='M0 120V80Q120 30 260 70T520 60T760 78T1000 64V120Z' fill='%23121f18'/%3E%3C/svg%3E\")";
 
 function Scooter({ spin }: { spin: ReturnType<typeof useTransform<number, number>> }) {
   return (
@@ -47,28 +47,28 @@ function Scooter({ spin }: { spin: ReturnType<typeof useTransform<number, number
       <ellipse cx="118" cy="137" rx="98" ry="6" fill="#000" opacity=".3" />
       {/* rider */}
       <path d="M64 56 L84 56 L104 14 L88 8 Z" fill="#f1eee7" />
-      <path d="M70 58 L114 74 L132 98" fill="none" stroke="#5b6fe0" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M70 58 L114 74 L132 98" fill="none" stroke="#5f9a72" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M98 18 L150 38" stroke="#f1eee7" strokeWidth="8" strokeLinecap="round" />
       <circle cx="99" cy="0" r="12" fill="#ffe9a8" />
-      <path d="M100 -2 h12 a12 12 0 0 1 -12 10 Z" fill="#0e1330" opacity=".75" />
+      <path d="M100 -2 h12 a12 12 0 0 1 -12 10 Z" fill="#0f1a14" opacity=".75" />
       {/* body */}
-      <path d="M18 100 C16 76 34 64 62 64 L110 64 C114 64 116 68 118 72 L122 100 Z" fill="#2b4bff" />
-      <path d="M34 60 Q38 52 56 52 L110 52 Q116 52 116 60 L116 64 L34 64 Z" fill="#0e1330" />
-      <rect x="114" y="94" width="42" height="8" rx="4" fill="#a3b2ff" />
-      <path d="M152 102 L144 62 Q142 50 150 42 L162 42 L180 102 Z" fill="#2b4bff" />
-      <path d="M166 46 L186 110" stroke="#0e1330" strokeWidth="6" strokeLinecap="round" />
-      <path d="M164 104 Q184 86 206 100" fill="none" stroke="#2b4bff" strokeWidth="7" strokeLinecap="round" />
-      <path d="M150 40 L168 35" stroke="#0e1330" strokeWidth="6" strokeLinecap="round" />
+      <path d="M18 100 C16 76 34 64 62 64 L110 64 C114 64 116 68 118 72 L122 100 Z" fill="#4f9d6a" />
+      <path d="M34 60 Q38 52 56 52 L110 52 Q116 52 116 60 L116 64 L34 64 Z" fill="#0f1a14" />
+      <rect x="114" y="94" width="42" height="8" rx="4" fill="#8fc4a0" />
+      <path d="M152 102 L144 62 Q142 50 150 42 L162 42 L180 102 Z" fill="#4f9d6a" />
+      <path d="M166 46 L186 110" stroke="#0f1a14" strokeWidth="6" strokeLinecap="round" />
+      <path d="M164 104 Q184 86 206 100" fill="none" stroke="#4f9d6a" strokeWidth="7" strokeLinecap="round" />
+      <path d="M150 40 L168 35" stroke="#0f1a14" strokeWidth="6" strokeLinecap="round" />
       <circle cx="173" cy="50" r="6" fill="#ffe9a8" />
       {/* wheels */}
       {[50, 186].map((cx) => (
         <g key={cx}>
-          <circle cx={cx} cy="112" r="22" fill="#0e1330" />
+          <circle cx={cx} cy="112" r="22" fill="#0f1a14" />
           <motion.g style={{ rotate: spin, transformBox: "fill-box", transformOrigin: "center" }}>
-            <circle cx={cx} cy="112" r="11" fill="#c9d1ff" />
-            <path d={`M${cx} 101v22M${cx - 11} 112h22M${cx - 7.8} 104.2l15.6 15.6M${cx + 7.8} 104.2l-15.6 15.6`} stroke="#0e1330" strokeWidth="2" />
+            <circle cx={cx} cy="112" r="11" fill="#d4ead9" />
+            <path d={`M${cx} 101v22M${cx - 11} 112h22M${cx - 7.8} 104.2l15.6 15.6M${cx + 7.8} 104.2l-15.6 15.6`} stroke="#0f1a14" strokeWidth="2" />
           </motion.g>
-          <circle cx={cx} cy="112" r="3" fill="#0e1330" />
+          <circle cx={cx} cy="112" r="3" fill="#0f1a14" />
         </g>
       ))}
     </svg>
@@ -138,12 +138,12 @@ export default function HowItWorksSection() {
             </div>
 
             {/* The road scene */}
-            <div className="relative mt-8 h-[15rem] overflow-hidden rounded-[1.75rem] border border-[var(--ink-border)] bg-gradient-to-b from-[#0b0f2e] to-[#1a2052] sm:mt-10 sm:h-[19rem]">
+            <div className="relative mt-8 h-[15rem] overflow-hidden rounded-[1.75rem] border border-[var(--ink-border)] bg-gradient-to-b from-[#0a120d] to-[#1b2a21] sm:mt-10 sm:h-[19rem]">
               <motion.div aria-hidden style={{ backgroundImage: HILLS_FAR, backgroundPositionX: hillsFar }} className="absolute inset-x-0 bottom-[34%] h-24 bg-repeat-x opacity-90 sm:h-32" />
               <motion.div aria-hidden style={{ backgroundImage: HILLS, backgroundPositionX: hillsNear }} className="absolute inset-x-0 bottom-[28%] h-20 bg-repeat-x sm:h-28" />
 
               {/* road */}
-              <div aria-hidden className="absolute inset-x-0 bottom-0 h-[30%] bg-[#10142e]" />
+              <div aria-hidden className="absolute inset-x-0 bottom-0 h-[30%] bg-[#0f1914]" />
               <motion.div
                 aria-hidden
                 style={{ backgroundPositionX: road }}
@@ -162,7 +162,7 @@ export default function HowItWorksSection() {
                       <span
                         className={`flex h-9 w-9 items-center justify-center rounded-full border-2 transition-all duration-500 sm:h-11 sm:w-11 ${
                           reached
-                            ? "scale-110 border-[var(--sun-on-ink)] bg-[var(--sun)] text-[var(--sun-fg)] shadow-[0_0_0_6px_rgba(43,75,255,0.25)]"
+                            ? "scale-110 border-[var(--sun-on-ink)] bg-[var(--sun)] text-[var(--sun-fg)] shadow-[0_0_0_6px_rgba(79,157,106,0.25)]"
                             : "border-white/20 bg-[var(--ink-2)] text-white/50"
                         }`}
                       >
