@@ -8,7 +8,8 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { whatsappHref } from "@/lib/contact/site";
 import { defaultGreetingMessage } from "@/lib/contact/messages";
 
-const WORDS = ["Car", "Ute", "Scooter"];
+// "Scooter" is first, so it is the word in the page as first loaded (and as search engines read it).
+const WORDS = ["Scooter", "Car", "Ute"];
 
 const CARDS = [
   { src: "/images/mg3-coastal.jpeg", alt: "MG3 hatchback, car hire", label: "Car · from $199/wk", short: "$199/wk", pos: "lg:right-[1%] lg:top-[0%] lg:h-[230px] lg:w-[310px]", tilt: -5, delay: "0s" },
@@ -52,8 +53,16 @@ export default function HeroSection() {
   const still = usePrefersReducedMotion();
   useEffect(() => {
     if (still) return undefined;
-    const timer = setInterval(() => setIndex((i) => (i + 1) % WORDS.length), 2600);
-    return () => clearInterval(timer);
+    // The first word stays for a few seconds before it starts to turn.
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const start = setTimeout(() => {
+      setIndex((i) => (i + 1) % WORDS.length);
+      timer = setInterval(() => setIndex((i) => (i + 1) % WORDS.length), 2600);
+    }, 7000);
+    return () => {
+      clearTimeout(start);
+      if (timer) clearInterval(timer);
+    };
   }, [still]);
 
   // The floating photos lean a little toward the pointer (desktop only).
@@ -104,29 +113,26 @@ export default function HeroSection() {
           </motion.span>
 
           <h1 className="font-display mt-6 text-[2.9rem] font-extrabold leading-[1.02] sm:text-7xl lg:text-[5.3rem] lg:leading-[1]">
-            <span className="sr-only">Car, Ute &amp; Scooter Hire Sunshine Coast</span>
-            <span aria-hidden>
-              {still ? (
-                <span className="text-[var(--accent)]">Car, Ute &amp; Scooter</span>
-              ) : (
-                <span className="relative inline-block h-[1.05em] min-w-[3.6em] overflow-hidden align-bottom text-[var(--accent)]">
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    <motion.span
-                      key={WORDS[index]}
-                      initial={{ y: "100%", opacity: 0 }}
-                      animate={{ y: "0%", opacity: 1 }}
-                      exit={{ y: "-100%", opacity: 0 }}
-                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute left-0 top-0"
-                    >
-                      {WORDS[index]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
-              )}
-              <br />
-              Hire Sunshine Coast
-            </span>
+            {still ? (
+              <span className="text-[var(--accent)]">Car, Ute &amp; Scooter</span>
+            ) : (
+              <span className="relative inline-block h-[1.05em] min-w-[3.6em] overflow-hidden align-bottom text-[var(--accent)]">
+                <AnimatePresence mode="popLayout" initial={false}>
+                  <motion.span
+                    key={WORDS[index]}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-100%", opacity: 0 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute left-0 top-0"
+                  >
+                    {WORDS[index]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            )}{" "}
+            <br />
+            Hire Sunshine Coast
           </h1>
 
           <motion.h2

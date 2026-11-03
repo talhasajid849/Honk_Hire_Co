@@ -99,6 +99,16 @@ export default function HowItWorksSection() {
 
   return (
     <section id="how-it-works" className="relative bg-[var(--ink)] text-[var(--ink-fg)]">
+      {/* All four steps as plain text, so they are in the page for search engines and screen readers
+          (the scene below shows one at a time as you scroll). */}
+      <ol className="sr-only">
+        {STEPS.map((item) => (
+          <li key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </li>
+        ))}
+      </ol>
       <div ref={sectionRef} className="relative h-[300vh] sm:h-[340vh]">
         <div className="sticky top-0 flex h-screen min-h-[600px] flex-col justify-center overflow-hidden px-5 pb-8 pt-24 lg:px-8">
           <div className="mx-auto w-full max-w-7xl">
@@ -130,7 +140,7 @@ export default function HowItWorksSection() {
                         Step {active + 1} of {STEPS.length}
                       </span>
                     </div>
-                    <h3 className="font-display mt-3 text-xl font-bold sm:text-2xl">{step.title}</h3>
+                    <p className="font-display mt-3 text-xl font-bold sm:text-2xl">{step.title}</p>
                     <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-muted)]">{step.desc}</p>
                   </motion.div>
                 </AnimatePresence>
